@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+% Define style for correction boxes
+\definecolor{corrigecolor}{gray}{0.7}
+
+\newmdenv[
+linecolor=corrigecolor,
+linewidth=2pt,
+leftline=true,
+rightline=false,
+topline=false,
+bottomline=false,
+skipabove=6pt,
+skipbelow=6pt,
+innertopmargin=4pt,
+innerbottommargin=4pt,
+innerleftmargin=6pt,
+innerrightmargin=4pt,
+backgroundcolor=gray!5
+]{correctionbox}
+
+
+
+
+\title{ corrigé colle S7 \\
+\large exercices 16, 17 et 19}
+\author{MPI/MPI* lycée Faidherbe}
+\date{}
+
+\begin{document}	
+	\maketitle
+	
+	\subsection*{exercice 16}
+	Soit $E$ un $\mathbb(C)$-espace vectoriel de dimension $n$, u $\in \mathcal L(E)$ \\
+	Montrer que $u$ est diagonalisable ssi tout sous-espace de $E$ admet un supplémentaire stable par $u$.
+	\begin{correctionbox}
+		\textbf{Sens direct}: \\
+		Soit $F$ un sous-espace vectoriel de $E$. \\
+		On note $B_1=(e_1,\ \dots e_p)$ une base de $F$. \\
+		$u$ est diagonalisable, donc admet une base de vecteurs propres de $u$. \\
+		Ainsi, on peut compléter $B_1$ en $(e_1, \ \dots e_n)$, base de $E$ à l'aide de vecteurs propres (parce qu'on connaît son cours de sup...) \\ Dès lors, $\mathrm{Vect}(e_{p+1}, \ \dots e_n)$ est supplémentaire de $F$, et engendré par des vecteurs propres donc stable par $u$. On a trouvé un supplémentaire de $F$ stable par $u$.
+		\\ \\
+		\textbf{Réciproquement}, supposons que tout sous-espace de $E$ admet un supplémentaire stable par $u$. \\
+		Pour $n \in \mathbb{N}$, on note $H_n$, bla, bla, vous avez l'idée
+		\begin{itemize}
+			\item vous en connaissez beaucoup des matrices d'ordre 1 pas diagonalisables? ($H_1$ est vraie.)
+			\item Soit $n$, bla, bla.
+			$E$ est un $\mathbb{C}$-espace vectoriel, donc admet un vecteur propre $e_1$. \\
+			On note $S$ un supplémentaire de $\mathrm{Vect}(e_1)$ stable par $u$. \\  Montrons que l'endomorphisme induit sur $S$ vérifie l'hypothèse de récurrence. \\ \\
+			Soit $F$ un sous-espace de $S$. Par hypothèse, $S \oplus \mathrm{Vect}(e_1)$ admet un supplémentaire $T$ stable par $u$. Montrons que $T \cap S$ est alors supplémentaire  de $F$ dans $S$ (\textbf{FONCTIONNE PAS}). $E$ est un $\mathbb{C}$-espace vectoriel, donc admet un vecteur propre $e_1$. \\
+			$T$ et $S$ sont stables par $u$, donc $T \cap S$ également. On considère $\tilde u$ l'endomorphisme induit. \\ \\
+			Par hypothèse de récurrence, il existe une base $B$ tq $\mathrm{Mat}_B \tilde u$ est diagonale. On a alors $\mathrm{Mat}_{(e1)\sqcup B}u$ diagonale.
+		\end{itemize}
+		Ce qui clôt la récurrence.
+		
+		
+	\end{correctionbox}
+	
+	
+	\subsection*{exercice 17}
+	Soient $E = C^\infty (\mathbb R, \mathbb R)$ et $u: f \mapsto \left(x \mapsto f (px + q)\right)$, avec $p \in ]0, 1[$ et $q = 1 - p$.
+	\begin{enumerate}
+		\item Montrer que $u$ est un automorphisme de $E$.
+		\begin{correctionbox}
+			On considère $ f \mapsto \left(x \mapsto f(\frac{x-q} p)\right)$. On montre aisément qu'il s'agit d'un inverse \textbf{à droite et à gauche} de $u$. (On est en dimension infinie!)
+		\end{correctionbox}
+		
+		\item Montrer que les valeurs propres de $u$ sont dans $]-1, 1]$
+		\begin{correctionbox}
+			Soit $f$ une valeur propre associée à $\lambda$. $f$ est vecteur propre donc non nulle, ie il existe $x_0$ tq $f(x_0) \not = 0$. \\
+			L'idée est d'itérer $u$ sur $f$, puis d'évaluer en $x_0$.\\
+			\\
+			On note $(x_n)$ telle que, pour $n \in \mathbb N$, $x_{n+1} = px_n + q$. On vérifie aisément (exo) que $x_n \xrightarrow{} 1$ (on regarde les intervalles stables, puis la monotonie de $(x_n)$, etc). \\ \\
+			De plus, en itérant $u$, puis en évaluant en $x_0$, on obtient, pour $n \in \mathbb N$, $\lambda^n f(x_0) = f(x_n)$. Or, le terme de droite converge (par continuité de $f$), donc le terme de gauche également. On en déduit que $(\lambda^n)$ converge, d'où $\lambda \in ]-1, 1]$.
+		\end{correctionbox}
+		
+		\item Montrer que si $f$ est valeur propre, il existe $k$ tq $f^{(k)}=0$.
+		\begin{correctionbox}
+			On note $f$ une valeur propre associée à $\lambda$. \\
+			Dès lors, pour $x \in \mathbb R$, $f(px+q)=\lambda f(x)$. \\
+			En dérivant $k$ fois cette égalité, on obtient: $$f^{(k)} = \frac \lambda {p^k} f^{(k)}(px+q)$$
+			Ainsi, si $f^{(k)} \not = 0$, $f{(k)}$ est valeur propre associée à $\frac \lambda {p^k}$. Or, $\frac \lambda {p^n} \xrightarrow{} +\infty$ (car $u$ est un automorphisme, donc $E_0(u)=\{0\}$, donc 0 n'est pas valeur propre), donc il existe $n$ tq $f^{(n)}$ soit valeur propre associée à $\lambda_n > 1$, ce qui est absurde d'après la question précédente.
+		\end{correctionbox}
+		
+		\item Trouver les valeurs et vecteurs propres de $u$.
+		\begin{correctionbox}
+			D'après la question précédente, tout vecteur propre est polynomial (pour ceux qui tiennent vraiment à le montrer (on me l'a demandé), on primitive $k$ fois 0). \\ En identifiant polynôme et fonction polynomiale, on se restreint à $\mathbb R_n [X]$. \\
+			Soit $P$ un vecteur propre de degré $k$ associé à $\lambda$. En s'intéressant au coefficient dominant, il en découle que $\lambda={p^k}$. \\
+			On a $n+1$ valeurs propres en dimension $n+1$, les sous-espaces propres sont donc tous de dimension 1.\\ \\
+			Sortons maintenant des vecteurs propres de notre chapeau. \\
+			Soit $k \in \mathbb N$. En composant $ (X-1)^k $ à gauche par $pX+q$, on obtient $ (pX-p)^k = p^k (X-1)^k $, ie $(X-1)^k$ est vecteur propre associ à $p^k$.\\
+			On en déduit que $E_{{n^p}}(u) = \mathrm{Vect} (X-1)^p $. \\
+			On a trouvé les sous-espaces propres de degré inférieur à $n$ pour tout $n$, donc ceux dans $ \mathbb R [X] $, donc, d'après la question précédente, dans $E$. \\
+			\\
+			Pour ceux parmi vous qui se demandent comment j'ai trouvé $(X-1)^k$, sachez que moi aussi. \\
+			Globalement, je cherchais un polynôme pas trop compliqué, et je me suis dit que si $a$ était racine, alors $px-q$ également, donc j'ai pris une racine qui en créerait pas beaucoup d'autres.
+		\end{correctionbox}
+	\end{enumerate}
+	
+	
+	\subsection*{exercice 19}
+	On se donne une matrice $ M = (m_{i,j}) \in M_n(\mathbb{R}) $, avec, pour tout $ j $, $ \sum_{k=1}^{n} m_{i, j} = 1 $, et, pour tout $ (i, j) $, $ 0 \leqslant m_{i, j} \leqslant 1 $. \\
+	
+	\begin{enumerate}
+		\item Montrer que $ 1 $ est valeur propre de $ M $, puis montrer que toutes les valeurs propres complexes de $ M $ vérifient $ \left| \lambda \right| \leqslant 1 $ \\
+		
+		\begin{correctionbox}
+			Pour montrer que $ 1 $ est valeur propre, il suffit de considérer $ X =\ ^T (1\ 1\ \dots \ 1) $. \\ \\ \\
+			Soit $ X = (x_i) $ un vecteur propre associé à la valeur propre $ \lambda $. On note $ i_0 $ tel que $ \left| x_{i_0} \right| = \max \left| x_i \right| $. (On note que $ X \not = 0 $ donc $ x_{i_0} \not = 0 $.)
+			\\ \\
+			On considère la $ i_0 $-ième ligne de $ MX $:
+			$$ \lambda x_{i_0} = \sum_{j=1}^{n} m_{i_0,j} x_j $$
+			Ainsi, par inégalité triangulaire: $$ \left| \lambda \right| \left| x_{i_0} \right| \leqslant \sum_{j=1}^{n} m_{i_0,j} \left| x_j \right| \leqslant \sum_{j=1}^{n} m_{i_0,j} \left| x_{i_0} \right| = \left| x_{i_0} \right| $$
+			Dès lors, $ \lambda \leqslant 1 $.
+		\end{correctionbox}
+		
+		\item Montrer que, si $ \lambda $ est valeur propre de module $ 1 $, alors $ \lambda = 1 $.
+		
+		\begin{correctionbox}
+			On reprend les notations de la question précédente. \\
+			Ainsi, les inégalités sont alors des égalités. \\
+			On a alors, pour tout $ j $,  $ m_{i_0, j} x_j = m_{i_0, j} x_{i_0} $ (positivement colinéaires d'après l'inégalité triangulaire, de module constant par passage à la borne supérieure).
+			Dès lors, $ \lambda x_{i_0} = \sum_{j=1}^n m_{i_0,j} x_{i_0} $, d'où $ \lambda = 1 $.
+		\end{correctionbox}
+		
+		\item Montrer que $ \ker (M-I_n) = \ker (M-I_n)^2 $
+		\begin{correctionbox}
+			L'inclusion directe est immédiate. \\
+			On prend $ X \in \ker (M-I_n)^2 $. \\
+			$$ M^kX = (M-I_n+I_n)^kX = \sum_{j=0}^{k} \binom{k}{j} (M-I_n)^jX = X+k(M-I_n)X $$
+			On en déduit $ (M-I_n)X = \frac{M^kX - X}{k} $. \\
+			De plus, on montre aisément (j'ai un peu la flemme) que $M^k$ est stochastique, donc borné, d'où $(M-I_n) \xrightarrow{}{} 0 $, donc $ X \in \ker (M-I_n) $. D'où l'égalité.
+		\end{correctionbox}		
+		
+		
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,102 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[french]{babel}
+\selectlanguage{french}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{url}
+
+
+\title{ exercice 43 de réduction \\
+	\large (avec une jolie erreur d'énoncé) }
+\author{Léane Parent}
+
+\begin{document}	
+	\maketitle
+	\textbf{Exercice 43 : } (Mines-Ponts 2019) \\
+	Déterminer les matrices $ A \in M_n (\mathbb R) $ telles que $A^5 -2A^4 -2A^3 +A^2 +4A+I_n = 0$, $\mathrm{tr} (A) = 0$ et $\det (A) = \pm 1$.
+	\\ \\
+	Dans tout l'exercice, on note $P$ le polynôme annulateur décrit dans l'énoncé. \\ \\
+	Cette correction se repose sur \underline{Introduction à la théorie de Galois}\footnote{https://www.cmls.polytechnique.fr/perso/laszlo/galois/galois.pdf}, par Yves Laszlo, et de divers théorèmes trouvés sur \url{wikipedia.org} (on fait avec les sources qu'on trouve, et avec la flemme qu'on a).
+	\\ \\
+	\subsection{Suggestion de correction}
+	L'énoncé original utilisait probablement le polynôme $ P(X) = X^5 -2X^4 -2X^3 + X^2 + 4X + 4 $, qui se factorise aisément en $ (X+1)(X-2)^2(X-j)(X-j^2) $. Or, toutes ses racines sont de module supérieures ou égales à 1. Ainsi, pour avoir un déterminant égal à $\pm 1$, les valeurs propres de $A$ ne peuvent être que 1, $j$, $j^2$. \\
+	En trigonalisant dans $ M_n (\mathbb C) $, et en observant la trace, on déduit que les trois valeurs propres éventuelles ont nécessairement la même multiplicité. Ainsi, il ne peut exister une telle matrice que si $3 | n$.
+	Si on note $n=3k$, on a alors, à similitude près:
+	
+	$$
+	\begin{array}{c}
+		\begin{array}{ccc}
+			\overbrace{\hphantom{\begin{array}{ccc}x&x&x\end{array}}}^{k}
+			&
+			\overbrace{\hphantom{\begin{array}{ccc}x&x&x\end{array}}}^{k}
+			&
+			\overbrace{\hphantom{\begin{array}{ccc}x&x&x\end{array}}}^{k}
+		\end{array}
+		\\[-0.3em]
+		\begin{pmatrix}
+			1 \\
+			& \ddots \\
+			& & 1 & & & & * \\
+			& & & j \\
+			& & & & \ddots \\
+			& & & & & j \\
+			& & (0) & & & & j^2 \\
+			& & & & & & & \ddots \\
+			& & & & & & & & j^2
+		\end{pmatrix}
+	\end{array}
+	$$
+	
+	(à noter que j'ai en réalité traité le cas complexe, mais j'admets avoir un peu la flemme de traiter le cas réel, mais si quelqu'un a envie de s'amuser, libre à lui)
+
+	\section{Irréductibilité de $P$ dans $\mathbb Q [X]$}
+	$P$ est unitaire, donc, d'après le lemme de Gauss\footnotemark, si celui-ci est réductible, alors il est réductible dans $\mathbb Z [X]$.\\
+	\footnotetext{https://fr.wikipedia.org/wiki/Lemme\_de\_Gauss\_(polyn\%C3\%B4mes)}
+	De plus, si $P$ est réductible, alors il l'est modulo 2. Supposons $P$ réductible, et notons $P(X) = (X^3 + a X^2 + bX + c) (X^2+ dX + e)$. Il en découle, dans $\mathbb F_2[X]$ (en assimilant les entiers à leur congruence modulo 2 par la surjection canonique):
+	$$ X^5 + X^2 + 1 = (X^3 + a X^2 + bX + c) (X^2+ dX + e)$$
+	On en déduit:
+	\begin{align}
+		0 & = a+c  \label{1} \\
+		0 & = d + ac + b  \label{2} \\
+		1 & = e + da + cb  \label{3} \\
+		0 & = db + ea \label{4} \\
+		1 & = eb  \label{5}
+	\end{align}
+	\eqref{5} nous donne $e=b=1$. On déduit de \eqref{4} que $a=e=1$, d'où, d'après \eqref{1}, $c=1$. On a alors $d=1$ d'après \eqref{3}. \\
+	\eqref{2} n'est alors plus vérifiée, ce qui est absurde: $P$ n'est pas réductible modulo 2, donc pas réductible. \\
+
+	
+	\section{Calcul du groupe de Galois}
+	On vérifie aisément par une étude de $P$ qu'il admet exactement trois racines réelles distinctes, donc deux complexes non réelles conjuguées. \\
+	Or, $P$ est de degré premier. Il vérifie ainsi les hypothèses d'un théorème, trouvé sur l'article \underline{Galois group} de wikipedia\footnote{https://en.wikipedia.org/wiki/Galois\_group, source: Lang, Serge. \underline{Algebra (Revised Third ed.)}. pp. 263, 273.} (voir "symmetric group of prime order"): Si un polynôme irréductible de degré premier $p$ admet exactement $p-2$ racines réelles, alors son groupe de Galois est $S_p$ tout entier.  \\
+	(Je n'ai aucun doute sur le fait que ça se calcule à la main, mais vous avez envie de le faire, vous?)
+	
+	
+	\section{$\mathbb Q$-indépendance linéaire des racines de $P$}
+	\textbf{lemme}: Si $V \subset \mathbb Q^5$ est un $\mathbb Q$-espace vectoriel stable par permutation, alors $V = \{0\}$, $\mathrm{Vect}_\mathbb Q (1, \dots 1)$, ou contient $W = \{(q_1, \dots q_5) \ |\ q_1 + \dots q_5 = 0\}$. \\
+	\textbf{démonstration}: Supposons qu'il existe un élément  $(q_1, \dots q_5) \in V$ admettant deux éléments distincts. Quitte à permuter, supposons $q_1 \not = q_2$. \\
+	Par stabilité par permutation, $(q_2, q_1, q_3, q_4, q_5) \in V$. Par différence, $(q_2 - q_1, q_1 - q_2, 0, 0, 0) \in V$, donc $(1, -1, 0, 0, 0)$ également.\\ On en déduit par permutation que $(1, 0, -1, 0, 0), \dots (1, 0, 0, 0, -1) \in V$. Or, ces éléments forment une base de $W$, donc $W \subset V$.
+	\\ \\
+	
+	On note $r_1, r_2, r_3, r_4 \text{ et } r_5$ les racines de $P$, avec $r_4, r_5 \not \in \mathbb R$, et $L = \mathbb Q (r_1, \dots r_5)$ \\
+	Soit $V = \{(q_1, \dots q_5) \in \mathbb Q^5\ |\ q_1 r_1 + \dots q_5 r_5 = 0\}$, ie l'ensemble des coefficients de combinaisons linéaires rationnelles annulant les racines de $P$. On montre aisément que $V$ est un $\mathbb Q$-espace vectoriel
+	\\ \\
+	
+	Soit $(q_1, \dots q_5) \in V$. Soit $\sigma \in \mathrm{Gal} (L/\mathbb Q)$. \\
+	On a $q_1 r_1 + \dots q_5 r_5 = 0$, d'où, par composition par $\sigma$: $q_1 \sigma (r_1) + \dots q_5 \sigma(r_5) = \sigma(0) = 0$. (En effet, $\sigma$ est un automorphisme laissant invariant les rationnels.) \\
+	Or, en assimilant $\sigma$ à une permutation, on a $\sigma(r_i) = r_{\sigma(i)}$.\\ On en déduit que $\sigma^{-1}(q_1, \dots q_5) \in V$: $V$ est stable par permutation (car $\mathrm{Gal} (L/\mathbb Q) \cong S_5$, donc $\sigma{-1}$ décrit $S_5$). \\
+	
+	D'après le lemme ci-dessus, on a $V = \{0\}$, $\mathbb Q (1, \dots 1)$, ou contient $W$.\\
+	En observant le coefficient en $X^4$ de $P$, on obtient $r_1 + \dots r_5 = 2$, d'où $V \not = \mathrm{Vect}_\mathbb Q (1, \dots 1)$. De plus, $r_1-r_4 \not \in \mathbb R$, donc $r_1 - r_4 \not = 0$. On en déduit que $(1, 0, 0, -1, 0) \not \in V$, donc $W \not \subset V$.
+	\\ \\
+	Ainsi, $V = \{0\}$, ie $r_1, \dots r_5$ sont linéairement indépendants.
+	
+	
+	\section{Conclusion}
+	Soit $A$ convenant. En trigonalisant (dans $M_n(\mathbb C)$), on obtient une matrice dont la trace est combinaison linéaire (à coefficients naturels) des racines de $P$. \\
+	Or, par hypothèse, la trace de $A$ est nulle, ce qui est absurde car les racines de $P$ sont libres. \\
+	L'ensemble des matrices convenant est $\emptyset$.
+	
+\end{document}
