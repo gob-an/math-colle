@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor}
 \usepackage{mdframed}
+\usepackage{stmaryrd}
 
 % Define style for correction boxes
 \definecolor{corrigecolor}{gray}{0.7}
@@ -27,11 +28,121 @@ backgroundcolor=gray!5
 
 
 
-\title{ corrigé colle S8 \\
+\title{Corrigé colle S8 \\
 	MPI/MPI* du lycée Faidherbe \\
-	\large}
-\author{}
+	\large Exercices 16, 17, 18}
+\author{Brahim EL HAMDANI}
 
 \begin{document}
 	\maketitle
+	
+	\subsection*{Exercice 16}
+    Soient $A, B \in M_n(\mathbb{C})$.
+	Montrer que $(A \text{ et } B \text{ ont une valeur propre commune}) \iff (\exists P \neq 0, \text{ tel que } AP = PB)$.
+	
+	\begin{correctionbox}
+		\textbf{Sens direct} : \\
+		On suppose que $A$ et $B$ ont une valeur propre commune $\lambda$. \\
+		Soit $X \in \mathbb{C}^n$ un vecteur propre de $A$ associé à $\lambda$, et $Y \in \mathbb{C}^n$ un vecteur propre de $B^\top$ associé à $\lambda$ (car $\chi_B = \chi_{B^\top}$, donc $B$ et $B^\top$ ont mêmes valeurs propres). \\
+		On pose $P = X Y^\top$. Vérifions que $P$ convient :
+		\begin{itemize}
+			\item $P \neq 0$ car $X \neq 0$ et $Y \neq 0$ (c'est pas dur à montrer)
+			\item $AP = A(X Y^\top) = (AX) Y^\top = (\lambda X) Y^\top = \lambda (X Y^\top)$
+			\item $PB = (X Y^\top) B = X (Y^\top B) = X (B^\top Y)^\top = X (\lambda Y)^\top = \lambda (X Y^\top)$
+		\end{itemize}
+		Ainsi, $AP = \lambda P = PB$, donc $AP = PB$ avec $P \neq 0$.	
+		\\\\
+		\textbf{Réciproque} : \\
+		On suppose qu'il existe $P \neq 0$ tel que $AP = PB$. \\ On montre par récurrence (big flemme) que pour tout $k \in \mathbb{N}$, $A^k P = P B^k$ :\\ Il vient alors que pour tout polynôme $Q \in \mathbb{C}[X]$, on a $Q(A)P = P Q(B)$.\\En particulier, pour $Q = \chi_A$, on a par le théorème de Cayley-Hamilton :
+		$$\chi_A(A) P = P \chi_A(B) = O_n$$
+		Comme $P \neq 0$, on en déduit que $\chi_A(B)$ n'est pas inversible. \\
+		
+		Or, sur $\mathbb{C}$, $\chi_A$ est scindé :
+		$$\chi_A(X) = \prod_{\lambda \in \mathrm{Sp}(A)} (X - \lambda)^{m_\lambda}$$\\
+		
+		On a donc :
+		$$\chi_A(B) = \prod_{\lambda \in \mathrm{Sp}(A)} (B - \lambda I_n)^{m_\lambda}$$
+		Comme $\chi_A(B)$ n'est pas inversible, il existe $\lambda \in \mathrm{Sp}(A)$ tel que $B - \lambda I_n$ n'est pas inversible (sinon chaque $B - \lambda I_n$ serait inversible et leur produit aussi). \\ Ainsi, $\ker(B - \lambda I_n) \neq \{0\}$, donc $\lambda$ est valeur propre de $B$. \\\\Conclusion : $A$ et $B$ ont une valeur propre commune.
+	\end{correctionbox}
+
+
+
+    \subsection*{Exercice 17}
+    Soit \( u \in \mathcal{L}(\mathbb{R}^n) \) tel que : \( \exists q \in \mathbb{N}^* / u^q = \mathrm{Id} \). 
+    Montrer que \( \dim (\ker (u - \mathrm{Id})) = \frac{1}{q} \sum_{k=1}^{q} \mathrm{Tr}(u^k) \).
+    
+    \begin{correctionbox}
+        Soit \( A \) la matrice de \( u \) dans une base de \( \mathbb{R}^n \). \\ \\
+        On a \( A^q = I_n \), donc le polynôme \( Q(X) = X^q - 1 \) est annulateur de \( A \). \\ \\
+        Sur \( \mathbb{C} \), \( Q \) est scindé à racines simples (les racines \( q \)-ièmes de l'unité).Ainsi, \( A \) est diagonalisable sur \( \mathbb{C} \) et \( \mathrm{Sp}(A) \subset \{ \omega^k \mid k \in \llbracket 0, q-1 \rrbracket \} \) où \( \omega = e^{2\pi i/q} \). \\ \\
+        Soit \( m(1) = \dim(\ker(u - \mathrm{Id})) \) la multiplicité de la valeur propre 1. On veut montrer que \( m(1) = \frac{1}{q} \sum_{k=1}^{q} \mathrm{Tr}(u^k) \). \\ \\
+        Comme \( A \) est diagonalisable, elle est semblable à une matrice diagonale :
+        \[
+        \Delta = \mathrm{diag}(\lambda_1, \dots, \lambda_n) \quad \text{avec} \quad \lambda_i \in Sp(A)\quad \text{et} \quad \lambda_i^q = 1 \    
+        \] \\
+        On a alors pour tout \( k \in \mathbb{N}^* \) :
+        \[
+        \mathrm{Tr}(u^k) = \mathrm{Tr}(A^k) = \mathrm{Tr}(\Delta^k) = \sum_{i=1}^n \lambda_i^k
+        \]
+        D'où :
+        \[
+        \sum_{k=1}^{q} \mathrm{Tr}(u^k) = \sum_{k=1}^{q} \sum_{i=1}^n \lambda_i^k 
+        = \sum_{i=1}^n \sum_{k=1}^{q} \lambda_i^k
+        \]
+        Pour chaque \( \lambda_i \), on distingue deux cas :
+        \begin{itemize}
+        \item Si \( \lambda_i = 1 \), alors \( \sum_{k=1}^{q} \lambda_i^k = \sum_{k=1}^{q} 1 = q \)
+        \item Si \( \lambda_i \neq 1 \), alors c'est une racine \( q \)-ième de l'unité différente de 1, donc :
+        \[
+        \sum_{k=1}^{q} \lambda_i^k = \lambda_i \frac{1 - \lambda_i^q}{1 - \lambda_i} = \lambda_i \frac{1 - 1}{1 - \lambda_i} = 0
+        \]
+        \end{itemize}
+        Il vient alors que :
+        \[
+        \sum_{k=1}^{q} \mathrm{Tr}(u^k) = m(1) \cdot q
+        \]
+        On en déduit :
+        \[
+        \dim(\ker(u - \mathrm{Id})) = m(1) = \frac{1}{q} \sum_{k=1}^{q} \mathrm{Tr}(u^k)
+        \]
+    \end{correctionbox}
+
+
+
+    \subsection*{Exercice 18}
+    Soient \( A \) et \( X \) dans \( M_n(\mathbb{R}) \). On suppose que \( X \) est de rang 1. Montrer que \( \det(A + X) \det(A - X) \leq \det(A)^2 \).
+    
+    \begin{correctionbox}
+        Comme \( X \) est de rang 1, il existe \( P, Q \in GL_n(\mathbb{R}) \) telles que \( X = P J_1 Q \) 
+        \\ \\
+        On rappelle que \( J_1 = \begin{pmatrix} 1 & 0 & \cdots & 0 \\ 0 & 0 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 0 \end{pmatrix} \). 
+        \\ \\ \\
+        Considérons le polynôme \( P(t) = \det(A + tX) \). \\
+        On a \( P(t) = \det(A + tP J_1 Q) = \det(P(P^{-1}AQ^{-1} + tJ_1)Q) = \det(P)\det(Q)\det(B + tJ_1) \) où \( B = P^{-1}AQ^{-1} \). \\ \\
+        Développons \( \det(B + tJ_1) \) par rapport à la première colonne. Notons \( B = (b_{i,j}) \). \\ \\
+        \[
+        \begin{aligned}
+        \det(B + tJ_1) &= \begin{vmatrix}
+        b_{1,1} + t & b_{1,2} & \cdots & b_{1,n} \\
+        b_{2,1}     & b_{2,2} & \cdots & b_{2,n} \\
+        \vdots     & \vdots & \ddots & \vdots \\
+        b_{n,1}     & b_{n,2} & \cdots & b_{n,n}
+        \end{vmatrix} \\
+        &= (b_{1,1} + t) \cdot \Delta_{1,1} + \sum_{k=2}^n (-1)^{k+1} b_{k,1} \cdot \Delta_{k,1}
+        \end{aligned}
+        \] \\ \\
+        où \( \Delta_{k,1} \) est le déterminant de la matrice extraite obtenue en supprimant la k-ième ligne et la première colonne. \\ \\
+        On en déduit que P(t) est de degré 1 donc : 
+        \[
+        \exists (a,b) \in \mathbb{R}^2, P(t) = at + b
+        \]
+        On a alors :
+        \[
+        P(1) = \det(A + X) = a + b, \quad P(-1) = \det(A - X) = b - a, \quad P(0) = \det(A) = b
+        \]
+        Calculons le produit :
+        \[
+        \det(A + X)\det(A - X) = (a + b)(b - a) = b^2 - a^2 \leq b^2 = \det(A)^2
+        \]
+    \end{correctionbox}
 \end{document}
