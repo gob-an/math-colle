@@ -30,7 +30,7 @@ backgroundcolor=gray!5
 
 \title{Corrigé colle S8 \\
 	MPI/MPI* du lycée Faidherbe \\
-	\large Exercices 16, 17, 18}
+	\large Exercices 16, 17, 18, 21}
 \author{Brahim EL HAMDANI}
 
 \begin{document}
@@ -43,7 +43,7 @@ backgroundcolor=gray!5
 	\begin{correctionbox}
 		\textbf{Sens direct} : \\
 		On suppose que $A$ et $B$ ont une valeur propre commune $\lambda$. \\
-		Soit $X \in \mathbb{C}^n$ un vecteur propre de $A$ associé à $\lambda$, et $Y \in \mathbb{C}^n$ un vecteur propre de $B^\top$ associé à $\lambda$ (car $\chi_B = \chi_{B^\top}$, donc $B$ et $B^\top$ ont mêmes valeurs propres). \\
+		Soit $X \in \mathbb{C}^n$ un vecteur propre de $A$ associé à $\lambda$, et $Y \in \mathbb{C}^n$ un vecteur propre de $B^\top$ associé à $\lambda$ (car  $\chi_B = \chi_{B^\top}$, donc $B$ et $B^\top$ ont mêmes valeurs propres). \\
 		On pose $P = X Y^\top$. Vérifions que $P$ convient :
 		\begin{itemize}
 			\item $P \neq 0$ car $X \neq 0$ et $Y \neq 0$ (c'est pas dur à montrer)
@@ -144,5 +144,209 @@ backgroundcolor=gray!5
         \[
         \det(A + X)\det(A - X) = (a + b)(b - a) = b^2 - a^2 \leq b^2 = \det(A)^2
         \]
+    \end{correctionbox}
+
+
+
+    \subsection*{Exercice 19}
+
+        \begin{correctionbox}
+        \textbf{Résultat utile:} \\
+        Soient \(U,V \in \mathcal{M}_{n,1}(\mathbb{C})\). Alors \(UV^T = 0\) $\Leftrightarrow$ \(U= 0 \quad ou \quad V=0\)
+        \end{correctionbox}
+        
+        Pour \( A \in \mathcal{M}_n(\mathbb{C}) \), on pose
+        \[
+        f_A : M \in \mathcal{M}_n(\mathbb{C}) \mapsto AMA^T
+        \]
+
+        \textbf{Note :} On admet que \(f_A\) est non nulle car sinon \(f_A(I_n) = AA^T = 0\) donc \(A=0\) ce qui est sans intérêt.
+        
+        \begin{enumerate}
+        \item Montrer que \((X_i)_{1 \leq i \leq n}\) et \((Y_i)_{1 \leq i \leq n}\) sont des bases de \(\mathcal{M}_{n,1}(\mathbb{C})\) si et seulement si \((X_i Y_j^T)_{1 \leq i,j \leq n}\) est une base de \(\mathcal{M}_n(\mathbb{C})\).
+        
+        \begin{correctionbox}
+        \textbf{Sens direct :} \\
+        Supposons que \((X_i)\) et \((Y_j)\) sont des bases de \(\mathcal{M}_{n,1}(\mathbb{C})\). \\
+        Toute matrice \(M \in \mathcal{M}_n(\mathbb{C})\) peut s'écrire comme combinaison linéaire de matrices de rang 1 (les matrices de la base canonique sont de rang 1 et elles engendrent \(\mathcal{M}_{n}(\mathbb{C})\)). \\
+        Or, si \(M\) est de rang 1, elle s'écrit \(M = UV^T\) avec \(U,V \in \mathcal{M}_{n,1}(\mathbb{C})\). \\
+        En décomposant \(U = \sum_{i=1}^n \alpha_i X_i\) et \(V = \sum_{j=1}^n \beta_j Y_j\), on obtient :
+        \[
+        M = \left(\sum_{i=1}^n \alpha_i X_i\right)\left(\sum_{j=1}^n \beta_j Y_j\right)^T = \sum_{i,j=1}^n \alpha_i \beta_j X_i Y_j^T
+        \]
+        On en déduit que toute matrice de \(\mathcal{M}_{n,1}(\mathbb{C})\) peut s'écrire comme une combinaison linéaire des \((X_i Y_j^T)\). Ainsi, \((X_i Y_j^T)\) est génératrice. Comme elle a \(n^2\) éléments, c'est une base. \\\\ \textbf{Réciproque :} \\
+        Supposons que \((X_i Y_j^T)\) est une base. \\
+        Soit \(\sum_{i=1}^n \lambda_i X_i = 0\). Alors \( \sum_{i=1}^n \lambda_i X_i Y_1^T = 0\), donc tous les \(\lambda_i\) sont nuls car une sous famille d'une famille libre est libre. \\
+        Ainsi, \((X_i)\) est libre, donc c'est une base. Même raisonnement pour \((Y_j)\) (il suffit de prendre une combinaison linéaire nulle, de se souvenir que la transposée est linéaire donc on transpose l'égalité puis on multiplier à gauche par\(X_1\)).
+        \end{correctionbox}
+        
+        \item Montrer que \(A \in GL_n(\mathbb{C})\) si et seulement si \(f_A\) est inversible.
+        
+        \begin{correctionbox}
+        \textbf{Sens direct :} \\
+        Si \(A \in GL_n(\mathbb{C})\), alors \(f_{A^{-1}}(M) = A^{-1}M(A^{-1})^T\) est l'inverse de \(f_A\). \\\\ \textbf{Réciproque :} \\
+        Si \(f_A\) est inversible, alors \(f_A\) est surjective donc il existe \(M\) tel que \(AMA^T = I_n\), donc \(A\) est inversible.
+        \end{correctionbox}
+        
+        \item Montrer que si \(A\) est diagonalisable, \(f_A\) l'est aussi.
+        
+        \begin{correctionbox}
+        Si \(A\) est diagonalisable, il existe \(P \in GL_n(\mathbb{C})\) et \(D\) diagonale telles que \(A = P^{-1}DP\). \\
+        Alors :
+        \[
+        f_A(M) = P^{-1}DP \cdot M \cdot P^{-1}DP
+        \]
+        On définit \(\phi_P(M) = PMP^{-1}\), qui est évidemment un automorphisme (flemme). \\
+        On a \(f_A = \phi_{P^{-1}} \circ v \circ \phi_P\) où \(v(M) = DMD\). \\
+
+        On montre aisément (flemme) que \(f_A\) est diagonalisable si et seulement si $v$ est diagonalisable.
+        Or, la base canonique est une base de vecteurs propres de \(v\) (flemme, faites le calcul), donc \(v\) est diagonalisable, donc \(f_A\) aussi.
+        \end{correctionbox}
+        
+        \item Soit \(Y\) un vecteur propre de \(A\). Montrer que \(F = \{XY^T, X \in \mathcal{M}_{n,1}(\mathbb{C})\}\) est stable par \(f_A\).
+        
+        \begin{correctionbox}
+        Soit \(Y\) vecteur propre de \(A\) associé à \(\lambda\). \\
+        Pour \(M = XY^T \in F\), on a :
+        \[
+        f_A(M) = A(XY^T)A^T = (AX)(Y^TA^T) = (AX)(AY)^T= (AX)(\lambda Y)^T = (\lambda AX)Y^T \in F
+        \]
+        Donc \(F\) est stable par \(f_A\).
+        \end{correctionbox}
+        
+        \item Montrer que si \(f_A\) est diagonalisable, \(A\) l'est aussi.
+
+        \begin{correctionbox}
+            Supposons que \(f_A\) est diagonalisable.\\
+            \begin{itemize}
+                \item Si \(\mathrm{Sp}(A) = \{0\}\), alors \(A\) est nilpotente. Dans ce cas, \(f_A\) est aussi nilpotente. Or, un endomorphisme nilpotent non nul n'est pas diagonalisable. Absurde. \\
+                Ainsi, il existe \(\lambda \neq 0\) dans \(\mathrm{Sp}(A)\).\\
+                
+                \item Soit \(Y\) un vecteur propre de \(A\) associé à \(\lambda \neq 0\).
+                D'après la question 4, le sous-espace 
+                \[
+                F_Y = \{XY^T \mid X \in \mathcal{M}_{n,1}(\mathbb{C})\}
+                \] 
+                est stable par \(f_A\). \\
+                
+                Notons \(v = f_A|_{F_Y}\) l'endomorphisme induit par \(f_A\) sur \(F_Y\) Comme \(f_A\) est diagonalisable, \(v\) est diagonalisable. De plus, pour tout \(M = XY^T \in F_Y\), on a :
+                \[
+                v(M) = f_A(XY^T) = A(XY^T)A^T = (AX)(A^TY)^T = (AX)(\lambda Y)^T = \lambda (AX)Y^T
+                \]
+                \item Considérons l'application linéaire :
+                \[
+                \phi_Y : \mathcal{M}_{n,1}(\mathbb{C}) \to F_Y, \quad X \mapsto XY^T
+                \] 
+                • \(\phi_Y\) est injective : si \(\phi_Y(X) = 0\), alors \(XY^T = 0\). Comme \(Y \neq 0\), on a \(X = 0\). \\
+                • \(\phi_Y\) est surjective par définition de \(F_Y\). \\
+                Ainsi, \(\phi_Y\) est un isomorphisme. \\
+                
+                \item Définissons \(L : \mathcal{M}_{n,1}(\mathbb{C}) \to \mathcal{M}_{n,1}(\mathbb{C})\) par \(L(X) = \lambda AX\). \\[2pt]
+                Alors pour tout \(X \in \mathcal{M}_{n,1}(\mathbb{C})\) :
+                \[
+                v(\phi_Y(X)) = v(XY^T) = \lambda (AX)Y^T = \phi_Y(L(X))
+                \] 
+                Donc \(v \circ \phi_Y = \phi_Y \circ L\), soit \(L = \phi_Y^{-1} \circ v \circ \phi_Y\). \\[2pt]
+                Comme \(v\) est diagonalisable, \(L\) est diagonalisable.\\
+                
+                \item Posons \(T = \frac{1}{\lambda}L\), c'est-à-dire \(T(X) = AX\). \\
+                Alors \(T\) est diagonalisable (car \(L\) l'est) et, coïncidence folle, \(T\) n'est autre que l'endomorphisme de \(\mathcal{M}_{n,1}(\mathbb{C})\) canoniquement associé à \(A\).\\
+            \end{itemize}
+            \text{Ainsi, \(A\) est diagonalisable.}
+        \end{correctionbox}
+    \end{enumerate}
+
+
+
+    \subsection*{Exercice 21}
+    Donner une base de \( M_n(\mathbb{C}) \) telle qu'aucune matrice de cette base ne soit diagonalisable.
+    
+    \begin{correctionbox}
+        En tant que bons flemmards, on aimerait faire l'exo sans trop se casser la tête. On aimerait donc prendre des matrices dont il est facile de dire si elles sont diagonalisables ou pas et s'arranger pour qu'elles forment une base. On pense alors à deux types de matrices :
+        \begin{itemize}
+        \item les matrices nilpotentes (la valeur sûre)
+        \item les matrices triangulaires de rang 2 avec \( n-1 \) fois le coefficient 0 sur la diagonale (la dimension du noyau vaut alors \( n-2 \) alors que 0 est valeur propre de multiplicité \( n-1 \) donc la matrice est bien non diagonalisable)
+        \end{itemize}
+        
+        \vspace{0.5em}
+        
+        \textbf{Construction de la base :}
+        
+        \vspace{0.5em}
+        
+        \begin{itemize}
+        \item \textbf{Engender les coefficients non diagonaux :} On prend les matrices \( E_{i,j} \) pour \( i \neq j \). Il y a \( n^2 - n \) telles matrices.
+        
+        \item \textbf{Engendrer les coefficients diagonaux :} Il reste à trouver \( n \) matrices pour compléter la base. On propose les matrices suivantes : \\
+          \begin{align*}
+          F_1 &= E_{1,1} + E_{2,3} = \begin{pmatrix}
+          1 & 0 & 0 & \cdots & 0 \\
+          0 & 0 & 1 & \cdots & 0 \\
+          0 & 0 & 0 & \cdots & 0 \\
+          \vdots & \vdots & \vdots & \ddots & \vdots \\
+          0 & 0 & 0 & \cdots & 0
+          \end{pmatrix} \\\\
+          F_2 &= E_{2,2} + E_{1,3} = \begin{pmatrix}
+          0 & 0 & 1 & \cdots & 0 \\
+          0 & 1 & 0 & \cdots & 0 \\
+          0 & 0 & 0 & \cdots & 0 \\
+          \vdots & \vdots & \vdots & \ddots & \vdots \\
+          0 & 0 & 0 & \cdots & 0
+          \end{pmatrix} \\\\
+          F_i &= E_{i,i} + E_{1,2} \quad \text{pour } i \geq 3
+          \end{align*}
+        \end{itemize}
+        
+        \vspace{0.5em}
+        
+        \textbf{Justification de la non-diagonalisabilité :}
+        
+        \begin{itemize}
+
+        \item Pour \( i \neq j \), les \( E_{i,j} \) sont nilpotentes car \( (E_{i,j})^2 = 0 \) donc elles sont non diagonalisables.
+        
+        \item Pour les \( F_i \) :
+          \begin{itemize}
+          \item \( F_1 \) a pour valeur propre 0 de multiplicité \( n-1 \) (car son polynôme caractéristique est \( X^{n-1}(X-1) \)) mais la dimension du noyau est \( n-2 \), donc elle n'est pas diagonalisable.
+          \item \( F_2 \) : même raisonnement.
+          \item \( F_i \) pour \( i \geq 3 \) : même raisonnement
+          \end{itemize}
+        \end{itemize}
+        
+        \vspace{0.5em}
+        
+        \textbf{Preuve que c'est une base :}\\
+        Flemme. La famille \( \{E_{i,j}\}_{i \neq j} \cup \{F_i\}_{i=1}^n \) a \( n^2 \) éléments. La méthode classique permet de montrer qu'elle est libre.\\
+        Ainsi, on a bien une base de \( M_n(\mathbb{C}) \) formée de matrices non diagonalisables.
+    \end{correctionbox}
+
+
+
+    \subsection*{Exercice 22}
+    Soit \( M \in M_n(\mathbb{C}) \), \( I = \{P \in \mathbb{C}[X] \mid P(M) \text{ est nilpotent}\} \). Déterminer \( I \).
+    
+    \begin{correctionbox}
+        Les gros bandeurs de groupe (je vise personne...) auront remarqué que $I$ s'appelle comme ça parce que c'est un idéal de \(C[X]\). Or, les idéaux de \(K[X]\) lorsque $K$ est un corps commutatif sont de la forme \(Q(X)K[X]\). On va montrer que c'est le cas ici. \\\\
+        On pose \(Q(X) = \prod_{\lambda \in Sp(M)} (X - \lambda)\)\\\\
+        Soit \( P \in I \). Alors \( P(M) \) est nilpotente, donc \( \mathrm{Sp}(P(M)) = \{0\} \). \\[2pt]
+        Or, pour tout \( \lambda \in \mathrm{Sp}(M) \), si \( v \) est un vecteur propre associé, on a :
+        \[
+        P(M)v = P(\lambda)v
+        \]
+        Donc \( P(\lambda) \in \mathrm{Sp}(P(M)) = \{0\} \), soit \( P(\lambda) = 0 \). \\[2pt]
+        Ainsi, \( P \) s'annule sur tout le spectre de \( M \), donc \( Q \mid P \) i.e. il existe \(R \in \mathbb{C}[X]\) tel que P = QR : \( P \in Q(X) \mathbb{C}[X] \). \\\\
+        Montrons l'inclusion réciproque.\\\\
+        Soit \( P \in Q(X) \mathbb{C}[X] \), écrivons \( P = QR \). Montrons d'abord que \( \mathrm{Sp}(P(M)) = P(\mathrm{Sp}(M)) \). \\\\
+        On a déjà l'inclusion \( P(\mathrm{Sp}(M)) \subset \mathrm{Sp}(P(M)) \) d'après ce qui précède. \\\\
+        Réciproquement, soit \( \mu \in \mathrm{Sp}(P(M)) \). Alors \( P(M) - \mu I_n \) n'est pas inversible. \\[2pt]
+        sur \( \mathbb{C} \) tout polynôme est scindé donc on peut écrire :
+        \[
+        P(X) - \mu = \alpha \prod_{j=1}^d (X - r_j)
+        \]
+        Alors \( P(M) - \mu I_n = \alpha \prod_{j=1}^d (M - r_j I_n) \) n'est pas inversible, donc il existe \( j \) tel que \( M - r_j I_n \) n'est pas inversible i.e. \( r_j \in \mathrm{Sp}(M) \). Or, \( r_j\) est racine de \(P(X) - \mu\) donc \( P(r_j) - \mu = 0 \), soit \( \mu = P(r_j) \in P(\mathrm{Sp}(M)) \). \\\\
+        Ainsi, \( \mathrm{Sp}(P(M)) = P(\mathrm{Sp}(M)) \). \\\\
+        Maintenant, si \( \mu \in Sp(P(M)) \), alors il existe \(\lambda \in Sp(M)\) tel que \(\mu = P(\lambda) = Q(\lambda)R(\lambda) = 0\) car \(Q(\lambda) = 0\). \\
+        On en déduit que \( \mathrm{Sp}(P(M)) = \{0\} \) donc\( P(M) \) est nilpotente.Ainsi, \( P \in I \). \\\\
+        \textbf{Conclusion :} \( I = Q(X) \mathbb{C}[X] \) où \( Q(X) = \prod_{\lambda \in \mathrm{Sp}(M)} (X - \lambda) \).
     \end{correctionbox}
 \end{document}
