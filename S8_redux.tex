@@ -2,6 +2,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[french]{babel}
 \usepackage{amsmath,amssymb}
+\usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage{mdframed}
 \usepackage{stmaryrd}
@@ -30,7 +31,7 @@ backgroundcolor=gray!5
 
 \title{Corrigé colle S8 \\
 	MPI/MPI* du lycée Faidherbe \\
-	\large Exercices 16, 17, 18, 21}
+	\large Exercices 16, 17, 18, 19, 20, 21, 22}
 \author{Brahim EL HAMDANI}
 
 \begin{document}
@@ -255,6 +256,29 @@ backgroundcolor=gray!5
             \text{Ainsi, \(A\) est diagonalisable.}
         \end{correctionbox}
     \end{enumerate}
+
+
+
+    \subsection*{Exercice 20}
+    Soit \( u \in \mathcal{L}(\mathbb{R}^4) \) tel que son polynôme caractéristique vérifie \( \chi_u(X^2) = \chi_u(X) \cdot \chi_u(X - 1) \). Déterminer les sous-espaces vectoriels de \( \mathbb{R}^4 \) stables par \( u \).
+    
+    \begin{correctionbox}
+        En s'intéressant aux racines et au degré de \( \chi_u \), on montre que \( \chi_u = (X^2 + X + 1)^2 \) (cf exercice 10 du programme de khôlle n°5). \\\\
+        Soit \( F \) un sous-espace stable de \( \mathbb{R}^4 \) par \( u \). Notons \( \tilde{u} \) la restriction de \( u \) à \( F \). \\[2pt]
+        Alors \( \chi_{\tilde{u}} \mid \chi_u \), donc \( \chi_{\tilde{u}} = (X^2 + X + 1)^k \) pour \( k \in \{0, 1, 2\} \). On rappelle que \( X^2 + X + 1 \) est irréductible dans \( \mathbb{R}[X] \). De plus, on a \( \dim F = \deg \chi_{\tilde{u}} \). \\\\
+        \textbf{Étude des cas :} \\[2pt]
+        \begin{itemize}
+            \item Si \( k = 0 \), alors \( \dim F = 0 \), donc \( F = \{0\} \). \\[2pt]
+            \item Si \( k = 2 \), alors \( \dim F = 4 \), donc \( F = \mathbb{R}^4 \). \\[2pt]
+            \item Si \( k = 1 \), alors \( \chi_{\tilde{u}} = X^2 + X + 1 \), donc \( \dim F = 2 \). \\[2pt]
+            D'après Cayley-Hamilton, \( \tilde{u}^2 + \tilde{u} + \mathrm{Id}_F = 0 \), donc \( F \subset \ker(u^2 + u + \mathrm{Id}) \). \\[2pt]
+            D'après Cayley-Hamilton, \( (u^2 + u + \mathrm{Id})^2 = 0 \), donc \( \mathrm{Im}(u^2 + u + \mathrm{Id}) \subset \ker(u^2 + u + \mathrm{Id}) \). Par le théorème du rang, \( \dim(\ker(u^2 + u + \mathrm{Id})) \geq 2 \). Raisonnons sur la dimension de \( \ker(u^2 + u + \mathrm{Id}) \) :\\\\
+                • \textbf{Si \( \dim(\ker(u^2 + u + \mathrm{Id})) = 2 \)} : alors F = \( \ker(u^2 + u + \mathrm{Id}) \)\\\\
+                • \textbf{Si \( \dim(\ker(u^2 + u + \mathrm{Id})) = 3 \)} : Alors \( \mathrm{rg}(u^2 + u + \mathrm{Id}) = 1 \). Comme \( \mathrm{Im}(u^2 + u + \mathrm{Id}) \) est stable par \( u \), on peut considérer l'endomorphisme induit \( w \). Alors \( \chi_w \mid \chi_u \) et \( \deg \chi_w = 1 \), ce qui est absurde car aucun polynôme de \( \mathbb{R}[X] \) de degré 1 ne divise \( (X^2 + X + 1)^2 \). \\\\
+                • \textbf{Si \( \dim(\ker(u^2 + u + \mathrm{Id})) = 4 \)} :\\\\
+        \end{itemize}
+        \textbf{Conclusion :} Les sous-espaces stables par \( u \) sont \( \{0\} \), \( \mathbb{R}^4 \), et les \(Vect(x,u(x)) \) tels que \( x \in\ker(u^2 + u + \mathrm{Id}) \).
+    \end{correctionbox}
 
 
 
