@@ -5,6 +5,7 @@
 \usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage{mdframed}
+\usepackage{stmaryrd}
 
 % Define style for correction boxes
 \definecolor{corrigecolor}{gray}{0.7}
@@ -30,8 +31,8 @@ backgroundcolor=gray!5
 
 \title{Corrigé colle S8 \\
 	MPI/MPI* du lycée Faidherbe \\
-	\large Exercices 16, 17, 18, 19, 20, 21 et 22}
-\author{Brahim El Hamdani et Léane Parent}
+	\large Exercices 16, 17, 18, 19, 20, 21, 22}
+\author{Brahim EL HAMDANI}
 
 \begin{document}
 	\maketitle
@@ -74,7 +75,7 @@ backgroundcolor=gray!5
     \begin{correctionbox}
         Soit \( A \) la matrice de \( u \) dans une base de \( \mathbb{R}^n \). \\ \\
         On a \( A^q = I_n \), donc le polynôme \( Q(X) = X^q - 1 \) est annulateur de \( A \). \\ \\
-        Sur \( \mathbb{C} \), \( Q \) est scindé à racines simples (les racines \( q \)-ièmes de l'unité).Ainsi, \( A \) est diagonalisable sur \( \mathbb{C} \) et \( \mathrm{Sp}(A) \subset \{ \omega^k \mid k \in [\![ 0, q-1 ]\!]\} \) où \( \omega = e^{2\pi i/q} \). \\ \\
+        Sur \( \mathbb{C} \), \( Q \) est scindé à racines simples (les racines \( q \)-ièmes de l'unité).Ainsi, \( A \) est diagonalisable sur \( \mathbb{C} \) et \( \mathrm{Sp}(A) \subset \{ \omega^k \mid k \in \llbracket 0, q-1 \rrbracket \} \) où \( \omega = e^{2\pi i/q} \). \\ \\
         Soit \( m(1) = \dim(\ker(u - \mathrm{Id})) \) la multiplicité de la valeur propre 1. On veut montrer que \( m(1) = \frac{1}{q} \sum_{k=1}^{q} \mathrm{Tr}(u^k) \). \\ \\
         Comme \( A \) est diagonalisable, elle est semblable à une matrice diagonale :
         \[
@@ -274,14 +275,13 @@ backgroundcolor=gray!5
             D'après Cayley-Hamilton, \( (u^2 + u + \mathrm{Id})^2 = 0 \), donc \( \mathrm{Im}(u^2 + u + \mathrm{Id}) \subset \ker(u^2 + u + \mathrm{Id}) \). Par le théorème du rang, \( \dim(\ker(u^2 + u + \mathrm{Id})) \geq 2 \). Raisonnons sur la dimension de \( \ker(u^2 + u + \mathrm{Id}) \) :\\\\
                 • \textbf{Si \( \dim(\ker(u^2 + u + \mathrm{Id})) = 2 \)} : alors F = \( \ker(u^2 + u + \mathrm{Id}) \)\\\\
                 • \textbf{Si \( \dim(\ker(u^2 + u + \mathrm{Id})) = 3 \)} : Alors \( \mathrm{rg}(u^2 + u + \mathrm{Id}) = 1 \). Comme \( \mathrm{Im}(u^2 + u + \mathrm{Id}) \) est stable par \( u \), on peut considérer l'endomorphisme induit \( w \). Alors \( \chi_w \mid \chi_u \) et \( \deg \chi_w = 1 \), ce qui est absurde car aucun polynôme de \( \mathbb{R}[X] \) de degré 1 ne divise \( (X^2 + X + 1)^2 \). \\\\
-                • \textbf{Si \( \dim(\ker(u^2 + u + \mathrm{Id})) = 4 \)} : \\
-                Si on prend $x \not = 0$ dans $F$, on considère la famille $(x, u(x))$. \\
+                • \textbf{Si \( \dim(\ker(u^2 + u + \mathrm{Id})) = 4 \)} : Si on prend $x \not = 0$ dans $F$, on considère la famille $(x, u(x))$. \\
                 On a alors $u(x) \in \mathrm{Vect}(x, u(x))$, et $u^2(x) = -x-u(x) \in \mathrm{Vect}(x, u(x))$: l'image des éléments générateurs par $u$ est dans $\mathrm{Vect}(x, u(x))$, donc $\mathrm{Vect}(x, u(x))$ est stable par $u$. \\
                 De même que précédemment, on montre que $\mathrm{Vect}(x, u(x))$ est de dimension paire. de plus, $x \not = 0$, d'où on en déduit $F = \mathrm{Vect}(x, u(x))$. \\
                 Réciproquement, on vérifie que si $x \in \ker (u^2 + u + Id)$, alors $\mathrm{Vect}(x, u(x))$ est bien stable par $u$.
                 \\\\
         \end{itemize}
-        \textbf{Conclusion :} Les sous-espaces stables par \( u \) sont \( \{0\} \), \( \mathbb{R}^4 \), et les \(Vect(x,u(x)) \) tels que \( x \in\ker(u^2 + u + \mathrm{Id}) \). \\
+        \textbf{Conclusion :} Les sous-espaces stables par \( u \) sont \( \{0\} \), \( \mathbb{R}^4 \), et les $\mathrm{Vect}(x, u(x))$ tels que \( x \in\ker(u^2 + u + \mathrm{Id}) \).\\\\
         \textit{Remarque}: si $\mathrm{dim} \ker (u^2 + u + \mathrm{Id}) = 2$, on a alors $\mathrm{Vect}(x, u(x)) = \ker (u^2 + u + \mathrm{Id})$.
     \end{correctionbox}
 
@@ -376,6 +376,102 @@ backgroundcolor=gray!5
         Ainsi, \( \mathrm{Sp}(P(M)) = P(\mathrm{Sp}(M)) \). \\\\
         Maintenant, si \( \mu \in Sp(P(M)) \), alors il existe \(\lambda \in Sp(M)\) tel que \(\mu = P(\lambda) = Q(\lambda)R(\lambda) = 0\) car \(Q(\lambda) = 0\). \\
         On en déduit que \( \mathrm{Sp}(P(M)) = \{0\} \) donc\( P(M) \) est nilpotente.Ainsi, \( P \in I \). \\\\
-        \textbf{Conclusion :} \( I = Q(X) \mathbb{C}[X] \) où \( Q(X) = \prod_{\lambda \in \mathrm{Sp}(M)} (X - \lambda) \).
+        \textbf{Conclusion :} \( I = Q(X) \mathbb{C}[X] \) où \( Q(X) = \prod_{\lambda \in \mathrm{Sp}(M)} (X - \lambda) [\![ 0, q-1 ]\!] \).
     \end{correctionbox}
+
+
+
+    \subsection*{Exercice 23}
+    Soit \( A \in \mathfrak{M}_{n}(\mathbb{C}) \), \( P = \chi_{A} \), \( P_{i} = (X - \lambda_{i})^{\alpha_{i}} \) où \( \mathrm{Sp}(A) = \{\lambda_{i}\} \) et \( \alpha_{i} \) la multiplicité de \( \lambda_{i} \).  
+    Soient les \( F_{i} = \mathrm{Ker} \, P_{i}(A) \).
+    
+    \begin{enumerate}
+    \item Montrer que \( \mathbb{C}^{n} = \bigoplus_{i} F_{i} \).
+    
+    \begin{correctionbox}
+        Flemme. Cayley-Hamilton into lemme de décomposition des noyaux. cf dernière démo de cours du groupe C du programme de khôlle.
+    \end{correctionbox}
+    
+    \item Montrer que \( P_{i} \) est le polynôme caractéristique de \( A \) restreinte à \( F_{i} \).
+    
+    \begin{correctionbox}
+        Les \( F_{i} \) sont stables par \( u \) (l'endomorphisme canoniquement associé à \( A \)).  
+        On note \( B_{i} \) la matrice de \( u \) restreint à \( F_{i} \). Pour tout \( i \), \( \chi_{B_{i}} \) est de la forme \( (X - \lambda_{i})^{\beta_{i}} \) car \(    P_{i}\) est annulateur de \( B_{i} \) donc \( Sp(B_{i}) = \{\lambda_{i}\} \).\\\\ 
+        \( \chi_{A} = \prod_{i} \chi_{B_{i}} \) car les \(F_{i}\) sont supplémentaires.  
+        Or,   
+        Comme \( \chi_{A} = \prod_{i} (X - \lambda_{i})^{\alpha_{i}} \), par unicité de la décomposition, on a \( \chi_{B_{i}} = (X - \lambda_{i})^{\alpha_{i}} \).  
+        Ainsi, \( P_{i} \) est bien le polynôme caractéristique de \( A \) restreinte à \( F_{i} \).
+    \end{correctionbox}
+    
+    \item Montrer que \( A = D + N \) avec \( D \) matrice diagonalisable et \( N \) nilpotente, telles que \( DN = ND \).
+    
+    \begin{correctionbox}
+        Flemme. cf dernière démo du groupe C du programme de khôlle.
+    \end{correctionbox}
+    
+    \item Soit \( \phi_{A} : M \mapsto AM - MA \). Exprimer la décomposition \( N + D \) de \( \phi_{A} \) en fonction de celle de \( A \).
+    
+    \begin{correctionbox}
+        On a \( A = D + N \) avec \( D \) diagonalisable, \( N \) nilpotente, et \( DN = ND \). \\[2pt]
+        Montrons que \( \phi_A = \phi_D + \phi_N \), où \( \phi_D \) est diagonalisable, \( \phi_N \) est nilpotente, et \( \phi_D \circ \phi_N = \phi_N \circ \phi_D \). \\\\
+        Pour toute matrice \( M \in M_n(\mathbb{C}) \), on a :
+        \[
+        \phi_A(M) = AM - MA = (D + N)M - M(D + N) = (DM - MD) + (NM - MN) 
+        \]
+        Donc \( \phi_A = \phi_D + \phi_N \). \\[2pt]
+        
+        \textbf{1. Diagonalisabilité de \( \phi_D \) :} \\[2pt]
+        Comme \( D \) est diagonalisable, il existe \( P \in GL_n(\mathbb{C}) \) telle que \( \Delta = P^{-1}DP \) soit diagonale. \\[2pt]
+        Considérons l'automorphisme \( \Psi_P : M \mapsto PMP^{-1} \). Alors :
+        \begin{align*}
+            \Psi_P^{-1} \circ \phi_D \circ \Psi_P (M) &= \Psi_P^{-1} \circ \phi_D(PMP^{-1}) \\
+            &= \Psi_P^{-1}(DPMP^{-1} - PMP^{-1}D) \\
+            &= P^{-1}(DPMP^{-1} - PMP^{-1}D)P \\
+            &= P^{-1}DPM - MP^{-1}DP \\
+            &= \Delta M - M\Delta
+        \end{align*}
+        Notons \( \phi_\Delta : M \mapsto \Delta M - M\Delta \). \\[2pt]
+        Soit \( (E_{ij}) \) la base canonique de \( M_n(\mathbb{C}) \). Si \( \Delta = \mathrm{diag}(\lambda_1, \dots, \lambda_n) \), alors :
+        \[
+        \phi_\Delta(E_{ij}) = \Delta E_{ij} - E_{ij} \Delta = (\lambda_i - \lambda_j) E_{ij}
+        \]
+        Ainsi, les \( E_{ij} \) sont des vecteurs propres de \( \phi_\Delta \), donc \( \phi_\Delta \) est diagonalisable. \\[2pt]
+        Comme \( \phi_D \) est semblable à \( \phi_\Delta \), \( \phi_D \) est diagonalisable. \\[2pt]
+        
+        \textbf{2. Nilpotence de \( \phi_N \) :} \\[2pt]
+        Si \( k \in \mathbb{N}^* \), Notons \(H_k\) :« \( \phi_N^k(M) = \sum_{j=0}^k \binom{k}{j} N^j M (-N)^{k-j} \) »\\\\\
+        • Pour \( k = 1 \) : \( \phi_N(M) = NM - MN \), \(H_1\) vraie. \\\\
+        • Soit \( k \geq 1 \). Supposons \(H_k\) vraie et montrons \(H_{k+1}\) :
+        
+        \begin{align*}
+            \phi_N^{k+1}(M) &= \phi_N(\phi_N^k(M))\\ 
+            &= N \left( \sum_{j=0}^k \binom{k}{j} N^j M (-N)^{k-j} \right) - \left( \sum_{j=0}^k \binom{k}{j} N^j M (-N)^{k-j} \right) N\\
+            &= \sum_{j=0}^k \binom{k}{j} N^{j+1} M (-N)^{k-j} + \sum_{j=0}^k \binom{k}{j} N^j M (-N)^{k-j+1}
+        \end{align*}
+        
+        En posant \( l = j+1 \) dans la première somme :
+        \[
+        = \sum_{l=1}^{k+1} \binom{k}{l-1} N^{l} M (-N)^{k-l+1} + \sum_{j=0}^k \binom{k}{j} N^j M (-N)^{k-j+1}
+        \]
+        
+        \[
+        = \sum_{j=0}^{k+1} \left[ \binom{k}{j-1} + \binom{k}{j} \right] N^j M (-N)^{k+1-j} = \sum_{j=0}^{k+1} \binom{k+1}{j} N^j M (-N)^{k+1-j}
+        \]
+        \textit{Remarque}: normalement, il aurait fallut sortir des sommes les termes pour l = k+1 et j = 0 afin de pouvoir appliquer la formule du triangle de Pascal et les rentrer ensuite mais flemme (faites-le pendant la khôlle).\\
+        \(H_{k+1}\) vraie... principe de récurrence...bla bla $\rightarrow$ OK\\\\
+        Comme \( N \) est nilpotente, soit \( p \in \mathbb{N} \) tel que \( N^p = 0 \). Alors pour \( k \geq 2p-1 \), dans chaque terme de la somme, soit \( j \geq p \), soit \( k-j \geq p \), donc \( N^j = 0 \) ou \( (-N)^{k-j} = 0 \). Ainsi, \( \phi_N^k = 0 \), et \( \phi_N \) est nilpotente. \\[2pt]
+        
+        \textbf{3. Commutativité de \( \phi_D \) et \( \phi_N \) :} \\
+        Calculons \( \phi_D \circ \phi_N(M) \) et \( \phi_N \circ \phi_D(M) \) :
+        \[
+        \phi_D(\phi_N(M)) = D(NM - MN) - (NM - MN)D = DNM - DMN - NMD + MND
+        \]
+        \[
+        \phi_N(\phi_D(M)) = N(DM - MD) - (DM - MD)N = NDM - NMD - DMN + MDN
+        \]
+        Comme \( DN = ND \), on a \( DNM = NDM \) et \( MND = MDN \). \\
+        Ainsi, \( \phi_D \circ \phi_N(M) = \phi_N \circ \phi_D(M) \), donc \( \phi_D \circ \phi_N = \phi_N \circ \phi_D \). \\\\
+        \textbf{Conclusion :} \( \phi_A = \phi_D + \phi_N \) est la décomposition de Dunford de \( \phi_A \).
+    \end{correctionbox}
+    \end{enumerate}
 \end{document}
