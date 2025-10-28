@@ -71,11 +71,12 @@
 	\section{Calcul du groupe de Galois}
 	On vérifie aisément par une étude de $P$ qu'il admet exactement trois racines réelles distinctes, donc deux complexes non réelles conjuguées. \\
 	Or, $P$ est de degré premier. Il vérifie ainsi les hypothèses d'un théorème, trouvé sur l'article \underline{Galois group} de wikipedia\footnote{https://en.wikipedia.org/wiki/Galois\_group, source: Lang, Serge. \underline{Algebra (Revised Third ed.)}. pp. 263, 273.} (voir "symmetric group of prime order"): Si un polynôme irréductible de degré premier $p$ admet exactement $p-2$ racines réelles, alors son groupe de Galois est $S_p$ tout entier.  \\
-	(Je n'ai aucun doute sur le fait que ça se calcule plus explicitement, mais vous avez envie de le faire, vous?)
+	(Je n'ai pas trop de doutes sur le fait que ça se calcule plus explicitement, mais vous avez envie de le faire, vous?)
 	
 	
 	\section{$\mathbb Q$-indépendance linéaire des racines de $P$}
-	\textbf{lemme}: Si $V \subset \mathbb Q^5$ est un $\mathbb Q$-espace vectoriel stable par permutation, alors $V = \{0\}$, $\mathrm{Vect}_\mathbb Q (1, \dots 1)$, ou contient $W = \{(q_1, \dots q_5) \ |\ q_1 + \dots q_5 = 0\}$. \\
+	\textbf{lemme}: Si $V \subset \mathbb Q^5$ est un $\mathbb Q$-espace vectoriel stable par permutation, alors $V = \{0\}$, $\mathrm{Vect}_\mathbb Q (1, \dots 1)$, ou contient $W = \{(q_1, \dots q_5) \ |\ q_1 + \dots q_5 = 0\}$.
+	
 	\textbf{démonstration}: Supposons qu'il existe un élément  $(q_1, \dots q_5) \in V$ admettant deux éléments distincts. Quitte à permuter, supposons $q_1 \not = q_2$. \\
 	Par stabilité par permutation, $(q_2, q_1, q_3, q_4, q_5) \in V$. Par différence, $(q_2 - q_1, q_1 - q_2, 0, 0, 0) \in V$, donc $(1, -1, 0, 0, 0)$ également.\\ On en déduit par permutation que $(1, 0, -1, 0, 0), \dots (1, 0, 0, 0, -1) \in V$. Or, ces éléments forment une base de $W$, donc $W \subset V$.
 	\\ \\
