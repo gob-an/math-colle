@@ -71,7 +71,7 @@
 	\section{Calcul du groupe de Galois}
 	On vérifie aisément par une étude de $P$ qu'il admet exactement trois racines réelles distinctes, donc deux complexes non réelles conjuguées. \\
 	Or, $P$ est de degré premier. Il vérifie ainsi les hypothèses d'un théorème, trouvé sur l'article \underline{Galois group} de wikipedia\footnote{https://en.wikipedia.org/wiki/Galois\_group, source: Lang, Serge. \underline{Algebra (Revised Third ed.)}. pp. 263, 273.} (voir "symmetric group of prime order"): Si un polynôme irréductible de degré premier $p$ admet exactement $p-2$ racines réelles, alors son groupe de Galois est $S_p$ tout entier.  \\
-	(Je n'ai aucun doute sur le fait que ça se calcule à la main, mais vous avez envie de le faire, vous?)
+	(Je n'ai aucun doute sur le fait que ça se calcule plus explicitement, mais vous avez envie de le faire, vous?)
 	
 	
 	\section{$\mathbb Q$-indépendance linéaire des racines de $P$}
@@ -86,7 +86,7 @@
 	
 	Soit $(q_1, \dots q_5) \in V$. Soit $\sigma \in \mathrm{Gal} (L/\mathbb Q)$. \\
 	On a $q_1 r_1 + \dots q_5 r_5 = 0$, d'où, par composition par $\sigma$: $q_1 \sigma (r_1) + \dots q_5 \sigma(r_5) = \sigma(0) = 0$. (En effet, $\sigma$ est un automorphisme laissant invariant les rationnels.) \\
-	Or, en assimilant $\sigma$ à une permutation, on a $\sigma(r_i) = r_{\sigma(i)}$.\\ On en déduit que $\sigma^{-1}(q_1, \dots q_5) \in V$: $V$ est stable par permutation (car $\mathrm{Gal} (L/\mathbb Q) \cong S_5$, donc $\sigma{-1}$ décrit $S_5$). \\
+	Or, en assimilant $\sigma$ à une permutation, on a $\sigma(r_i) = r_{\sigma(i)}$.\\ On en déduit que $\sigma^{-1}(q_1, \dots q_5) \in V$: $V$ est stable par permutation (car $\mathrm{Gal} (L/\mathbb Q) \cong S_5$, donc $\sigma^{-1}$ décrit $S_5$). \\
 	
 	D'après le lemme ci-dessus, on a $V = \{0\}$, $\mathbb Q (1, \dots 1)$, ou contient $W$.\\
 	En observant le coefficient en $X^4$ de $P$, on obtient $r_1 + \dots r_5 = 2$, d'où $V \not = \mathrm{Vect}_\mathbb Q (1, \dots 1)$. De plus, $r_1-r_4 \not \in \mathbb R$, donc $r_1 - r_4 \not = 0$. On en déduit que $(1, 0, 0, -1, 0) \not \in V$, donc $W \not \subset V$.
