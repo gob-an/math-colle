@@ -1,9 +1,116 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S9 \\ MPI/MPI* du lycée Faidherbe}
-\author{}
+\usepackage{stmaryrd}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+
+\title{Corrigé colle S9 \\
+	MPI/MPI* du lycée Faidherbe \\
+	\large Exercices 16}
+\author{Brahim El hamdani}
+\date{02 novembre 2025}
 
 \begin{document}
-	\maketitle
+
+\maketitle
+
+    \subsection*{Exercice 16 (D'après l'exercice 4 du document "Tribu infinie non dénombrable")}
+
+    
+    
+    Soit $\Omega$ un ensemble non-vide et $\mathscr{T}$ une tribu sur $\Omega$. Pour $x \in \Omega$, on définit
+    \[
+    \mathcal{F}_x := \{ T \in \mathscr{T} : x \in T \} \quad \text{et} \quad [x] := \bigcap_{F \in \mathcal{F}_x} F.
+    \]
+    
+    \begin{enumerate}
+    \item Montrer que $x \notin [y]$ implique $y \notin [x]$. En déduire que $x \sim y$ si $x \in [y]$ est une relation d'équivalence sur $\Omega$.
+    
+    \begin{correctionbox}
+        Si $x \notin [y]$, alors il existe $A \in \mathscr{T}$ tel que $x \notin A$ et $y \in A$. \\
+        Alors $\overline{A} \in \mathscr{T}$, avec $y \notin \overline{A}$ et $x \in \overline{A}$, donc $y \notin [x]$.
+        
+        Définissons $x \sim y$ par $x \in [y]$. Vérifions que $\sim$ est une relation d'équivalence :
+        \begin{itemize}
+            \item \textbf{Réflexivité :} $x \in [x]$ car $x \in \bigcap_{F \in \mathcal{F}_x} F$.
+            \item \textbf{Symétrie :} Si $x \in [y]$, supposons $y \notin [x]$. Alors $x \notin [y]$ d'après l'implication prouvée, contradiction. Donc $y \in [x]$.
+            \item \textbf{Transitivité :} Si $x \in [y]$ et $y \in [z]$, alors pour tout $F \in \mathscr{T}$ avec $z \in F$, on a $y \in F$ (car $y \in [z]$), donc $x \in F$ (car $x \in [y]$). Ainsi $x \in [z]$.
+        \end{itemize}
+        Donc $\sim$ est une relation d'équivalence.
+    \end{correctionbox}
+    
+    \item Montrer que $\mathcal{P} = \{[x] : x \in \Omega\}$ est une partition de $\Omega$.
+    
+    \begin{correctionbox}
+    \begin{itemize}
+            \item Chaque $[x]$ est non vide car $x \in [x]$.
+            \item $\bigcup_{x \in \Omega} [x] = \Omega$ car $x \in [x]$.
+            \item Si $[x] \cap [y] \neq \emptyset$, soit $z \in [x] \cap [y]$. Alors $z \sim x$ et $z \sim y$, donc $x \sim y$ par symétrie et transitivité, d'où $[x] = [y]$.
+        \end{itemize}
+        Ainsi $\mathcal{P}$ est une partition de $\Omega$.
+    \end{correctionbox}
+    
+    \item Soit $T \in \mathscr{T}$. Montrer que $T = \bigcup_{x \in T} [x]$.
+    
+    \begin{correctionbox}
+    \begin{itemize}
+            \item Pour tout $x \in T$, on a $T \in \mathcal{F}_x$, donc $[x] = \bigcap_{F \in \mathcal{F}_x} F \subseteq T$. Ainsi $\bigcup_{x \in T} [x] \subseteq T$.
+            \item Inversement, si $x \in T$, alors $x \in [x]$, donc $T \subseteq \bigcup_{x \in T} [x]$.
+        \end{itemize}
+        D'où $T = \bigcup_{x \in T} [x]$.
+    \end{correctionbox}
+    
+    \item Montrer que $\mathcal{P}$ est infinie si $\mathscr{T}$ est infinie.
+    
+    \begin{correctionbox}
+        Supposons $\mathcal{P}$ fini, de cardinal $n$. \\
+        D'après l'exercice 1, la tribu engendrée par une partition finie de $n$ ensembles non vides disjoints a pour cardinal $2^n$. \\
+        Or, par (c), tout $T \in \mathscr{T}$ est réunion de classes de $\mathcal{P}$, donc $\mathscr{T} \subset \sigma(\mathcal{P})$. \\
+        Ainsi $|\mathscr{T}| \le 2^n < \infty$. \\
+        Par contraposée, si $\mathscr{T}$ est infinie, alors $\mathcal{P}$ est infinie.
+    \end{correctionbox}
+    
+    \item Soit $\mathcal{P}$ infinie. Montrer (par l'absurde) que $\mathscr{T}$ est indénombrable.
+    \begin{enumerate}
+        \item Montrer que si $\mathscr{T}$ est dénombrable, alors $[x] \in \mathscr{T}$ pour tout $x \in \Omega$. En déduire que $\mathcal{P}$ est dénombrable.
+        
+        \begin{correctionbox}
+            Pour tout $x$, $\mathcal{F}_x = \{ T \in \mathscr{T} : x \in T \}$ est dénombrable. \\
+            Alors $[x] = \bigcap_{F \in \mathcal{F}_x} F$ est une intersection dénombrable d'éléments de $\mathscr{T}$, donc $[x] \in \mathscr{T}$. \\
+            Ainsi $\mathcal{P} \subset \mathscr{T}$, donc $\mathcal{P}$ est dénombrable.
+        \end{correctionbox}
+        
+        \item Soit $(P_n)_{n \geq 0}$ une énumération de $\mathcal{P}$. S'en servir pour construire une bijection $\phi : \mathscr{P}(\mathbb{N}) \rightarrow \sigma(\{P_n : n \in \mathbb{N}\}) \subset \mathscr{T}$. Conclure.
+        
+        \begin{correctionbox}
+            Puisque $\mathcal{P}$ est dénombrable infinie, on peut indexer ses éléments par $\mathbb{N}$ : soit $f : \mathbb{N} \to \mathcal{P}$ une bijection. On note $P_n = f(n)$. \\
+            Les $P_n$ sont disjoints car $\mathcal{P}$ est une partition.\\\\
+            Soit $\sigma(\{P_n : n \in \mathbb{N}\})$ la plus petite tribu contenant tous les $P_n$ (on l'appelle la tribu engendrée par $\{P_n : n \in \mathbb{N}\}$ ). \\\\
+            Soit $\mathcal{A} = \left\{ \bigcup_{k \in S} P_k : S \subset \mathbb{N} \right\}$. \\
+            Montrons que $\sigma(\{P_n\}) = \mathcal{A}$ par double inclusion :
+            \begin{itemize}
+                \item $\mathcal{A} \subset \sigma(\{P_n\})$ : \\
+                      Soit $A \in \mathcal{A}$, donc $A = \bigcup_{k \in S} P_k$ pour un $S \subset \mathbb{N}$. \\
+                      Comme chaque $P_k \in \sigma(\{P_n\})$ et $\sigma(\{P_n\})$ est stable par réunion dénombrable, $A \in \sigma(\{P_n\})$.
+                \item $\sigma(\{P_n\}) \subset \mathcal{A}$ : \\
+                      Vérifions que $\mathcal{A}$ est une tribu :
+                      \begin{itemize}
+                          \item $\Omega = \bigcup_{k \in \mathbb{N}} P_k \in \mathcal{A}$.
+                          \item Si $A = \bigcup_{k \in S} P_k \in \mathcal{A}$, alors $\overline{A} = \bigcup_{k \notin S} P_k \in \mathcal{A}$.
+                          \item Si $A_n = \bigcup_{k \in S_n} P_k \in \mathcal{A}$, alors $\bigcup_n A_n = \bigcup_{k \in \bigcup_n S_n} P_k \in \mathcal{A}$.
+                        \end{itemize}
+                    Donc $\mathcal{A}$ est une tribu contenant tous les $P_n$, donc $\sigma(\{P_n\}) \subset \mathcal{A}$\\
+            \end{itemize}
+            Définissons $\phi : \mathcal{P}(\mathbb{N}) \to \mathscr{T}$ par : pour tout $S \subset \mathbb{N}$,
+            \[
+            \phi(S) = \bigcup_{k \in S} P_k.
+            \]
+            Montrons que $\phi$ est injective. \\
+            Soient $S, S' \subset \mathbb{N}$ avec $S \neq S'$. Alors il existe $k_0$ tel que $k_0 \in S \setminus S'$. Puisque les $P_k$ sont disjoints, $P_{k_0} \subset \phi(S)$ mais $P_{k_0} \cap \phi(S') = \emptyset$.Donc $\phi(S) \neq \phi(S')$.\\\\
+            Ainsi il existe une injection d'un ensemble non dénombrable dans $\mathscr{T}$ donc $\mathscr{T}$ non dénombrable. Absurde. Donc $\mathscr{T}$ est non dénombrable.
+        \end{correctionbox}
+    \end{enumerate}
+    \end{enumerate}
+
 \end{document}
