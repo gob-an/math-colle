@@ -8,6 +8,7 @@
 % Define style for correction boxes
 \definecolor{corrigecolor}{gray}{0.7}
 
+\makeatletter
 \newmdenv[
 linecolor=corrigecolor,
 linewidth=2pt,
@@ -21,5 +22,8 @@ innertopmargin=4pt,
 innerbottommargin=4pt,
 innerleftmargin=6pt,
 innerrightmargin=4pt,
-backgroundcolor=gray!5
+backgroundcolor=gray!5,
+leftmargin=\dimexpr-\@totalleftmargin\relax, % ← Compense l'indentation courante
+rightmargin=0pt
 ]{correctionbox}
+\makeatother

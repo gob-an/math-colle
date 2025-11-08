@@ -1,7 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\usepackage{stmaryrd}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
 
@@ -112,5 +111,41 @@
         \end{correctionbox}
     \end{enumerate}
     \end{enumerate}
-
+    
+    
+    
+    
+    \subsection*{Exercice 16 \textnormal{(version Léane)}}
+    Montrer qu'une tribu infinie est indénombrable.
+    
+	J'aime pas trop la correction de Brahim, donc je fais la mienne (qui est cependant similaire).
+	
+	On se donne $T$ une tribu sur $E$.
+	\begin{correctionbox}	
+		On note $A(x) = \bigcap\limits_{x \in A \in T} A$. \\
+		
+		Montrons que les $A(x)$ forment une partition de $E$. \\
+		Puisque $x \in A(x)$, il suffit de mq les $A(x)$ sont des classes d'équivalence. \\
+		Si $y \in A(x)$, mq $x \in A(y)$. Supposons que ce ne soit pas le cas. \\
+		Alors il existe $A \in T$ tq $y \in A, x \not \in A$. On a $^C A \in T$, $x \in {}^C A$, $y \not \in {}^C A$. Ainsi, $y \not \in A(x)$, ce qui est absurde. On a bien $A(x) = A(y)$. \\ 
+		
+		Montrons que, pour $A \in T$, $A \bigcup\limits_{x\in A} A(x)$. \\
+		L'inclusion directe et immédiate. De plus, si $x \in A$, $y \in A(x)$, on sait que $y\in A$ pour tout $A$ tq $x \in A$, d'où l'inclusion réciproque. \\
+		
+		On considère $(x_i)_{i\in I}$ une famille de représentants de classes d'équivalence distinctes. \\
+		Soit $\varphi : \begin{dcases}
+			\mathcal{P}(I) & \rightarrow T \\
+			J & \mapsto \bigcup\limits_{j \in J} A(x_j)
+		\end{dcases}$. \\
+		
+		Puisque les $A(x_j)$ sont disjoints, cette application est injective. \\
+		De plus, on a montré plus haut que tout élément de $T$ se décomposait en union de $A(x)$, donc de $A(x_i)$, d'où la surjectivité \\
+		
+		On suppose $T$ infinie. \\
+		Alors, par bijectivité de $\varphi$, $\mathcal P (I)$ est infini donc $I$ l'est également. \\
+		On en déduit que $\mathcal P (I)$ est indénombrable, d'où l'indénombrabilité de $T$. \\
+		
+		\textit{Note: on a prouvé que si $T$ était finie, alors elle est de cardinal $2^n$ avec $n$ entier}
+	\end{correctionbox}
+	
 \end{document}
