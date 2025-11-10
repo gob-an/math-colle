@@ -6,7 +6,7 @@
 
 \title{Corrigé colle S9 \\
 	MPI/MPI* du lycée Faidherbe \\
-	\large Exercices 16}
+	\large Exercices 16 et 17}
 \author{Brahim El Hamdani et Léane Parent}
 
 \begin{document}
@@ -146,5 +146,37 @@
 		
 		\textit{Note: on a prouvé que si $T$ était finie, alors elle est de cardinal $2^n$ avec $n$ entier}
 	\end{correctionbox}
+	
+	
+	\subsection*{Exercice 17}
+	On note $S_n^k$ le nombre de surjections de $[\![ 1, n ]\!]$ dans $[\![ 0, k ]\!]$
+	\begin{enumerate}
+		\item Préciser les valeurs de $S_n^1$ et $S_n^n$.
+		\begin{correctionbox}
+			Respectivement 1 et $n!$, je vous laisse le faire vous mêmes.
+		\end{correctionbox}
+		\item Montrer que $S_n^2=2n-2$
+		\begin{correctionbox}
+			$S_n^2 = \{1, 2\}^{[\![ 1, n ]\!]} \backslash \{i\mapsto1, i\mapsto2\}$, d'où le résultat.
+		\end{correctionbox}
+		\item Montrer que, pour $n\in \mathbb N$, $k\leqslant n$, $\displaystyle\sum_{j=1}^n \binom j k S_n^j = k^n$
+		\begin{correctionbox}
+			On caractérise une application par la restriction maximale sur laquelle elle est surjective (de taille $j$). Je vous le rédige proprement plus tard.
+		\end{correctionbox}
+		\item Montrer que $S_n^j=j (S_{n-1}^j + S_{n-1}^{j-1})$ \\
+		flemme.
+		\item mdrr je code pas en python moi
+		\item plus tard
+		\item En déduire que $\displaystyle \sum^n_{j=1} (-1)^{n-k} k^n \binom k n = n!$
+		\begin{correctionbox}
+			Se déduit de la question suivante, pour $j=n$.
+		\end{correctionbox}
+		\item Montrer que $\displaystyle \sum^n_{j=1} (-1)^{n-k} k^n \binom k n = n!$
+		\begin{correctionbox}
+			On considère l'application $P(X) \mapsto P(X+1)$. Elle est évidemment linéaire, et sa matrice dans la base canonique est $M=\left(\binom {i-1} {j-1} \right)$. \\
+			Ainsi, l'inverse de cette matrice est la matrice associée à $P(X) \mapsto P(X-1)$, ie $M^{-1}=\left(  (-1)^{i+j}\binom {i-1} {j-1} \right)$. \\
+			Or, d'après la question 2., $M \cdot {}^T (S^1_n \ \dots \ S^n_n) = {}^T (1^n \ \dots \ n^n)$, d'où, en composant par $M^{-1}$ à gauche: $M^{-1} \cdot {}^T (1^n \ \dots \ n^n) = {}^T (S^1_n \ \dots \ S^n_n)$, d'où la formule de l'énoncé.
+		\end{correctionbox}
+	\end{enumerate}
 	
 \end{document}
