@@ -6,7 +6,6 @@
 \usepackage{mdframed}
 \usepackage{mathrsfs}
 
-% Define style for correction boxes
 \definecolor{corrigecolor}{gray}{0.7}
 
 \makeatletter
@@ -24,7 +23,13 @@ innerbottommargin=4pt,
 innerleftmargin=6pt,
 innerrightmargin=4pt,
 backgroundcolor=gray!5,
-leftmargin=\dimexpr-\@totalleftmargin\relax, % ← Compense l'indentation courante
+leftmargin=\dimexpr-\@totalleftmargin\relax,
 rightmargin=0pt
 ]{correctionbox}
 \makeatother
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
