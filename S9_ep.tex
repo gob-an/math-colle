@@ -10,29 +10,38 @@
 
 \maketitle
 
-	\subsection*{Exercice 15 \textnormal{(incomplet)}}
+	\subsection*{Exercice 15}
 	Soit $(u_n) \in \mathbb R ^ \mathbb N$. On note $\Omega$ l'ensemble des bijections de $\mathbb N$ dans $\mathbb N$.
 	\begin{enumerate}
 		\item Mq la série $\sum u_n$ CVA ssi pour toute bijection $\sigma \in \Omega$, la série $\sum u_{\sigma(n)}$ est convergente. \\
 		Dans tout l'exercice, on notera $E^+ = \{n \in \N\ |\ u_n \geqslant 0\}$. On définit de même $E^-$. 
 		\begin{correctionbox}
+			Si la série converge absolument: \\
+			Soit $\sigma \in \Omega$. \\
+			$\sum |u_n|$ converge et est à termes positifs, donc $\sum |u_\sigma(n)|$ converge. Ainsi, $\sum u_{\sigma(n)}$ CVA donc CV.
+			\\ \\
+			Sinon, on va construire une bijection qui ne vérifie pas la propriété. \\ 
+			On a alors $\max \{0, u_n\} = \frac {a_n + |a_n|} 2$, $\min \{0, u_n\} = \frac {a_n - |a_n|} 2$, et on en déduit que les séries $\sum \max \{0, u_n\}$ et $\sum \max \{0, u_n\}$ divergent (par somme d'une série convergente et d'une matrice divergente). \\ \\
+			On construit $\sigma$ par récurrence:\\
+			On pose $\sigma(0) = 0$, et, pour $n \in \N$:
 			\begin{itemize}
-				\item si la série converge absolument: \\
-				Soit $\sigma \in \Omega$. \\
-				$\sum |u_n|$ converge et est à termes positifs, donc $\sum |u_\sigma(n)|$ converge. Ainsi, $\sum u_{\sigma(n)}$ CVA donc CV.
-				\item sinon, on va construire une bijection qui ne vérifie pas la propriété. \\
-				Si $\sum u_n$ diverge, on a le résultat en prenant $\sigma = \mathrm{Id}$. \\
-				Supposons cette série semi-convergente. On vérifie aisément que $\displaystyle \sum_{u_n \geqslant 0} u_n$ et $\displaystyle \sum_{u_n \leqslant 0} u_n$ divergent respectivement vers $+\infty$ et $-\infty$. \\
-				Dès lors, on peut construire $\sigma$ comme suit:
-				\begin{itemize}
-					\item les premiers éléments sont, dans l'ordre, les premiers arguments des termes positifs, jusqu'à dépasser 1 (par divergence de la série des termes positifs, ce point est atteint).
-					\item on ajoute ensuite le premier terme négatif.
-				\end{itemize}
-				On itère ensuite jusqu'à dépasser 2, puis rajouter un terme négatif, puis 3, et c\ae tera.
-				Ainsi, pour tout $A$, il existe un rang tel que la somme partielle des $u_{sigma(n)}$ dépasse A, donc la série diverge. \\
-				De plus, on vérifie que c'est bien une bijection (il faut détailler un peu plus... Encore une fois j'essaie de vous le refaire). \\ \\
-				On a bien démontré l'équivalence. (C'est une rédaction un peu moche à l'écrit, mais à l'oral ça passe mieux, j'essaierai peut-être de vous faire quelque chose de plus propre un jour où j'ai pas la flemme)
+				\item Si, pour $A\in \N$, $\displaystyle \sum_{k=0}^{n-1} u_{\sigma(k)} \geqslant A$, et que pour $p\leqslant n$, $\displaystyle \sum_{k=0}^{p-1} u_{\sigma(k)} < A$, $\sigma(n) = \min E^+ \backslash  \sigma([\![0, n[\![)$
+				\item Sinon, on pose $\sigma(n) = \min E^- \backslash  \sigma([\![0, n[\![)$
 			\end{itemize}
+			Montrons que $\sigma$ est une bijection. L'injectivité étant immédiate, il suffit de prouver la surjectivité. \\
+			Supposons $n$ non atteint. \\
+			Si $n \in E^+$, on a, par construction, pour $n' \geqslant n$ dans $E^+$, $n'$ n'est pas atteint. \\
+			Ainsi, à partir d'un certain rang, tous les éléments sont négatifs, ce qui est absurde par construction de $\sigma$. \\
+			De même, si $n \in E^-$, tous les éléments supérieurs dans $E^-$ ne sont pas atteints. Alors les termes de la série $\sum u_{\sigma n}$ sont positifs à partir d'un certain rang, donc diverge car elle n'est pas absolument convergente, donc diverge vers $+\infty$ car les termes sont positifs (à partir d'un certain rang). Cela est absurde car alors $n$ devrait être atteint par $\sigma$. \\ \\			
+			On montre aisément que la série diverge, mais pour la suite de l'exercice, montrons que celle-ci diverge vers $+\infty$. \\
+			La série des $u_n$ converge, donc il existe un rang $n_2$ à partir duquel $|u_n| \leqslant \varepsilon = 1$. Par injectivité de $\sigma$, il existe un rang $n_1$ à partir duquel $|u_{\sigma(n)}| \leqslant 1$. \\
+			Soit $A \in \R$. Quitte à prendre la partie entière supérieure de $A$, supposons $A \in \N$. Par construction de $\sigma$, il existe un rang $n_0 \geqslant n_1$ tq $\displaystyle \sum_{k=0}^{n_0} u_{\sigma(k)} \geqslant A+1$. On montre alors:
+			\begin{itemize}
+				\item $\displaystyle \sum_{k=0}^{n_0+1} u_{\sigma(k)} \geqslant A$
+				\item Par une récurrence, si $n > n_0$, on a soit $u_\sigma(n) \geqslant 0$, soit celui-ci est négatif, supérieur à -1, mais alors la somme partielle de rang $n-1$ est supérieure à $A+1$: dans tous les cas, la somme partielle reste supérieure à $A$.
+			\end{itemize}
+			On a alors, pour $n \geqslant n_0$, une somme partielle supérieure à $A$, et ce pour tout $A$: la série diverge vers $+\infty$ \\ \\
+			On a bien montré qu'une série $\sum u_n$ convergente converge absolument ssi, pour toute bijection $\sigma$, $\sum u_{\sigma(n)}$ converge.		
 		\end{correctionbox}
 		\item Déterminer $\sum \frac {(-1)^{n+1}} n$
 		\begin{correctionbox}
@@ -47,7 +56,6 @@
 			On suppose $\sum u_n$ semi-convergente.
 			On a montré plus haut que $+\infty$ était atteint. On montre de même que $-\infty$ est atteint. \\ \\
 			Soit $\alpha \in \mathbb R$. On va construire $\sigma$ tq $\sum u_{\sigma(n)}$ CV vers $\alpha$. \\
-			On a alors $\max \{0, u_n\} = \frac {a_n + |a_n|} 2$, $\min \{0, u_n\} = \frac {a_n - |a_n|} 2$, et on en déduit que les séries $\sum \max \{0, u_n\}$ et $\sum \max \{0, u_n\}$ divergent (par somme d'une série convergente et d'une matrice divergente). \\ \\
 			Construisons maintenant, par récurrence sur $n$, $\sigma(n)$.\\
 			On pose $\sigma(0)=0$. \\
 			\item Pour $n \in \N^*$:
