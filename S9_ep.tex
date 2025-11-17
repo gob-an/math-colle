@@ -3,12 +3,67 @@
 
 \title{Corrigé colle S9 \\
 	MPI/MPI* du lycée Faidherbe \\
-	\large Exercices 16 et 17}
+	\large Exercices 15, 16 et 17}
 \author{Brahim El Hamdani et Léane Parent}
 
 \begin{document}
 
 \maketitle
+
+	\subsection*{Exercice 15 \textnormal{(incomplet)}}
+	Soit $(u_n) \in \mathbb R ^ \mathbb N$. On note $\Omega$ l'ensemble des bijections de $\mathbb N$ dans $\mathbb N$.
+	\begin{enumerate}
+		\item Mq la série $\sum u_n$ CVA ssi pour toute bijection $\sigma \in \Omega$, la série $\sum u_{\sigma(n)}$ est convergente.
+		\begin{correctionbox}
+			\begin{itemize}
+				\item si la série converge absolument: \\
+				Soit $\sigma \in \Omega$. \\
+				$\sum |u_n|$ converge et est à termes positifs, donc $\sum |u_\sigma(n)|$ converge. Ainsi, $\sum u_{\sigma(n)}$ CVA donc CV.
+				\item sinon, on va construire une bijection qui ne vérifie pas la propriété. \\
+				Si $\sum u_n$ diverge, on a le résultat en prenant $\sigma = \mathrm{Id}$. Supposons cette série convergente. On vérifie aisément que $\displaystyle \sum_{u_n \geqslant 0} u_n$ et $\displaystyle \sum_{u_n \leqslant 0} u_n$ divergent respectivement vers $+\infty$ et $-\infty$. \\
+				Dès lors, on peut construire $\sigma$ comme suit:
+				\begin{itemize}
+					\item les premiers éléments sont, dans l'ordre, les premiers arguments des termes positifs, jusqu'à dépasser 1 (par divergence de la série des termes positifs, ce point est atteint).
+					\item on ajoute ensuite le premier terme négatif.
+				\end{itemize}
+				On itère ensuite jusqu'à dépasser 2, puis rajouter un terme négatif, puis 3, et c\ae tera.
+				Ainsi, pour tout $A$, il existe un rang tel que la somme partielle des $u_{sigma(n)}$ dépasse A, donc la série diverge. \\
+				De plus, on vérifie que c'est bien une bijection (il faut détailler un peu plus... Encore une fois j'essaie de vous le refaire). \\ \\
+				On a bien démontré l'équivalence. (C'est une rédaction un peu moche à l'écrit, mais à l'oral ça passe mieux, j'essaierai peut-être de vous faire quelque chose de plus propre un jour où j'ai pas la flemme)
+			\end{itemize}
+		\end{correctionbox}
+		\item Déterminer $\sum \frac {(-1)^{n+1}} n$
+		\begin{correctionbox}
+			Il découle du cours de SE que cette série converge vers $\log 2$ (promis un jour je le rédige bien)
+		\end{correctionbox}
+		\item Calculer la somme $(1 + \frac 1 3 + \frac 1 5) - (\frac 1 2 + \frac 1 4) + (\frac 1 7 + \frac 1 9 + \frac 1 {11}) - (\frac 1 6 + \frac 1 8) \dots $
+		\begin{correctionbox}
+			Qui sait, je le ferai peut-être avant votre colle?
+		\end{correctionbox}
+		\item Quelles sont les valeurs possibles, dans $\overline {\mathbb R}$, de $\sum u_{sigma(n)}$, quand $\sigma$ parcourt $\Omega$?
+		\begin{correctionbox}
+			On a montré plus haut que $+\infty$ était atteint. On montre de même que $-\infty$ est atteint. \\
+			Soit $\alpha \in \mathbb R$. On va construire $\sigma$ tq $\sum u_{\sigma(n)}$ CV vers $\alpha$. \\
+			On va procéder de même que précédemment:
+			\begin{itemize}
+				\item On ajoute des éléments positifs jusqu'à ce que la somme partielle dépasse $\alpha$.
+				\item On ajoute ensuite des éléments négatifs jusqu'à ce que la somme partielle soit inférieure à $\alpha$. \\
+			\end{itemize}
+			On itère, et on montre de même qu'il s'agit bien d'une bijection. \\
+			Soit $\varepsilon > 0$. Puisque $\sum u_n$ CV, il existe $n_0$ tq, pour $n \geqslant n_0$, $| \alpha | \leqslant \varepsilon$. Supposons, quitte à choisir $n_0$ assez grand, que $n_0$ arrive après un terme négatif. Si on note $n_1 = \sigma^{-1}(n_0)$, on montre aisément (oui j'ai la flemme de prouver... Je le démontre un jour) qu'à partir du rang $n_1$, la somme partielle est à une distance inférieure à $\varepsilon$ de $\alpha$. \\ \\
+			D'où la convergence: $\overline {\mathbb R}$ tout entier est atteint. \\ \\
+			Encore une promesse en l'air: un jour je rédige mieux.
+		\end{correctionbox}
+		\textit{Note}: Si vous voulez voir une jolie rédaction avant que je la fasse, cherchez "principe de réarrangement de Riemann" \\
+		\item Pourquoi, en ce qui concerne les probabilités, l'ordre de sommation n'a pas d'importance?
+		\begin{correctionbox}
+			On a des éléments positifs, et la somme sur une partie finie est majorée par 1, d'où la sommabilité.
+		\end{correctionbox}
+		\item En déduire que, si $E$ est dénombrable, muni de la tribu $\mathcal P (E)$, toute probabilité est entièrement déterminée par sa valeur sur les singletons.
+		\begin{correctionbox}
+			On a alors, pour $A \subset E$, $\displaystyle p(A) = \sum_{x\in A} p(\{x\})$.
+		\end{correctionbox}
+	\end{enumerate}
 
     \subsection*{Exercice 16 (D'après l'exercice 4 du document "Tribu infinie non dénombrable")}
 
@@ -145,7 +200,7 @@
 	\end{correctionbox}
 	
 	
-	\subsection*{Exercice 17}
+	\subsection*{Exercice 17 \textnormal{(incomplet; question 4 non finie)}}
 	On note $S_n^k$ le nombre de surjections de $[\![ 1, n ]\!]$ dans $[\![ 0, k ]\!]$
 	\begin{enumerate}
 		\item Préciser les valeurs de $S_n^1$ et $S_n^n$.
