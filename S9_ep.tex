@@ -45,7 +45,17 @@
 		\end{correctionbox}
 		\item Déterminer $\sum \frac {(-1)^{n+1}} n$
 		\begin{correctionbox}
-			Il découle du cours de SE que cette série converge vers $\log 2$ (promis un jour je le rédige bien)
+ 			On considère la somme partielle $\displaystyle \sum_{k=1}^{2n} \frac{(-1)^{k+1}} k$:
+ 			\begin{align*}
+ 				\displaystyle \sum_{k=1}^{2n} \frac{(-1)^{k+1}} k
+ 				& = \sum_{\stackrel{k=1}{\text{impair}}}^{2n} \frac 1 k + \sum_{\stackrel{k=1}{\text{pair}}}^{2n} \frac {-1} k \\ 
+ 				& = \sum_{k=1}^{2n} \frac 1 k - 2 \sum_{\stackrel{k=1}{\text{pair}}}^{2n} \frac 1 k \\ 
+ 				& = \sum_{k=1}^{2n} \frac 1 k - 2 \sum_{p=1}^{n} \frac 1 {2p} \\ 
+ 				& = \sum_{k=1}^{2n} \frac 1 k - \sum_{k=1}^{n} \frac 1 {k}\\ 				
+ 			\end{align*}
+ 			Par analyse asymptotique, avec $\displaystyle \sum_{k=1}^n 1/k = \log n + \gamma + \mathrm o(1)$, on obtient: \\
+ 			$ \displaystyle \sum_{k=1}^{2n} \frac{(-1)^{k+1}} k = \log 2n + \gamma - \log n - \gamma + \mathrm o(1) = \log 2 + \mathrm o(1) \longrightarrow \log 2$. \\
+ 			On a $\displaystyle \sum_{k=0}^{+\infty}\frac {(-1)^{k+1}}{k} = \log 2$
 		\end{correctionbox}
 		\item Calculer la somme $(1 + \frac 1 3 + \frac 1 5) - (\frac 1 2 + \frac 1 4) + (\frac 1 7 + \frac 1 9 + \frac 1 {11}) - (\frac 1 6 + \frac 1 8) \dots $
 		\begin{correctionbox}
