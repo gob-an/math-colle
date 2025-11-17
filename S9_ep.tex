@@ -200,7 +200,7 @@
 	\end{correctionbox}
 	
 	
-	\subsection*{Exercice 17 \textnormal{(incomplet; question 4 non finie)}}
+	\subsection*{Exercice 17}
 	On note $S_n^k$ le nombre de surjections de $[\![ 1, n ]\!]$ dans $[\![ 0, k ]\!]$
 	\begin{enumerate}
 		\item Préciser les valeurs de $S_n^1$ et $S_n^n$.
@@ -225,18 +225,17 @@
 		\item Montrer que $S_n^j=j (S_{n-1}^j + S_{n-1}^{j-1})$ \\
 		\begin{correctionbox}
 			Soit $\sigma \in S_n^j$. \\
-			On considère l'ensemble des antécédents $I$ et l'image $k$ de $n$. \\
-			On note $\sigma' : x \mapsto \begin{dcases}
-				k & \text{si\ } x \in I \\
-				\sigma(x) & \text{sinon}
-			\end{dcases}$ \\
-			Alors $\sigma$ est entièrement déterminé par la donnée de $\sigma'$ et de l'ensemble $I$ \\
-			On vérifie aisément que $\sigma'$ est surjective dans $[\![ 1, n [\![$. \\
+			On considère $k$ l'image de $n$.
+			On note $\sigma'$ la restriction de $\sigma$ à $[\![1, n[\![$ \\
+			Alors $\sigma$ est entièrement déterminé par le couple $(\sigma', k)$ \\
 			\begin{itemize}
-				\item Si $k \not \in I$, alors $\sigma'$ parcourt $S_{n-1}^j$.
-				\item Sinon, il parcourt l'ensemble des éléments de $S_{n-1}^j$ laissant invariant $k$. \\
+				\item Si $\sigma'$ est surjective, alors $\sigma'$ alors elle décrit l'ensemble des surjections de $[\![1, n[\![$ dans [\![1, j]\!], au nombre de $S_{n-1}^j$ éléments.
+				\item Sinon, elle parcourt les surjections de $[\![1, n[\![$ dans $[\![1, j]\!] \backslash \{k\}$, \textit{ie} d'un ensemble de $n-1$ éléments dans un ensemble de $j-1$ éléments, au nombre de $S_{n-1}^{j-1}$.
 			\end{itemize}
-			\textbf{FONCTIONNE PAS EN L'ÉTAT}
+			Il en découle par principe additif, puis multiplicatif, que $S_n^j=j (S_{n-1}^j + S_{n-1}^{j-1})$
+			\begin{itemize}
+				\item si 
+			\end{itemize}
 		\end{correctionbox}
 		\item mdrr je code pas en python moi
 		\item En déduire que $\displaystyle \sum^n_{j=1} (-1)^{n-k} k^n \binom k n = n!$
