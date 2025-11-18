@@ -53,13 +53,28 @@
  				& = \sum_{k=1}^{2n} \frac 1 k - 2 \sum_{p=1}^{n} \frac 1 {2p} \\ 
  				& = \sum_{k=1}^{2n} \frac 1 k - \sum_{k=1}^{n} \frac 1 {k}\\ 				
  			\end{align*}
- 			Par analyse asymptotique, avec $\displaystyle \sum_{k=1}^n 1/k = \log n + \gamma + \mathrm o(1)$, on obtient: \\
+ 			Par analyse asymptotique, avec $\displaystyle \sum_{k=1}^n \frac 1 k = \log n + \gamma + \mathrm o(1)$, on obtient: \\
  			$ \displaystyle \sum_{k=1}^{2n} \frac{(-1)^{k+1}} k = \log 2n + \gamma - \log n - \gamma + \mathrm o(1) = \log 2 + \mathrm o(1)$. \\ De plus, $\displaystyle \sum_{k=1}^{2n+1} \frac{(-1)^{k+1}} k = \sum_{k=1}^{2n} \frac{(-1)^{k+1}} k = \log 2 + \mathrm o(1)$. \\
  			On a $\displaystyle \sum_{k=0}^{+\infty}\frac {(-1)^{k+1}}{k} = \log 2$
 		\end{correctionbox}
 		\item Calculer la somme $(1 + \frac 1 3 + \frac 1 5) - (\frac 1 2 + \frac 1 4) + (\frac 1 7 + \frac 1 9 + \frac 1 {11}) - (\frac 1 6 + \frac 1 8) \dots $
 		\begin{correctionbox}
-			Qui sait, je le ferai peut-être avant votre colle?
+			On passe en somme partielle. \\
+			On reconnaît le terme:
+			$$ \frac 1 {6n+1} + \frac  1 {6n+3} + \frac 1 {6n+5} - \frac 1 {4n+2} - \frac 1 {4n+4} $$
+			On obtient alors, pour $N \in \N$, en notant $S_N$ la somme partielle de rang $5N$:
+			\begin{align*}
+				S_N & = \sum_{n=0}^{N} \left(\frac 1 {6n+1} + \frac  1 {6n+3} + \frac 1 {6n+5} \right) - \sum_{n=0}^N \left( \frac 1 {4n+2} + \frac 1 {4n+4} \right) \\
+				& = \sum_{n=0}^{3N+2} {\frac 1 {2n+1}} - \frac 1 2 \sum_{n=0}^{2N+2} \frac 1 {n+1} \\
+				& = \sum_{n=0}^{6N+4} \frac 1 {n+1} - \frac 1 2 \sum_{n=0}^{3N+2} \frac 1 n - \frac 1 2 \sum_{n=0}^{2N+2} \frac 1 {n+1} \\
+			\end{align*}
+			De même, par analyse asymptotique, on obtient:
+			\begin{align*}
+				S_N & = \log{6N} + \gamma - \frac 1 2 \log{3N} - \frac \gamma 2 - \frac 1 2 \log 2N - \frac \gamma 1 + \mathrm o (1) \\
+				& = \frac 1 2 \log 6 +  \mathrm o (1)
+			\end{align*}
+			De même qu'à la question précédente, on a la somme partielle au rang $N$ égale $\frac 1 2 \log 6 + \mathrm o (1)$, d'où:
+			$$ \left(1 + \frac 1 3 + \frac 1 5 \right) - \left(\frac 1 2 + \frac 1 4\right) + \left(\frac 1 7 + \frac 1 9 + \frac 1 {11}\right) - \left(\frac 1 6 + \frac 1 8 \right) \dots = \frac 1 2 \log 6 $$
 		\end{correctionbox}
 		\item Quelles sont les valeurs possibles, dans $\overline {\mathbb R}$, de $\sum u_{\sigma(n)}$, quand $\sigma$ parcourt $\Omega$?
 		\begin{correctionbox}
