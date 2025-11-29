@@ -18,42 +18,14 @@
 	Déterminer les matrices $ A \in M_n (\mathbb R) $ telles que $A^5 -2A^4 -2A^3 +A^2 +4A+I_n = 0$, $\mathrm{tr} (A) = 0$ et $\det (A) = \pm 1$.
 	\\ \\
 	Dans tout l'exercice, on note $P$ le polynôme annulateur décrit dans l'énoncé. \\ \\
-	Cette correction se repose sur \underline{Introduction à la théorie de Galois}\footnote{https://www.cmls.polytechnique.fr/perso/laszlo/galois/galois.pdf}, par Yves Laszlo, et de divers théorèmes trouvés sur \url{wikipedia.org} (on fait avec les sources qu'on trouve, et avec la flemme qu'on a).
-	\\ \\
+	Cette correction se repose sur \underline{Introduction à la théorie de Galois}\footnote{https://www.cmls.polytechnique.fr/perso/laszlo/galois/galois.pdf}, par Yves Laszlo, et d'un théorème très puissant qui résout l'exercice tout seul, trouvé sur \url{wikipedia.org} (on fait avec les sources qu'on trouve, et avec la flemme qu'on a).
+	\\
 	\subsection{Suggestion de correction}
-	L'énoncé original utilisait probablement le polynôme $ P(X) = X^5 -2X^4 -2X^3 + X^2 + 4X + 4 $, qui se factorise aisément en $ (X+1)(X-2)^2(X^2+X+1) $. Or, toutes ses racines sont de module supérieurs ou égaux à 1. Ainsi, pour avoir un déterminant égal à $\pm 1$, les valeurs propres de $A$ ne peuvent être que 1, $j$, $j^2$. \\
-	En trigonalisant dans $ M_n (\mathbb C) $, et en observant la trace, on déduit que les trois valeurs propres éventuelles ont nécessairement la même multiplicité. Ainsi, il ne peut exister une telle matrice que si $3 | n$.
-	Si on note $n=3k$, on a alors, à similitude près:
-	
-	$$
-	\begin{array}{c}
-		\begin{array}{ccc}
-			\overbrace{\hphantom{\begin{array}{ccc}x&x&x\end{array}}}^{k}
-			&
-			\overbrace{\hphantom{\begin{array}{ccc}x&x&x\end{array}}}^{k}
-			&
-			\overbrace{\hphantom{\begin{array}{ccc}x&x&x\end{array}}}^{k}
-		\end{array}
-		\\[-0.3em]
-		\begin{pmatrix}
-			1 \\
-			& \ddots \\
-			& & 1 & & & & * \\
-			& & & j \\
-			& & & & \ddots \\
-			& & & & & j \\
-			& & (0) & & & & j^2 \\
-			& & & & & & & \ddots \\
-			& & & & & & & & j^2
-		\end{pmatrix}
-	\end{array}
-	$$
-	
-	(à noter que j'ai en réalité traité le cas complexe, mais j'admets avoir un peu la flemme de traiter le cas réel, mais si quelqu'un a envie de s'amuser, libre à lui)
+	L'énoncé original utilisait probablement le polynôme $ P(X) = X^5 -2X^4 -2X^3 + X^2 + 4X + 4 $, qui se factorise aisément en $ (X+1)(X-2)^2(X^2+X+1) $. Or, toutes ses racines sont de module supérieurs ou égaux à 1. Ainsi, pour avoir un déterminant égal à $\pm 1$, les valeurs propres de $A$ ne peuvent être que -1, $j$, $j^2$. \\
+	En trigonalisant dans $ M_n (\mathbb C) $, on remarque que la trace est alors strictement négative (de valeur $-m_1 - m_j$), ce qui est absurde: l'ensemble des matrices convenant est $\emptyset$.
 
 	\section{Irréductibilité de $P$ dans $\mathbb Q [X]$}
-	$P$ est unitaire, donc, d'après le lemme de Gauss\footnotemark, si celui-ci est réductible, alors il est réductible dans $\mathbb Z [X]$.\\
-	\footnotetext{https://fr.wikipedia.org/wiki/Lemme\_de\_Gauss\_(polyn\%C3\%B4mes)}
+	$P$ est unitaire, donc, d'après le lemme de Gauss, si celui-ci est réductible dans $\mathbb Q[X]$, alors il est réductible dans $\mathbb Z [X]$.\\
 	De plus, si $P$ est réductible, alors il l'est modulo 2. Supposons $P$ réductible, et notons $P(X) = (X^3 + a X^2 + bX + c) (X^2+ dX + e)$. Il en découle, dans $\mathbb F_2[X]$ (en assimilant les entiers à leur congruence modulo 2 par la surjection canonique):
 	$$ X^5 + X^2 + 1 = (X^3 + a X^2 + bX + c) (X^2+ dX + e)$$
 	On en déduit:
