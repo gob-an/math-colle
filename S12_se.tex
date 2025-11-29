@@ -1,0 +1,45 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{colle}
+
+\title{Corrigé colle S12 \\
+	MPI/MPI* du lycée Faidherbe \\
+	\large Exercices }
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	
+	\subsection*{Exercice 20}
+	Montrer que $e$ est irrationnel.
+	\begin{correctionbox}
+		On suppose $e$ rationnel, on note $e = \frac p q$, avec $p$, $q \in \N$. \\
+		Considérons la quantité $pq!$. On a: \\
+		\begin{align*}
+			 q!p & = q! q \frac p q = q!q e \\
+			 & = q!q \sum_{k=0}^{+\infty} \frac 1 {k!} \\
+			 & = q \sum_{k=0}^q \frac{q!}{k!} + q \sum_{k=q+1}^{+\infty} \frac{q!}{k!}
+		\end{align*}
+		Le membre de gauche est évidemment entier. Le second terme également, par somme d'entiers. Notons le second terme $\delta$. \\
+		Montrons que $0<\delta<1$. \\
+		La première inégalité est évidente. De plus, on a $\displaystyle \delta = q \sum_{k=q+1}^{+\infty} \frac{q!}{k!} = q \sum_{k=1}^{+\infty} \frac{q!}{(q+k)!}$. \\
+		Or, pour $k>0$, on a $\frac {q!} {(q+k)!} \leqslant \frac 1 {(q+1)^k}$, avec égalité ssi $k=1$. \\
+		On en déduit $\displaystyle \delta = q \sum_{k=1}^{+\infty} \frac{q!}{(q+k)!} < q \sum_{k=1}^{+\infty} \frac 1 {(q+1)^k} = q \frac 1 {q+1} \frac 1 {1 - \frac 1 {q+1}} = \frac q {q+1} \frac {q+1} q = 1 $. \\
+		On a bien montré $0<\delta<1$. Or, $\delta \in \Z$, par différence, ce qui est absurde. \\ \\
+		Ainsi, $e \not \in \Q$.
+	\end{correctionbox}
+	
+	\subsection*{Exercice 22}
+	On suppose l'existence de $A \subset \N$ tq $\displaystyle \sum_{n \in A} \frac {x^n} {n!} \mathop{\sim}\limits_{x\rightarrow +\infty} \frac {e^x} {x^2} $
+	\begin{enumerate}
+		\item Pour $I \subset A$ fini, calculer $\displaystyle \int_0^{+\infty} \sum_{n\in I} \frac {x^n e^{-x}} {n!} dx$.
+		\begin{correctionbox}
+			La somme étant finie, on peut permuter somme et intégrale. \\
+			Calculons, par récurrence sur $n$ (eww), $\displaystyle I_n = \int_{0}^{+\infty} x^n e^{-x}$. \\
+			On a, pour $n>0$ $\displaystyle I_n = \int_{0}^{+\infty} x^n e^{-x} = -[x^n e^{-x}]_0^{+\infty} + \int_{0}^{+\infty} x^{n-1} e^{-x} = 0 + I_{n-1}$ (le crochet vaut 0 parce qu'on a supposé $n \not = 0$, il faut faire attention!) Le crochet converge, et $I_{n-1}$ converge par HR, d'où la convergence de $I_n$, et l'égalité. \\
+			On en déduit $I_n = I_0 = -1$. \\ \\
+			Dès lors, l'intégrale de l'énoncé vaut $\displaystyle -\sum_{n\in I} \frac 1 {n!}$. \\
+			\textbf{il y a une erreur, je connais pas beaucoup de fonctions positives d'intégrale négative}
+		\end{correctionbox}
+	\end{enumerate}
+	
+\end{document}
