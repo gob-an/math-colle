@@ -8,7 +8,7 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S9: espaces probabilisés](S9_ep.pdf), exercices 15 à 17
 * S10: semaine de régulation
 * S11: mes plus plates excuses
-* [S12: séries entières](S12_se.pdf), exercice 20
+* [S12: séries entières](S12_se.pdf), exercices 20 et 22
 
 ## exercice 43 de réduction
 Voici [un corrigé](exo43.pdf) de l'exercice 43 du chapitre de réduction...
