@@ -35,17 +35,18 @@
 		\begin{correctionbox}
 			La somme étant finie, on peut permuter somme et intégrale. \\
 			Calculons, par récurrence sur $n$ (eww), $\displaystyle I_n = \int_{0}^{+\infty} x^n e^{-x} dx$. \\
-			On a, pour $n>0$, $\displaystyle I_n = \int_{0}^{+\infty} x^n e^{-x} dx = -[x^n e^{-x}]_0^{+\infty} + \int_{0}^{+\infty} x^{n-1} e^{-x} dx = 0 + I_{n-1}$ (le crochet vaut 0 parce qu'on a supposé $n \not = 0$, il faut faire attention!) Le crochet converge, et $I_{n-1}$ converge par HR, d'où la convergence de $I_n$, et l'égalité. \\
-			On en déduit immédiatement $I_n = I_0 = 1$. \\ \\
-			Dès lors, l'intégrale de l'énoncé vaut $\displaystyle \sum_{n\in I} \frac 1 {n!}$. \\
+			On a, pour $n>0$, $\displaystyle I_n = \int_{0}^{+\infty} x^n e^{-x} dx = -[x^n e^{-x}]_0^{+\infty} + \int_{0}^{+\infty} x^{n-1} e^{-x} dx = 0 + nI_{n-1}$ (le crochet vaut 0 parce qu'on a supposé $n \not = 0$, il faut faire attention!) Le crochet converge, et $I_{n-1}$ converge par HR, d'où la convergence de $I_n$, et l'égalité. \\
+			On en déduit immédiatement $I_n = n!$. \\ \\
+			Dès lors, l'intégrale de l'énoncé vaut $\displaystyle \sum_{n\in I} 1 = |I|$. \\
 			\\
-			On remarque que l'intégrale de la somme sur $I$ est inférieure à $e$. On en déduit qu'il en est de même sur $A$ (à justifier plus!!) \\
-			Ainsi, $\displaystyle \int_0^{+\infty} \sum_{n\in A} \frac {x^n e^{-x}} {n!} dx$ converge. \\
-			Or, $\displaystyle \sum_{n\in A} \frac {x^n e^{-x}} {n!} dx \mathop{\sim}\limits_{x\rightarrow +\infty} \frac 1 {x^2}$ (super... On a montré que l'intégrale de $\frac 1 {x^2}$ converge...)
+			Or, on a $\displaystyle \sum_{n \in I} \frac {x^n e^{-x}} {n!} \leqslant \sum_{n \in A} \frac {x^n e^{-x}} {n!}$. De plus, $\displaystyle x \mapsto \sum_{n \in A} \frac {x^n e^{-x}} {n!}$ est continue sur $[0, +\infty[$, positive, et équivalente en $+\infty$ à $x \mapsto \frac 1 {x^2}$, qui est intégrable sur $[0, +\infty[$. Dès lors, $\displaystyle x \mapsto \sum_{n \in A} \frac {x^n e^{-x}} {n!}$ est intégrable, et on en déduit que l'intégrale de l'énoncé est bornée. \\
+			\\
+			Dès lors, les parties finies de $A$ sont de cardinal bornés, donc $A$ est fini.
+			
 		\end{correctionbox}
 		\item Qu'en conclut-on?
 		\begin{correctionbox}
-			On a alors $\displaystyle \sum_{n \in A} \frac {x^{n+2}} {n!} \mathop{\sim}\limits_{x\rightarrow +\infty} e^x$, ie un polynôme équivalent à la fonction exponentielle, ce qui est absurde.
+			On a alors $\displaystyle \sum_{n \in A} \frac {x^{n+2}} {n!} \mathop{\sim}\limits_{x\rightarrow +\infty} e^x$, ie un polynôme équivalent à la fonction exponentielle, ce qui est absurde. Un tel $A$ n'existe pas.
 		\end{correctionbox}
 	\end{enumerate}
 	
