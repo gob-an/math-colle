@@ -1,0 +1,57 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{colle}
+
+\title{Corrigé colle S13 \\
+	MPI/MPI* du lycée Faidherbe \\
+	\large Exercices 23, 26}
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	\subsection*{Exercice 23}
+	Déterminer $\lim\limits_{n \rightarrow +\infty} \displaystyle \int_{0}^{1} \frac 1 {1 + t + \dots t^n} dt$.
+	\begin{correctionbox}
+		On considère, pour $n\in\N$, $ f_n(t) = \frac 1 {1 + t + \dots t^n}$, qui est continue, donc intégrable. \\
+		Sur $[0,1[$, $f_n(t) = \frac {1-t} {1-t^{n+1}} $, sur $[0, 1[$. \\ \\
+		Pour tout $n$, pour tout $t \in [0,1[$, $|f_n(t)| \leqslant 1$, et $t \mapsto 1$ est continue, donc intégrable, sur $[0, 1[$. \\
+		\\
+		De plus, $(f_n)$ converge simplement vers $f: t \mapsto 1-t$, sur $[0, 1]$. \\
+			D'après le théorème de convergence dominée: $$\int_{0}^{1} \frac 1 {1 + t + \dots t^n}
+			\xrightarrow[n \rightarrow +\infty]{} \int_{0}^{1} (1-t)dt = \frac 1 2$$
+	\end{correctionbox}
+	
+	\subsection*{Exercice 26}
+	Pour $n \in \N$ et $\alpha \in \R_+$, on pose $u_n = \displaystyle \int_{0}^{n} \left( 1 + \frac x n \right) ^n e^{-\alpha x} dx$. \\
+	Dans tout l'exercice, on notera $f_n: x \mapsto \left(1 + \frac x n\right)^n e^{-\alpha x}$
+	\begin{enumerate}
+		\item Calculer un équivalent de $u_n$ quand $\alpha = 0$.
+		\begin{correctionbox}
+			On a alors, pour $x\in\R_+$, $f_n(x) = \left(1+ \frac x n \right) ^n \xrightarrow[n \rightarrow +\infty]{} e^x$. Ainsi, à partir d'un certain rang, $f_n \geqslant \exp -1$, d'où $u_n \geqslant \displaystyle \int_{0}^{n} (e^x-1)dx$. \\
+			Or, $\int (\exp -1)$ diverge vers $+\infty$, d'où $u_n \xrightarrow{} +\infty$.
+			
+		\end{correctionbox}
+		\item Si $\alpha \in ]1, +\infty[$, déterminer la limite de $(u_n)$.
+		\begin{correctionbox}
+			On considère, pour $x\in\R_+$, $\displaystyle \int_{0}^{+\infty} \left( 1 + \frac t n \right) ^n e^{-\alpha t} dt$.
+			On sait que $\left( 1 + \frac t n \right)^n \leqslant e^{-t}$ (car la suite est croissante, et converge vers $e^{-t}$). \\
+			Dès lors $0 \leqslant f_n(t) \leqslant  e^{t(1-\alpha)}$, donc $f_n$ est intégrable sur $[0, +\infty[$. \\
+			\\
+			De plus, $u_n = \displaystyle \int_{0}^{+\infty} f_n + \mathrm o(1)$ (en effet, $u_n$ est l'intégrale partielle de $f_n$). \\
+			$f_n$ est intégrable,  dominée par $\varphi: t \mapsto e^{t(1-\alpha)}$ qui est intégrable, et CVS vers $\varphi$, d'où:
+			$$ \int_{0}^{+\infty} f_n \xrightarrow{} \int_{0}^{+\infty} e^{t(1-\alpha)} dt = \frac 1 {1-\alpha} $$
+			D'où $u_n \xrightarrow{} \frac 1 {1-\alpha}$.
+		\end{correctionbox}
+		\item Si $\alpha=1$, déterminer la limite de $(u_n)$, puis un équivalent de $u_n$
+		\begin{correctionbox}
+			On a de même que précédemment:
+			$$ (e^t - 1)e^{-t} \leqslant f_n(t) \leqslant 1 $$
+			On en déduit immédiatement que $u_n \sim n \xrightarrow{} +\infty$.
+		\end{correctionbox}
+		\item En déduire le comportement de $(u_n)$ pour $\alpha \in ]0,1[$.
+		\begin{correctionbox}
+			On a alors $\displaystyle u_n \geqslant \int_{0}^{+\infty} \left(1+\frac t n\right)^n dt \xrightarrow{} +\infty$. \\
+			Ainsi, par théorème de minoration, $u_n \xrightarrow{} +\infty$.
+		\end{correctionbox}
+		
+	\end{enumerate}
+\end{document}
