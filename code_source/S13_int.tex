@@ -36,7 +36,7 @@
 			On sait que $\left( 1 + \frac t n \right)^n \leqslant e^{-t}$ (car la suite est croissante, et converge vers $e^{-t}$). \\
 			Dès lors $0 \leqslant f_n(t) \leqslant  e^{t(1-\alpha)}$, donc $f_n$ est intégrable sur $[0, +\infty[$. \\
 			\\
-			De plus, $u_n = \displaystyle \int_{0}^{+\infty} f_n + \mathrm o(1)$ (en effet, $u_n$ est l'intégrale partielle de $f_n$). \\
+			De plus, $u_n = \displaystyle \int_{0}^{+\infty} f_n + \mathrm o(1)$ (en effet, $u_n$ est l'intégrale partielle de $f_n$). \textbf{pas sûre que ce soit légal... à rédiger proprement.} \\
 			$f_n$ est intégrable,  dominée par $\varphi: t \mapsto e^{t(1-\alpha)}$ qui est intégrable, et CVS vers $\varphi$, d'où:
 			$$ \int_{0}^{+\infty} f_n \xrightarrow{} \int_{0}^{+\infty} e^{t(1-\alpha)} dt = \frac 1 {1-\alpha} $$
 			D'où $u_n \xrightarrow{} \frac 1 {1-\alpha}$.
@@ -49,7 +49,7 @@
 		\end{correctionbox}
 		\item En déduire le comportement de $(u_n)$ pour $\alpha \in ]0,1[$.
 		\begin{correctionbox}
-			On a alors $\displaystyle u_n \geqslant \int_{0}^{+\infty} \left(1+\frac t n\right)^n dt \xrightarrow{} +\infty$. \\
+			On a alors $\displaystyle u_n \geqslant \int_{0}^{+\infty} \left(1+\frac t n\right)^n e^{-x} dt \xrightarrow{} +\infty$. \\
 			Ainsi, par théorème de minoration, $u_n \xrightarrow{} +\infty$.
 		\end{correctionbox}
 		
