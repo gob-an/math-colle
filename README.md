@@ -14,7 +14,7 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S15: variables aléatoires](S15_va.pdf), exercices 26 et 27
 
 ## best-of
-Les bêtises de goban!
+[Les bêtises de goban!](bestof.pdf)
 
 ## exercice 43 de réduction
 Voici [un corrigé](exo43.pdf) de l'exercice 43 du chapitre de réduction...
