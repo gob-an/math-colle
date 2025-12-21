@@ -13,6 +13,9 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * S14: semaine de régulation
 * [S15: variables aléatoires](S15_va.pdf), exercices 26 et 27
 
+## best-of
+Les bêtises de goban!
+
 ## exercice 43 de réduction
 Voici [un corrigé](exo43.pdf) de l'exercice 43 du chapitre de réduction...
 Profitez-en, j'y ai passé du temps!
