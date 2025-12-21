@@ -1,0 +1,50 @@
+% !TeX spellcheck = en_US
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{colle}
+
+\title{Corrigé colle S15 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 26, 27 }
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	\subsection*{Exercice 27}
+	On tire $\sigma \in \perm_n$ aléatoirement. On note $X_n$ la variable aléatoire qui donne le nombre de cycles de $\sigma$.
+	\begin{enumerate}
+		\item Calculer $\pr(X_n=1)$, $\pr(X_n=n)$.
+		\begin{correctionbox}
+			On se place dans le cadre d'une loi uniforme. \\
+			Si $\sigma \in \perm_n$ contient $n$ cycles, alors $\sigma = \Id$ (car tout point est point fixe: en effet, tout point appartient à un cycle de longueur 1). \\
+			Dès lors, $\pr(X_n=n)= \frac 1 {n!}$. \\
+			\\
+			De plus, si $\sigma$ comporte exactement 1 cycle, alors il s'agit d'un $n$-cycle. \\
+			Or, un $n$-cycle dans $\perm_n$ est entièrement déterminé par:
+			\begin{itemize}
+				\item $\sigma(1)$: $n-1$ choix, car 1 n'est pas point fixe
+				\item $\sigma^2(1)$: $n-2$ choix, car $\sigma(1)$ n'est pas point fixe, et ne peut être envoyé sur 1 sous réserve de former un cycle de longueur 2
+				\item \dots
+				\item $\sigma^n (1) = 1$ pour former un $n$-cycle: 1 choix
+			\end{itemize}
+			Ainsi, il existe $(n-1)!$ $n$-cycles dans $\perm_n$, d'où $\pr(X_n=1) = \frac {(n-1)!} {n!} = \frac 1 n$.
+		\end{correctionbox}
+		
+		\item Déterminer la fonction génératrice de $X_n$.
+		\begin{correctionbox}
+			Pour $\sigma \in \perm_{n+1}$, on considère $\sigma' = (\sigma(n+1) \ n+1) \sigma \in \perm_n$ (l'idée c'est qu'il s'agit de $\sigma$ "corrigée" pour que $n+1$ soit point fixe.) \\
+			Dès lors, le nombre de cycle de $\sigma$ est, si on note $k$ le nombre de cycles de $\sigma'$: \begin{itemize}
+				\item $k+1$ si $n+1$ est point fixe (avec probabilité $\frac 1 {n+1}$, j'ai la flemme de le montrer (ça découle des $n+1$ possibilités pour $\sigma(n+1)$), indépendante de $\sigma'$)
+				\item $k$ sinon
+			\end{itemize}
+			\hfill \\ Montrons maintenant que $\sigma'$ suit une loi uniforme dans $\perm_n$. (flemme $\rightarrow$ plus tard) \\
+			on a alors $X_{n+1} \sim X_n + Y_n$, avec $X_n \Vbar Y_n \hookrightarrow \mathcal B (\frac 1 n)$. \\
+			Dès lors, en notant $G_n$ la fonction génératrice de $X_n$, on a $G_{n+1}(t) = \frac {n-1+t} n G_n(t)$. On arrive alors à une définition de $G_n$ comme produit (il y a sûrement plus beau).
+		\end{correctionbox}
+		\item Déterminer son espérance et sa variance
+		\begin{correctionbox}
+			On a, par linéarité de l'espérance, $\esp(X_{n+1}) = \esp(X_n) + \frac 1 {n+1}$, d'où, par une récurrence immédiate ($X_1=1$), $\esp(X_n) = H_n$, où $H_n$ est la somme partielle de la série harmonique. (On remarque que $\esp(X_n)\sim \log n$.) \\
+			\\ De plus, on sait que $X_n \Vbar Y_n$ d'où $\mathds V(X_{n+1})=\mathds V(X_n) + \mathds V (Y_n) = \mathds V(X_n) + \frac {n-1}{n^2}.$ \\
+			On en déduit que $\mathds V(X_n) = \displaystyle \sum_{k=1}^n \frac {k-1} {k^2}$ (on vérifie que cette formule est bien vraie en $n=1$) \\
+			Ainsi, $\mathds V(X_n) = \frac {n(n+1)} 2 - S_n$, avec $S_n = \displaystyle \sum_{k=1}^n \frac 1 {k^2}$. (On remarque que $\mathds V(X_n) \sim \frac {n^2} 2$.)
+		\end{correctionbox}
+	\end{enumerate}
+\end{document}

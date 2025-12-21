@@ -10,6 +10,8 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * S11: mes plus plates excuses
 * [S12: séries entières](S12_se.pdf), exercices 20 et 22
 * [S13: intégration](S13_int.pdf), exercices 23 et 26
+* S14: semaine de régulation
+* [S15: variables aléatoires](S15_va.pdf), exercices 26 et 27
 
 ## exercice 43 de réduction
 Voici [un corrigé](exo43.pdf) de l'exercice 43 du chapitre de réduction...

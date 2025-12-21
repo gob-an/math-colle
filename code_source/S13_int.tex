@@ -36,7 +36,8 @@
 			On sait que $\left( 1 + \frac t n \right)^n \leqslant e^{-t}$ (car la suite est croissante, et converge vers $e^{-t}$). \\
 			Dès lors $0 \leqslant f_n(t) \leqslant  e^{t(1-\alpha)}$, donc $f_n$ est intégrable sur $[0, +\infty[$. \\
 			\\
-			De plus, $u_n = \displaystyle \int_{0}^{+\infty} f_n + \mathrm o(1)$ (en effet, $u_n$ est l'intégrale partielle de $f_n$). \textbf{pas sûre que ce soit légal... à rédiger proprement.} \\
+			De plus, $u_n = \displaystyle \int_{0}^{+\infty} f_n + \mathrm o(1)$ (en effet, $u_n$ est l'intégrale partielle de $f_n$). \\
+			\textit{(Note: il est plus propre de passer par l'intégrale de $f_n \mathds 1_{[0,n]}$)} \\
 			$f_n$ est intégrable,  dominée par $\varphi: t \mapsto e^{t(1-\alpha)}$ qui est intégrable, et CVS vers $\varphi$, d'où:
 			$$ \int_{0}^{+\infty} f_n \xrightarrow{} \int_{0}^{+\infty} e^{t(1-\alpha)} dt = \frac 1 {1-\alpha} $$
 			D'où $u_n \xrightarrow{} \frac 1 {1-\alpha}$.
