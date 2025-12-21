@@ -8,12 +8,48 @@
 
 \begin{document}
 	\maketitle
+	
+	\subsection*{Exercice 26}
+	Soit $N \geqslant 1$. Soit $(X_n)_{n\in\N^*}$ iid de loi $\mu$ sur $[\![1, N]\!]$ tq $\mu(1)>0$. \\
+	On pose $S_n = \displaystyle \sum_{k=0}^n X_k$ (avec $S_0=0$), et $E = \{S_i \ |\ i\in\N\}$. \\
+	\begin{enumerate}
+		\item Montrer que pour $n\geqslant1$, $\pr(n\in E)=\displaystyle \sum_{k=1}^N \mu(k) \pr(n-k \in E)$
+		\begin{correctionbox}
+			$(n\in E) = \displaystyle \biguplus_{k=1}^N (X_1=k) \cap (n-k \in E')$, où $E' = \left\{S_i'\ |\ i \in \N^*\backslash\{1\}\right\}$, et $S_i'=\displaystyle \sum_{k=2}^i X_k$. \\
+			Or, $S_i' \sim S_{i-1}$, d'où $E'\sim E$. \\
+			On a donc $\pr(n\in E) = \displaystyle \sum_{k=1}^N \mu(k) \pr(n-k \in E') = \sum_{k=1}^N \mu(k) \pr\left(n-ke \in E\right)$			
+		\end{correctionbox}
+		\item Soient $F(z) = \displaystyle \sum_{n \in \N^*} \pr(n\in E) z^n$, $\displaystyle G(z) = \sum_{k=1}^N \mu(k)z^k$. Montrer que $F = \frac 1 {1-G}$.
+		\begin{correctionbox}
+			On prend $z$ dans le rayon de convergence de $F$
+			\begin{align*}
+				F(z) & = \sum_{n\in\N^*} \pr(n\in E) z^n = \sum_{n\in\N^*} z^n \sum_{k=1}^N \mu(k) \pr(n-k \in E) \\
+				& = \sum_{i\in \N} \sum_{n-k=i} \mu(k) \pr(i\in E) z^n \	\ \text{(tout est sommable dans le rayon de convergence)} \\
+				& = \sum_{i\in \N} \sum_{k=1}^N z^i z^k \mu(k) \pr(i\in E) \	\ \text{(les termes pour $k>N$ étant nuls)} \\
+				& = \sum_{i\in\N} z^i \pr(i\in E) \sum_{k=1}^N \mu(k) z^k = \sum_{i\in\N} z^i \pr(i\in E) G(z) \\
+				& = G(z) (1 + F(z)) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{(car $pr(0 \in E)=1$: $S_0=0$)} %c'est très moche...
+			\end{align*}
+			On a donc $F(z) = G(z) (1 + F(z))$, d'où le résultat.
+		\end{correctionbox}
+		\item Montrer que $F$ admet un pôle simple en 1, et que les autres pôles sont de module strictement plus grand que 1.
+		\begin{correctionbox}
+			$F$ admet un pôle en $z$ ssi $G(z)=1$.
+			Or, $G(1)=\displaystyle \sum_{k=1}^N \mu(k) = 1$: 1 est pôle de F (je ne sais pas montrer qu'il est simple). \\ \\
+			De plus, en notant $Y = \min E$, on sait que $\pr(n \in E) \leqslant \pr(Y\leqslant n) \leqslant \pr(Y=n)$. Dès lors, $F$ est de rayon supérieur à celui de la fonction génératrice de $Y$, qui est au moins 1. (il est d'ailleurs égal à 1 d'après la première partie de cette question.) \\ \\
+			On sait donc que si $z$ est pôle de $F$, $|z|\geqslant 1$. Supposons $z$ pôle de $F$ de module 1.
+			\\ 
+			Alors $\displaystyle \left|\sum_{k=1}^N \mu(k) z^k\right| \leqslant \sum_{k=1}^N |\mu(k) z^k| = \sum_{k=1}^N \mu(k) = 1$, et il y a égalité entre le premier et le dernier terme donc égalité à chaque inégalité. Ainsi, les $z^k$ sont positivement colinéaires donc $z\in \R_+$: on a bien $z=1$.
+		\end{correctionbox}
+	\end{enumerate}
+	
+	
+	
 	\subsection*{Exercice 27}
 	On tire $\sigma \in \perm_n$ aléatoirement. On note $X_n$ la variable aléatoire qui donne le nombre de cycles de $\sigma$.
 	\begin{enumerate}
 		\item Calculer $\pr(X_n=1)$, $\pr(X_n=n)$.
 		\begin{correctionbox}
-			On se place dans le cadre d'une loi uniforme. \\
+			On se place dans un cadre d'équiprobabilité. \\
 			Si $\sigma \in \perm_n$ contient $n$ cycles, alors $\sigma = \Id$ (car tout point est point fixe: en effet, tout point appartient à un cycle de longueur 1). \\
 			Dès lors, $\pr(X_n=n)= \frac 1 {n!}$. \\
 			\\
