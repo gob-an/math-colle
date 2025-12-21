@@ -1,0 +1,95 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{lipsum}
+\usepackage{colle}
+\usepackage{amsthm}
+
+\definecolor{bg}{RGB}{255,235,235} 
+\definecolor{line}{RGB}{128,0,32}   
+
+\makeatletter
+\newmdenv[
+linecolor=line,
+linewidth=2pt,
+leftline=true,
+rightline=false,
+topline=false,
+bottomline=false,
+skipabove=6pt,
+skipbelow=6pt,
+innertopmargin=2pt,
+innerbottommargin=2pt,
+innerleftmargin=6pt,
+innerrightmargin=4pt,
+backgroundcolor=bg,
+leftmargin=\dimexpr-\@totalleftmargin\relax,
+rightmargin=0pt
+]{thbox}
+\makeatother
+
+\newenvironment{thm}[1]{%
+	\par\medskip
+	\noindent\textbf{#1}\par\vspace{-1mm}%
+	\begin{thbox}%
+	}{%
+	\end{thbox}%
+	\medskip
+}
+
+
+\title{Best-of}
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	Ce document est dédié aux bêtises que j'ai écrit dans mes corrections (et publié!) (ce qui perd un peu de l'intérêt d'une correction, vous me direz...) \\
+	L'auteure décline toute responsabilité en cas d'utilisation de ces propositions dans une copie.
+	\\
+	\begin{thm}{Premier théorème de goban}
+		Si $M\in T^+(\R)$, alors la dimension du noyau de $M$ égale le nombre de 0 sur sa diagonale.
+	\end{thm}
+	\begin{proof}
+		On procède par récurrence sur le nombre de 0 sur la diagonale. \\
+		\begin{itemize}
+			\item Si les coefficients diagonaux sont non nuls, on sait que la matrice est inversible, d'où le résultat
+			
+			\item supposons la propriété vraie pour $k$ zéros sur la diagonale. On considère alors une matrice $M$ à $k+1$ zéros sur sa diagonale. Quitte à prendre une matrice semblable (ce qui ne change pas la dimension du noyau), on suppose que $M_{1,1}=0$.
+			On écrit alors $M = \begin{pmatrix}
+				0 & v \\
+				(0) & M'
+			\end{pmatrix}$, avec $M'$ de noyau de dimension $k$, par hypothèse de récurrence. \\ \\
+			Pour $X \in M_{n,1}(\C)$, on écrit $X = {}^T(x\ X')$. \\
+			On a $X\in \ker M$ ssi $vX = 0$ et $M'X = 0$, ie $X' \in \ker M'$. \\
+			On va lâchement ignorer la première condition. \\
+			On obtient donc $\ker M = \Vect({}^T (1 \ 0\ \dots\ 0), {}^T (0\ X'))_{X'\in \ker M'}$, d'où le résultat
+		\end{itemize}
+		D'après le principe de récurrence, la proposition est bien vraie pour tout $k$.
+	\end{proof}
+	\hfill \\
+	\textbf{Corollaire 1}: Une matrice nilpotente est nulle. \\
+	(\textit{Note}: ce résultat étant connu, on pouvait directement utiliser celui-ci pour démontrer le théorème, en notant, à similitude près, $M = \begin{pmatrix}
+		N & * \\
+		(0) & M'
+	\end{pmatrix}$, avec $N$ nilpotente et $M$ inversible.) \\
+	\textbf{Corollaire 2}: Le noyau d'une matrice itérée égale le noyau de la matrice elle-même. \\
+	(\textit{Élément de preuve}: S'obtient en trigonalisant dans $M_n(\C)$) \\
+	(utilisé dans l'exercice 19 de la semaine 7)
+	\\ \\ \\
+	\begin{thm}{Second théorème de goban}
+		Pour $E$, $F_1$, $F_2$ trois sous-espaces vectoriels du même espace, on a:
+		$$ E \cap (F_1 + F_2) = (F_1 \cap E) + (F_2 \cap E)$$
+		Autrement dit, l'intersection passe à la somme directe.
+	\end{thm}
+	\begin{proof}
+		L'inclusion directe est immédiate, et je ne vous ferai pas l'affront de vous en faire la démonstration.
+		
+		On suppose $x=x_1+x_2$, avec $x_1 \in F_1 \cap E$, $x_2 \in F_2 \cap E$.
+		Alors $x_1 + x_2 \in F_1 + F_2$ par définition de la somme, et $x_1 + x_2 \in E$ par stabilité pour $+$, d'où l'inclusion réciproque.
+	\end{proof}
+	\textbf{Corollaire 1}: Ce résultat reste vrai pour une somme directe. \\
+	\textbf{Corollaire 2}: Ce résultat reste vrai pour une somme de $k$ sev. \\
+	(Très utile pour décomposer un sous-espace $F$ de $E$ (par exemple en sous-espaces propres de F, etc.), si on a une décomposition de $E$ tout entier (utilisé dans l'exercice 16 de la semaine 7.))
+\end{document}
