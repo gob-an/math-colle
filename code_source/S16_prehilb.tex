@@ -1,11 +1,30 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S16 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercice 24}
+\title{Corrigé colle S16 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 23, 24}
 \author{Léane Parent}
 
 \begin{document}
 	\maketitle
+	
+	\subsection*{Exercice 23}
+	Soit $n$ un entier naturel.
+	\begin{enumerate}
+		\item Montrer qu'il existe un unique polynôme $A \in \R_n[X]$ tq, pour $P \in R_n[X]$, $P(1)=\displaystyle \int_{-1}^1 \frac {A(t) P(t)}{\sqrt{1-t^2}} dt$.
+		\begin{correctionbox}
+			L'évaluation en 1 étant une forme linéaire non nulle, pour tout produit scalaire $\langle \cdot, \cdot \rangle$, il existe un unique $A$ tq $\langle A, \cdot\rangle$ est l'évaluation en 1, car $\R_n[X]$ est de dimension finie. \\
+			On note, pour $P$, $Q \in \R_n[X]$ $\langle P, Q \rangle = \displaystyle \int_{-1}^1 \frac {P(t)Q(t)}{\sqrt(1+t^2)}$. Montrons que $\langle \cdot, \cdot \rangle$ définit un produit scalaire. \\
+			Le caractère défini positif se fait comme usuellement (continu positif d'intégrale nulle...). Le caractère symétrique découle de la commutativité du produit, et la linéarité de celle de l'intégrale. \\
+			Ainsi, d'après la remarque précédente, il existe un unique $A$ tq, pour tout $P$, $P(1)=\displaystyle\int_{-1}^1 \frac{A(t)P(t)}{\sqrt{1-t^2}}$.
+		\end{correctionbox}
+		\item Peut-on remplacer $R_n[X]$ par $R[X]$?
+		\begin{correctionbox}
+			A priori non (on n'est plus en dimension finie, ça n'a aucune raison de fonctionner), mais il s'agirait de le montrer. \\
+			Le produit scalaire défini ci-dessus reste un produit scalaire sur $\R[X]$. \\
+			On suppose qu'il existe un tel $A$, de degré $n$. On remarque que $\Vect\  A ^\perp = (X-1)\R[X]$ (les polynômes s'annulant en 1). \\
+			(je me retrouve quelque peu bloquée...)
+		\end{correctionbox}
+	\end{enumerate}
 	
 	\subsection*{Exercice 24}
 	Soit $E$ euclidien de dimension $n$. \\
