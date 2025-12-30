@@ -1,0 +1,43 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{colle}
+
+\title{Corrigé colle S16 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercice 24}
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	
+	\subsection*{Exercice 24}
+	Soit $E$ euclidien de dimension $n$. \\
+	Soient $x_1, \ \dots\ x_k$ tq, pour $i \not = j$, $\langle x_i, x_j\rangle <0$. Montrer que $k$ ne peut pas être trop grand et trouver cette limite. \\
+	(On appellera $(x_1,\ \dots\ x_k)$ une famille obstusangle.) 
+	\begin{correctionbox}
+		Montrons tout d'abord (par récurrence, vous savez que j'adore ça) qu'il existe une famille obtusangle à $n+1$ éléments
+		\begin{itemize}
+			\item Si $n=1$, il existe $x$ tq $E=\Vect\ x$. Alors $(x, -x)$ convient.
+			\item Soit $n\geqslant 1$. Si $\dim E = n+1$, supposons que pour $F$ sev de $E$ de dimension n, $F$ contient une famille obtusangle à $n+1$ éléments. \\
+			On prend $x \not = 0$ dans $E$. Soit $F = \Vect\ x ^\perp$. On considère $(x_1, \ \dots \ x_{n+1})$ famille obtusangle de $F$ (qui existe par hypothèse de récurrence).  \\
+			On note, pour $\lambda>0$ $f_\lambda (y) = y - \lambda x$. \\
+			D'une part, $\langle x, f_\lambda(x_i) \rangle = -\lambda <0$. De plus, $\langle f_\lambda(x_i), f_\lambda(x_j) = \langle x_i, x_j \rangle + \lambda^2 \|x\|^2$. Il existe donc $\lambda$ assez petit pour que cette quantité soit négative pour tous $i$, $j$ ($\lambda = -\frac 1 2 \max\langle x_i, x_j \rangle$ convient.) \\
+			$(x, x_1,\ \dots,\ x_{n+1})$ est bien obtusangle, ce qui clôt la récurrence.
+		\end{itemize}
+		\hfill \\
+		Montrons maintenant que cette famille est bien la plus grande.
+		Montrons d'abord le lemme suivant: si $(x_i)_i$ est obtusangle, et que $\displaystyle \sum_i \lambda_i x_i$ est une combinaison linéaire non triviale annulant les $(x_i)$, alors les $(\lambda_i)$ sont non nuls et de même signe. \\ \\
+		On note $I = \left\{i\ |\ \lambda_i <0\right\}$, $J = \left\{i\ |\ \lambda_i \geqslant 0\right\}$ \\
+		Puisque la combinaison linéaire est non triviale, il existe $i$ tq $lambda_i \not = 0$. Quitte à prendre l'opposé de la combinaison linéaire, on peut supposer $\lambda_i > 0$, ie $I \not = \emptyset$ \\
+		On a alors: $$\sum_{i\in I} \lambda_i x_i = -\sum_{j\in J} \lambda_j x_j$$
+		En notant $S$ la somme de droite, et en prenant le produit scalaire par $S$, on obtient:
+		$$\sum_{i,j} \lambda_i \lambda_j \langle x_i,  x_j \rangle = -\|S\|^2 $$
+		Or, tous les termes de la somme sont positifs (car les $\lambda_i$ sont positifs, les $\lambda_j$ négatifs, et les $\langle x_i, x_j \rangle$ négatifs car $I$ et $J$ sont disjoints, donc la somme est positive. De plus, le second terme est négatif, donc tous les termes de la somme sont nuls. \\
+		Ainsi, tous les $\lambda_j$ sont nuls (puisque $I$ est non vide) \\		
+		Ainsi, tous les $\lambda_i$ sont positifs. \\
+		De plus, si $\lambda_i=0$, on a:
+		$$ 0 = \langle 0, e_i \rangle = \langle \sum_j \lambda_j e_j, e_i \rangle = \sum_j \lambda_j \langle e_i, e_j \rangle $$
+		Cette somme est strictement négative car tous ses termes (non nuls, qui existent bel et bien) le sont, ce qui est absurde. Ceci achève la démonstration du lemme.
+		\\ \\
+		On suppose que l'on a une famille obtusangle $(x_1,\ \dots\ x_{n+2})$ à $n+2$ éléments. \\
+		Puisque $E$ est de dimension $n$, il existe $\lambda_1,\ \dots\ \lambda_{n+1}$ tq $\lambda_1 x_1 + \dots + \lambda_n x_n + \lambda_{n+1} (x_{n+1}-x_{n+2}) = 0$. \\
+		Ainsi, $\lambda_{n+1}$ et $-\lambda_{n+1}$ sont tous deux coefficients dans une CL annulant une famille obtusangle: ils non nuls et de même signe, ce qui est absurde: une famille obtusangle à $n+2$ éléments n'existe pas.
+	\end{correctionbox}
+\end{document}
