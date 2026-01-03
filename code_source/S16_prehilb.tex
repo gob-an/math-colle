@@ -1,20 +1,29 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S16 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 23, 24, 25}
+\title{Corrigé colle S16 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 21, 23, 24, 25}
 \author{Léane Parent}
 
 \begin{document}
 	\maketitle
 	
-	%\subsection*{Exercice 21}
-	%Soit $E$ euclidien, soient $a$, $b \in E$ non nuls. Pour $x\in E \backslash \{0\}$, on note $f(x) = \frac {\scal a x \scal b x} {\|x\|^2}$. Déterminer les bornes inférieure et supérieure de $f$.
-	%\begin{correctionbox}
-	%	Puisque $f(\lambda x) = f(x)$, il suffit de considérer $\scal a x \scal b x$ où $x$ est unitaire. \\
-	%	On note $a=u+v$, $b=u-v$ (avec $u = \frac {a+b} 2$, $v=\frac {a-b} 2$).
-	%	On a alors $f(x) = \scal {u+v} x \scal {u-v} x = \scal u x ^2 - \scal v x ^2$. \\
-	%	On note $v=\lambda u + h$, avec $h$ orthogonal à $u$.
-	%\end{correctionbox}
+	\subsection*{Exercice 21}
+	Soit $E$ euclidien, soient $a$, $b \in E$ non nuls. Pour $x\in E \backslash \{0\}$, on note $f(x) = \frac {\scal a x \scal b x} {\|x\|^2}$. Déterminer les bornes inférieure et supérieure de $f$.
+	\begin{correctionbox}
+		Puisque $f(\lambda x) = f(x)$, il suffit de considérer $\scal a x \scal b x$ où $x$ est unitaire. \\
+		On note $a=u+v$, $b=u-v$ (avec $u = \frac {a+b} 2$, $v=\frac {a-b} 2$).
+		On a alors $f(x) = \scal {u+v} x \scal {u-v} x = \scal u x ^2 - \scal v x ^2$. \\
+		
+		Si $a$ et $b$  sont liés, alors $b = \beta u$. En notant $x= \lambda a + x'$, avec $x'$ orthogonal à $a$, $\lambda^2 \leqslant 1$ (pour que $x$ soit unitaire), on obtient $f(x) = \lambda^2\beta\|a\|^2$,  d'où une borne supérieure (si $\beta \geqslant 0$) de $\beta\|a\|^2 = \|a\|\|b\|$ (atteinte en $x = \frac 1 {\|a\|} a$), et une borne inférieure de 0 (pour $x$ normal à $a$) \\
+		(Si $\alpha<0$, on a de même une borne sup à 0 et une borne inf à $-\|a\|\|b\|$) \\
+		
+		Sinon, on note $a=u+v$, $b=u-v$ (avec $u = \frac {a+b} 2$, $v=\frac {a-b} 2$), et $u$  et $v$ forment une famille libre. \\
+		On a alors $f(x) = \scal {u+v} x \scal {u-v} x = \scal u x ^2 - \scal v x ^2$. \\
+		Puisque $u$, $v$ forment une famille libre, il existe $w$ inversible tq $w(u)$, $w(v)$ forment une famille orthonormée. \\
+		On procède au changement de variable $x \leftarrow w*(x)$ ($w*$ est bien inversible), et on obtient $f(x) = \scal u {w*(x)}^2 - \scal v {w*(x)} ^2 = \scal {w(u)} x ^2 - \scal {w(v)} x^2$. \\
+		On note alors $x = \lambda w(u) + \mu w(v) + x'$, avec $x'$ normal à $w(u)$, $w(v)$ ($x$ est unitaire, donc $\lambda^2 + \mu^2 + \|x'\|^2 = 1$). \\
+		Dès lors, $f(x) = \lambda^2 - \mu^2$, d'où il découle immédiatement une borne supérieure atteinte en $w(u)$ de 1, et une borne inférieure en $w(v)$ de -1.
+	\end{correctionbox}
 	
 	\subsection*{Exercice 23}
 	Soit $n$ un entier naturel.

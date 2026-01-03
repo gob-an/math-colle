@@ -12,7 +12,7 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S13: intégration](S13_int.pdf), exercices 23 et 26
 * S14: semaine de régulation
 * [S15: variables aléatoires](S15_va.pdf), exercices 26 et 27
-* [S16: espaces préhilbertiens et euclidiens](S16_prehilb.pdf), exercices 23, 24 et 25
+* [S16: espaces préhilbertiens et euclidiens](S16_prehilb.pdf), exercices 21, 23, 24 et 25
 
 ## best-of
 [Les bêtises de goban!](bestof.pdf)
