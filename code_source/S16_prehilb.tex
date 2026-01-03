@@ -1,11 +1,20 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S16 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 23, 24}
+\title{Corrigé colle S16 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 23, 24, 25}
 \author{Léane Parent}
 
 \begin{document}
 	\maketitle
+	
+	%\subsection*{Exercice 21}
+	%Soit $E$ euclidien, soient $a$, $b \in E$ non nuls. Pour $x\in E \backslash \{0\}$, on note $f(x) = \frac {\scal a x \scal b x} {\|x\|^2}$. Déterminer les bornes inférieure et supérieure de $f$.
+	%\begin{correctionbox}
+	%	Puisque $f(\lambda x) = f(x)$, il suffit de considérer $\scal a x \scal b x$ où $x$ est unitaire. \\
+	%	On note $a=u+v$, $b=u-v$ (avec $u = \frac {a+b} 2$, $v=\frac {a-b} 2$).
+	%	On a alors $f(x) = \scal {u+v} x \scal {u-v} x = \scal u x ^2 - \scal v x ^2$. \\
+	%	On note $v=\lambda u + h$, avec $h$ orthogonal à $u$.
+	%\end{correctionbox}
 	
 	\subsection*{Exercice 23}
 	Soit $n$ un entier naturel.
@@ -59,4 +68,54 @@
 		Puisque $E$ est de dimension $n$, il existe $\lambda_1,\ \dots\ \lambda_{n+1}$ tq $\lambda_1 x_1 + \dots + \lambda_n x_n + \lambda_{n+1} (x_{n+1}-x_{n+2}) = 0$. \\
 		Ainsi, $\lambda_{n+1}$ et $-\lambda_{n+1}$ sont tous deux coefficients dans une CL annulant une famille obtusangle: ils non nuls et de même signe, ce qui est absurde: une famille obtusangle à $n+2$ éléments n'existe pas.
 	\end{correctionbox}
+	
+	\subsection*{Exercice 25}
+	Soit $E$ un $\R$-ev de dimension finie. Soient $\varphi$, $psi$ deux produits scalaires sur $E$.
+	\begin{enumerate}
+		\item Montrer l'existence d'un endomorphisme auto-adjoint positif $a$ pour ces deux produits scalaires tel que: $\forall x, y\in E, \varphi(x, y) = \psi\left(a(x), y\right)$
+		\begin{correctionbox}
+			On fixe $x$ de $E$. $y \mapsto \varphi(x, y)$ étant une forme linéaire, par théorème de représentation des formes linéaires (pour $\psi$)il existe un unique $a(x)$ tq, pour tout $y \in E$, $\varphi(x, y) = \psi(a(x), y)$. On a donc une application $a$ vérifiant cette égalité. Montrons qu'il s'agit d'un endomorphisme autoadjoint positif. \\
+			
+			La linéarité de $a$ découle immédiatement de la bilinéarité de $\varphi$. \\
+			
+			De plus, $\psi(x, a(y)) = \psi(a(y), x) = \varphi(y, x) = \varphi(x, y) = \psi(a(x), y)$: $a$ est bien autoadjoint pour $\psi$. \\
+			On a également $\varphi(a(x), y) = \psi(a^2(x), y) = \psi(x, a^2(y)) = \varphi(x, y)$. \\
+			
+			Enfin, $\psi(a(x), x) = \varphi(x, x) \geqslant 0$: $a$ est positif pour $\psi$ (il est d'ailleurs défini positif).
+			On a de même que précédemment $\varphi(a(x), x) = \psi(a^2(x), x) = \psi(a(x), a(x)) \geqslant 0$. \\
+			
+			$a$ est bien un endomorphisme autoadjoint (défini) positif pour les $\varphi$ et $\psi$.
+		\end{correctionbox}
+		
+		\item En utilisant $a$, donner une CNS pour qu'un élément de $O(E, \varphi)$ soit dans $O(E, \psi)$.
+		\begin{correctionbox}
+			Soit $u \in O(E, \varphi)$. \\
+			
+			\textbf{condition nécessaire}: On suppose $u\in O(E, \psi)$. On a:
+			\begin{align*}
+				\varphi (u(x), u(y)) & = \varphi(x, y) \\
+				\psi(au(x), u(y) & = \psi(a(x),y) \\
+				\psi(u^{-1}au(x), y) & = \psi(a(x), y)
+			\end{align*}
+			D'où par bilinéarité $\psi(u^{-1}au(x) - a(x), y) = 0$, et pour $y = u^{-1}au(x) - a(x)$, on obtient par définie positivité $u^{-1}au(x) = a(x)$, et ce pour tout $x$, ie $u$ commute avec $a$.\\
+			
+			\textbf{condition suffisante}: On suppose $u$ commutant avec $a$. \\
+			Tout d'abord, on sait que $a$ est inversible, en considérant $a'$ défini tel que pour tout $(x, y)$, $\psi(x, y) = \varphi(a'(x), y)$: il existe bien par symétrie des rôles, et on vérifie aisément que $a' = a^{-1}$. \\
+			Pour $x$, $y \in E$, $\psi(u(x), y) = \varphi(a^{-1}u(x), y) = \varphi(ua^{-1}(x), y) = \varphi(a^{-1}(x), u^{-1}(y)) = \psi(x, u^{-1}(y))$: $u$ est bien orthogonal pour $\psi$. \\
+			
+			Ainsi, $u$ est orthogonal pour $\psi$ ssi $a$ et $u$ commutent.
+		\end{correctionbox}
+		
+		\item Soit $P$ l'ensemble des produits scalaires sur $E$. Déterminer $\displaystyle \bigcap_{\varphi \in P} O(E, \varphi)$.
+		\begin{correctionbox}
+			On fixe $\phi\in P$. On montre aisément (c'est la même démonstration que la question (1) mais dans l'autre sens) que pour tout $a$ autoadjoint positif (pour $\varphi$), $x, y \mapsto \varphi(a(x), y)$ est un produit scalaire. \\
+			
+			Dès lors, si $u$ est dans l'intersection, il commute avec tous les endomorphismes autoadjoints positifs pour $\varphi$ (question (2)). Or ceux-ci engendrent $\mathcal L(E)$, donc $u$ commute avec tous les endomorphismes de $E$: $u$ est une homothétie. On note $u = \lambda\Id$. \\
+			
+			De plus, $u$ est orthogonal, d'où $\varphi(x, x) = \varphi(u(x), u(x)) = \lambda^2\varphi(x, x) $\\
+			Ainsi (puisque cette égalité est vraie pour tout $x$, en particulier pour $x$ non nul), $\lambda^2 = \pm 1$, d'où $u=\pm\Id$. \\
+			
+			La réciproque étant immédiate, on a donc: $\displaystyle \bigcap_{\varphi \in P} O(E, \varphi) = \{\pm\Id\}$
+		\end{correctionbox}
+	\end{enumerate}
 \end{document}
