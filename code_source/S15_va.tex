@@ -35,8 +35,8 @@
 		\begin{correctionbox}
 			$F$ admet un pôle en $z$ ssi $G(z)=1$.
 			Or, $G(1)=\displaystyle \sum_{k=1}^N \mu(k) = 1$: 1 est pôle de F. \\
-			De plus, $G'(1) = \displaystyle \sum_{k=2}^N \mu(k)$, qui est différent de 0 si $\mu(1) \not = 1$: 1 est alors racine simple de $1-G$, donc pôle simple de $F$. Si $\mu(1)=1$, $S_n=n$ presque sûrement, d'où $F(z)=\displaystyle \sum_{n\in\N*} z^n = \frac 1 {1-x}$ sur $]-1, 1[$, donc 1 est pôle simple. \\ \\
-			De plus, si $z$ est pôle de $F$ de module 1, alors $\displaystyle \left|\sum_{k=1}^N \mu(k) z^k\right| \leqslant \sum_{k=1}^N |\mu(k) z^k| \leqslant \sum_{k=1}^N \mu(k) = 1$, et il y a égalité entre le premier et le dernier terme donc égalité à chaque inégalité. Ainsi, les $z^k$ sont positivement colinéaires donc $z\in \R_+$: on a bien $z=1$.
+			De plus, $G'(1) = \displaystyle \sum_{k=1}^N k \mu(k)$, qui est différent de $0$ car somme de termes positifs dont le premier est non nul. Ainsi, 1 est racine simple de $1-G$, donc 1 est pôle simple. \\ \\
+			De plus, si $z$ est pôle de $F$ de module 1, alors $\displaystyle \left|\sum_{k=1}^N \mu(k) z^k\right| \leqslant \sum_{k=1}^N |\mu(k) z^k| \leqslant \sum_{k=1}^N \mu(k) = 1$, et il y a égalité entre le premier et le dernier terme donc égalité à chaque inégalité. Ainsi, (par la première inégalité) les $z^k$ sont positivement colinéaires donc $z\in \R_+$, et (par la seconde inégalité) les $z^k$ sont de module 1: on a bien $z=1$.
 		\end{correctionbox}
 	\end{enumerate}
 	
@@ -71,7 +71,7 @@
 			\end{itemize}
 			\hfill \\ Montrons maintenant que $\sigma'$ suit une loi uniforme dans $\perm_n$. (flemme $\rightarrow$ plus tard) \\
 			on a alors $X_{n+1} \sim X_n + Y_n$, avec $X_n \Vbar Y_n \hookrightarrow \mathcal B (\frac 1 n)$. \\
-			Dès lors, en notant $G_n$ la fonction génératrice de $X_n$, on a $G_{n+1}(t) = \frac {n-1+t} n G_n(t)$. On arrive alors à une définition de $G_n$ comme produit (il y a sûrement plus beau).
+			Dès lors, en notant $G_n$ la fonction génératrice de $X_n$, on a $G_{n+1}(t) = \frac {n-1+t} n G_n(t)$. On arrive alors à $G_n(t) = \frac 1 {n!} t(t+1)\dots(t+n-1)$.
 		\end{correctionbox}
 		\item Déterminer son espérance et sa variance
 		\begin{correctionbox}
