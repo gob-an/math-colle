@@ -65,20 +65,21 @@
 		\item Déterminer la fonction génératrice de $X_n$.
 		\begin{correctionbox}
 			Pour $\sigma \in \perm_{n+1}$, on considère $\sigma' = (\sigma(n+1) \ n+1) \sigma \in \perm_n$ (l'idée c'est qu'il s'agit de $\sigma$ "corrigée" pour que $n+1$ soit point fixe.) \\
-			Dès lors, le nombre de cycle de $\sigma$ est, si on note $k$ le nombre de cycles de $\sigma'$: \begin{itemize}
+			Dès lors, le nombre de cycle de $\sigma$ est, si on note $k$ le nombre de cycles de $\sigma'$ (dans $\perm_n$, c'est-à-dire sans compter le cycle (de longueur 1) de $n+1$):
+			 \begin{itemize}
 				\item $k+1$ si $n+1$ est point fixe (avec probabilité $\frac 1 {n+1}$, j'ai la flemme de le montrer (ça découle des $n+1$ possibilités pour $\sigma(n+1)$), indépendante de $\sigma'$)
 				\item $k$ sinon
 			\end{itemize}
 			\hfill \\ Montrons maintenant que $\sigma'$ suit une loi uniforme dans $\perm_n$. (flemme $\rightarrow$ plus tard) \\
-			on a alors $X_{n+1} \sim X_n + Y_n$, avec $X_n \Vbar Y_n \hookrightarrow \mathcal B (\frac 1 n)$. \\
+			on a alors $X_{n+1} \sim X_n + Y_n$, avec $X_n \Vbar Y_n \hookrightarrow \mathcal B (\frac 1 {n+1})$. \\
 			Dès lors, en notant $G_n$ la fonction génératrice de $X_n$, on a $G_{n+1}(t) = \frac {n-1+t} n G_n(t)$. On arrive alors à $G_n(t) = \frac 1 {n!} t(t+1)\dots(t+n-1)$.
 		\end{correctionbox}
 		\item Déterminer son espérance et sa variance
 		\begin{correctionbox}
 			On a, par linéarité de l'espérance, $\esp(X_{n+1}) = \esp(X_n) + \frac 1 {n+1}$, d'où, par une récurrence immédiate ($X_1=1$), $\esp(X_n) = H_n$, où $H_n$ est la somme partielle de la série harmonique. (On remarque que $\esp(X_n)\sim \log n$.) \\
-			\\ De plus, on sait que $X_n \Vbar Y_n$ d'où $\mathds V(X_{n+1})=\mathds V(X_n) + \mathds V (Y_n) = \mathds V(X_n) + \frac {n-1}{n^2}.$ \\
+			\\ De plus, on sait que $X_n \Vbar Y_n$ d'où $\mathds V(X_{n+1})=\mathds V(X_n) + \mathds V (Y_n) = \mathds V(X_n) + \frac n {(n+1)^2}.$ \\
 			On en déduit que $\mathds V(X_n) = \displaystyle \sum_{k=1}^n \frac {k-1} {k^2}$ (on vérifie que cette formule est bien vraie en $n=1$) \\
-			Ainsi, $\mathds V(X_n) = \frac {n(n+1)} 2 - S_n$, avec $S_n = \displaystyle \sum_{k=1}^n \frac 1 {k^2}$. (On remarque que $\mathds V(X_n) \sim \frac {n^2} 2$.)
+			Ainsi, $\mathds V(X_n) = H_n-  S_n$, avec $S_n = \displaystyle \sum_{k=1}^n \frac 1 {k^2}$. (On remarque que $\mathds V(X_n) \sim \log n$.)
 		\end{correctionbox}
 	\end{enumerate}
 \end{document}
