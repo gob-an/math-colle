@@ -97,12 +97,10 @@ rightmargin=0pt
 		Si un ensemble a un minimum inférieur à $x$, alors ce minimum est $x$.
 	\end{thm}
 	\begin{proof}
-		On se donne $E$ tel que $\min E \leqslant x$. \\
-		Pour $k\in E$, on a $\min E \leqslant k$. Or $\min E \leqslant x$, d'où par transitivité (je crois) $x \leqslant k$. \\
-		Ceci est en particulier vrai pour $k = \min E$, ie $x \leqslant \min E$, d'où par double inégalité $x = \min E$
+		On connaît le théorème (classique!) affirmant qu'un minorant est également minimum. Celui-ci est malheureusement faux. Ainsi, dans le cas d'un ensemble admettant un minimum, $x \leqslant \min E \not \Rightarrow x = \min E$. \\
+		Par conséquent, on a bien $x\geqslant \min E \Rightarrow x = \min E$. (Si $P\not \Rightarrow Q$, alors $\neg P \Rightarrow Q$.)
 	\end{proof}
 	\textbf{Remarque 1}: Ce résultat peut sûrement se généraliser à une borne inférieure. \\
-	\textbf{Remarque 2}: Cela démontre la rationnalité de $\pi$. En effet, celui-ci est supérieur à $\min\N$, donc $\min\N=\pi$, et un minimum est atteint donc $\pi\in\N$. En particulier, $\pi\in\Q$. \\
-	\textbf{Remarque 3}: À ne pas confondre avec le théorème (classique!) affirmant qu'un minorant est également minimum. \\ \\
+	\textbf{Remarque 2}: Cela démontre la rationnalité de $\pi$. En effet, celui-ci est supérieur à $\min\N$, donc $\min\N=\pi$, et un minimum est atteint donc $\pi\in\N$. En particulier, $\pi\in\Q$. \\ \\
 	Ce résultat est très utile pour passer d'une inégalité à une égalité (en prenant $x=\min E$) (utilisé dans l'exercice 26 de la semaine 15).
 \end{document}
