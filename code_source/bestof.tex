@@ -92,4 +92,16 @@ rightmargin=0pt
 	\textbf{Corollaire 1}: Ce résultat reste vrai pour une somme directe. \\
 	\textbf{Corollaire 2}: Ce résultat reste vrai pour une somme de $k$ sev. \\
 	(Très utile pour décomposer un sous-espace $F$ de $E$ (par exemple en sous-espaces propres de F, etc.), si on a une décomposition de $E$ tout entier (utilisé dans l'exercice 16 de la semaine 7.))
+	\\ \\ \\
+		\begin{thm}{Troisième théorème de goban}
+		Si un ensemble a un minimum inférieur à $x$, alors ce minimum est $x$.
+	\end{thm}
+	\begin{proof}
+		On se donne $E$ tel que $\min E \leqslant x$. \\
+		Pour $k\in E$, on a $\min E \leqslant k$. Or $\min E \leqslant x$, d'où par transitivité $x \leqslant k$. \\
+		Ceci est en particulier vrai pour $k = \min E$, ie $x \leqslant \min E$, d'où par double inégalité $x = \min E$
+	\end{proof}
+	\textbf{Remarque 1}: Ce résultat peut sûrement se généraliser à une borne inférieure. \\
+	\textbf{Remarque 2}: Cela démontre la rationnalité de $\pi$. En effet, celui-ci est supérieur à $\min\N$, donc $\min\N=\pi$, et un minimum est atteint donc $\pi\in\N$. En particulier, $\pi\in\Q$. \\
+	Ce résultat est très utile pour passer d'une inégalité à une égalité (en prenant $x=\min E$) (utilisé dans l'exercice 26 de la semaine 15).
 \end{document}
