@@ -31,16 +31,23 @@
 		\item Montrer qu'il existe un unique polynôme $A \in \R_n[X]$ tq, pour $P \in R_n[X]$, $P(1)=\displaystyle \int_{-1}^1 \frac {A(t) P(t)}{\sqrt{1-t^2}} dt$.
 		\begin{correctionbox}
 			L'évaluation en 1 étant une forme linéaire non nulle, pour tout produit scalaire $\langle \cdot, \cdot \rangle$, il existe un unique $A$ tq $\langle A, \cdot\rangle$ est l'évaluation en 1, car $\R_n[X]$ est de dimension finie. \\
-			On note, pour $P$, $Q \in \R_n[X]$ $\langle P, Q \rangle = \displaystyle \int_{-1}^1 \frac {P(t)Q(t)}{\sqrt(1+t^2)}$. Montrons que $\langle \cdot, \cdot \rangle$ définit un produit scalaire. \\
+			On note, pour $P$, $Q \in \R_n[X]$ $\langle P, Q \rangle = \displaystyle \int_{-1}^1 \frac {P(t)Q(t)}{\sqrt{1+t^2}}dt$. Montrons que $\langle \cdot, \cdot \rangle$ définit un produit scalaire. \\
 			Le caractère défini positif se fait comme usuellement (continu positif d'intégrale nulle...). Le caractère symétrique découle de la commutativité du produit, et la linéarité de celle de l'intégrale. \\
-			Ainsi, d'après la remarque précédente, il existe un unique $A$ tq, pour tout $P$, $P(1)=\displaystyle\int_{-1}^1 \frac{A(t)P(t)}{\sqrt{1-t^2}}$.
+			Ainsi, d'après la remarque précédente, il existe un unique $A$ tq, pour tout $P$, $P(1)=\displaystyle\int_{-1}^1 \frac{A(t)P(t)}{\sqrt{1-t^2}}dt$.
 		\end{correctionbox}
 		\item Peut-on remplacer $\R_n[X]$ par $\R[X]$?
 		\begin{correctionbox}
 			A priori non (on n'est plus en dimension finie, ça n'a aucune raison de fonctionner), mais il s'agirait de le montrer. \\
 			Le produit scalaire défini ci-dessus reste un produit scalaire sur $\R[X]$. \\
-			On suppose qu'il existe un tel $A$, de degré $n$. On remarque que $\Vect\  A ^\perp = (X-1)\R[X]$ (les polynômes s'annulant en 1). \\
-			(je me retrouve quelque peu bloquée...)
+			On suppose qu'il existe un tel $A$. On va sortir de notre chapeau le $n$-ième polynôme de Tchebychev (on rappelle qu'il s'agit de l'unique polynôme $T_n$ tel que, pour tout $\theta$, $T_n(\cos \theta) = \cos n\theta$.) On a alors $T_n(1) = T_n(\cos 2\pi) = \cos 2n\pi = 1$, d'où:
+			$$\int_0^1 \frac{T_n(t) A(t)}{\sqrt{1-t^2}}dt = 1$$
+			Or, on a par changement de variable ($t = \cos \theta$), puis par IPP:
+			\begin{align*}
+				\int_0^1 \frac{T_n(t) A(t)}{\sqrt{1-t^2}}dt & = \int_0^\pi \frac{T_n(\cos\theta) A(\cos \theta)}{\sqrt{1-\cos^2\theta} \sqrt{1-\theta^2}}d\theta = \int_0^\pi \frac {\cos n \theta A \cos \theta} {\sqrt{1-\cos^2\theta} \sqrt{1-\theta^2}}d\theta \\
+				& = \frac 1 n \left(\left[\frac {\sin n\theta A (\cos\theta)} {\sqrt{1-\cos^2\theta} \sqrt{1-\theta^2}} \right]_0^1 + \int_0^1 \sin n\theta f'(\theta) d\theta\right)
+			\end{align*}
+			(On vérifie par analyse asymptotique que le crochet converge bel et bien.)
+			Or, les termes dans la parenthèse sont bornés, donc $T_n(1) \longrightarrow 0$, ce qui est absurde.
 		\end{correctionbox}
 	\end{enumerate}
 	
