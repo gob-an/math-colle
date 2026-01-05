@@ -39,15 +39,9 @@
 		\begin{correctionbox}
 			A priori non (on n'est plus en dimension finie, ça n'a aucune raison de fonctionner), mais il s'agirait de le montrer. \\
 			Le produit scalaire défini ci-dessus reste un produit scalaire sur $\R[X]$. \\
-			On suppose qu'il existe un tel $A$. On va sortir de notre chapeau le $n$-ième polynôme de Tchebychev (on rappelle qu'il s'agit de l'unique polynôme $T_n$ tel que, pour tout $\theta$, $T_n(\cos \theta) = \cos n\theta$.) On a alors $T_n(1) = T_n(\cos 2\pi) = \cos 2n\pi = 1$, d'où:
-			$$\int_0^1 \frac{T_n(t) A(t)}{\sqrt{1-t^2}}dt = 1$$
-			Or, on a par changement de variable ($t = \cos \theta$), puis par IPP:
-			\begin{align*}
-				\int_0^1 \frac{T_n(t) A(t)}{\sqrt{1-t^2}}dt & = \int_0^\pi \frac{T_n(\cos\theta) A(\cos \theta)}{\sqrt{1-\cos^2\theta} \sqrt{1-\theta^2}}d\theta = \int_0^\pi \frac {\cos n \theta A \cos \theta} {\sqrt{1-\cos^2\theta} \sqrt{1-\theta^2}}d\theta \\
-				& = \frac 1 n \left(\left[\frac {\sin n\theta A (\cos\theta)} {\sqrt{1-\cos^2\theta} \sqrt{1-\theta^2}} \right]_0^1 + \int_0^1 \sin n\theta f'(\theta) d\theta\right)
-			\end{align*}
-			(On vérifie par analyse asymptotique que le crochet converge bel et bien.)
-			Or, les termes dans la parenthèse sont bornés, donc $T_n(1) \longrightarrow 0$, ce qui est absurde.
+			On suppose qu'il existe un tel $A$. \\
+			On écrit $P(X) = (X-1)^2 P(X)$. On a évidemment $P(1) = 0$, d'où par hypothèse $P(1)=\displaystyle\int_{-1}^1 \frac{A(t)P(t)}{\sqrt{1-t^2}}dt$. \\
+			Or, $P(X) A(X) = (X-1)^2 A^2(X) \geqslant 0$, et n'est pas identiquement nul (sinon l'intégrale serait nulle pour tout $P$, donc tout polynôme s'annulerait en 1). Dès lors, $t \mapsto \frac {A(t)P(t)} {\sqrt{1-t^2}}$ est continue, positive, non identiquement nulle, donc d'intégrale non nulle sur $[-1,1]$. Dès lors, $P(1) = \displaystyle\int_{-1}^1 \frac{A(t)P(t)}{\sqrt{1-t^2}}dt \not = 0$, ce qui est absurde. On ne peut donc pas remplacer $\R_n[X]$ par $\R[X]$.
 		\end{correctionbox}
 	\end{enumerate}
 	
