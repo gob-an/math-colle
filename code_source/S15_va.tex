@@ -19,17 +19,17 @@
 			On a donc $\pr(n\in E) = \displaystyle \sum_{k=1}^N \mu(k) \pr(n-k \in E') = \sum_{k=1}^N \mu(k) \pr\left(n-k \in E\right)$ \\
 			\textit{Note}: on peut plus simplement (mais j'ai la flemme de rédiger une deuxième fois) stratifier selon la valeur du dernier élément, et non du premier, ce qui permet d'éviter de justifier les équivalences			
 		\end{correctionbox}
-		\item Soient $F(z) = \displaystyle \sum_{n \in \N^*} \pr(n\in E) z^n$, $\displaystyle G(z) = \sum_{k=1}^N \mu(k)z^k$. Montrer que $F = \frac 1 {1-G}$.
+		\item Soient $F(z) = \displaystyle \sum_{n \in \N} \pr(n\in E) z^n$, $\displaystyle G(z) = \sum_{k=1}^N \mu(k)z^k$. Montrer que $F = \frac 1 {1-G}$.
 		\begin{correctionbox}
 			On prend $z$ dans le rayon de convergence de $F$
 			\begin{align*}
-				F(z) & = \sum_{n\in\N^*} \pr(n\in E) z^n = \sum_{n\in\N^*} z^n \sum_{k=1}^N \mu(k) \pr(n-k \in E) \\
-				& = \sum_{i\in \N} \sum_{n-k=i} \mu(k) \pr(i\in E) z^n \	\ \text{(tout est sommable dans le rayon de convergence)} \\
-				& = \sum_{i\in \N} \sum_{k=1}^N z^i z^k \mu(k) \pr(i\in E) \	\ \text{(les termes pour $k>N$ étant nuls)} \\
-				& = \sum_{i\in\N} z^i \pr(i\in E) \sum_{k=1}^N \mu(k) z^k = \sum_{i\in\N} z^i \pr(i\in E) G(z) \\
-				& = G(z) (1 + F(z)) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{(car $\pr(0 \in E)=1$: $S_0=0$)} %c'est très moche...
+				F(z) & = \sum_{n\in\N} \pr(n\in E) z^n = \sum_{n\in\N^*} z^n \sum_{k=1}^N \mu(k) \pr(n-k \in E) + \pr(0\in E) \\
+				& = \sum_{i\in \N} \sum_{n-k=i} \mu(k) \pr(i\in E) z^n + 1 \	\ \text{(tout est sommable dans le rayon de convergence)} \\
+				& = \sum_{i\in \N} \sum_{k=1}^N z^i z^k \mu(k) \pr(i\in E) + 1 \	\ \text{(les termes pour $k>N$ étant nuls)} \\
+				& = \sum_{i\in\N} z^i \pr(i\in E) \sum_{k=1}^N \mu(k) z^k + 1 = G(z) \sum_{i\in\N} z^i \pr(i\in E) + 1 \\
+				& = G(z) F(z) + 1 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{(car $\pr(0 \in E)=1$: $S_0=0$)} %c'est très moche...
 			\end{align*}
-			On a donc $F(z) = G(z) (1 + F(z))$, d'où le résultat.
+			On en déduit $F(z) = \frac 1 {1-G(z)}$.
 		\end{correctionbox}
 		\item Montrer que $F$ admet un pôle simple en 1, et que les autres pôles sont de module strictement plus grand que 1.
 		\begin{correctionbox}
