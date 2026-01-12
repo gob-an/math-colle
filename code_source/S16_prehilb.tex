@@ -8,20 +8,18 @@
 	\maketitle
 	
 	\subsection*{Exercice 21}
-	\textbf{pas certaine que ça fonctionne, fiez vous à la correction officielle}\\
-	Soit $E$ euclidien, soient $a$, $b \in E$ non nuls. Pour $x\in E \backslash \{0\}$, on note $f(x) = \frac {\scal a x \scal b x} {\|x\|^2}$. Déterminer les bornes inférieure et supérieure de $f$.
+	%Soit $E$ euclidien, soient $a$, $b \in E$ non nuls. Pour $x\in E \backslash \{0\}$, on note $f(x) = \frac {\scal a x \scal b x} {\|x\|^2}$. Déterminer les bornes inférieure et supérieure de $f$.
 	\begin{correctionbox}
 		Puisque $f(\lambda x) = f(x)$, il suffit de considérer $\scal a x \scal b x$ où $x$ est unitaire. \\
+		On peut de plus, quitte à multiplier le résultat final par $\|a\|\|b\|$ supposer $a$, $b$ unitaires
 		
 		Si $a$ et $b$  sont liés, alors $b = \beta a$. En notant $x= \lambda a + x'$, avec $x'$ orthogonal à $a$, $\lambda^2 \leqslant 1$ (pour que $x$ soit unitaire), on obtient $f(x) = \lambda^2\beta\|a\|^2$,  d'où une borne supérieure (si $\beta \geqslant 0$) de $\beta\|a\|^2 = \|a\|\|b\|$ (atteinte en $x = \frac 1 {\|a\|} a$), et une borne inférieure de 0 (pour $x$ normal à $a$) \\
 		(Si $\alpha<0$, on a de même une borne sup à 0 et une borne inf à $-\|a\|\|b\|$) \\
 		
 		Sinon, on note $a=u+v$, $b=u-v$ (avec $u = \frac {a+b} 2$, $v=\frac {a-b} 2$), et $u$  et $v$ forment une famille libre. \\
 		On a alors $f(x) = \scal {u+v} x \scal {u-v} x = \scal u x ^2 - \scal v x ^2$. \\
-		Puisque $u$, $v$ forment une famille libre, il existe $w$ isométrie tq $e_1 = \frac  1 {\|u\|^2} w(u)$, $e_2=\frac  1 {\|v\|^2} w(v)$ forment une famille orthonormée. \\
-		On procède au changement de variable $x \leftarrow w*(x)$ ($w*$ est bien inversible), et on obtient $f(x) = \scal u {w*(x)}^2 - \scal v {w*(x)} ^2 = \scal {w(u)} x ^2 - \scal {w(v)} x^2$. \\
-		On note alors $x = \lambda e_1 + \mu e_2 + x'$, avec $x'$ normal à $w(u)$, $w(v)$ ($x$ est unitaire, donc $\lambda^2 + \mu^2 + \|x'\|^2 = 1$). \\
-		Dès lors, $f(x) = \lambda^2 \|u\|^2 - \mu^2 \|v\|^2$, d'où il découle immédiatement une borne supérieure atteinte en $w(u)$ de $\|u\|=-\frac 1 2 \|a+b\|$, et une borne inférieure en $w(v)$ de  $\frac 1 2 \|a-b\|$.
+		On observe de plus que $u$ et $v$ sont orthogonaux (car $\scal u v = \frac 1 4 \scal {a+b} {a-b} = \|a\|^2 - \|b\|^2=0$), d'où l'on peut décomposer $x = \frac \lambda {\|u\|} u + \frac \mu {\|v\|} v + x'$, avec $x'$ orthogonal à $\Vect (u, v)$. \\
+		On obtient donc $f(x)=\lambda^2\|u\| - \mu^2\|v\|$, d'où l'on obtient une borne supérieure à $\|u\|$ en $\frac 1 {\|u\|} u$ de $\|u\|=\frac 1 2 \|a+b\|$, et l'on procède de même pour la borne inférieure ($-\frac 1 2 \|a-b\|$).
 	\end{correctionbox}
 	
 	\subsection*{Exercice 23}

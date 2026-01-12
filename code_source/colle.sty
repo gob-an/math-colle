@@ -7,6 +7,7 @@
 \usepackage{mathrsfs}
 \usepackage{amsfonts}
 \usepackage{dsfont}
+\usepackage[shortlabels]{enumitem}
 
 
 \definecolor{corrigecolor}{gray}{0.7}
@@ -52,3 +53,9 @@ firstextra={\hspace{\parindent}}
 \newcommand{\Vect}{\mathrm{Vect}}
 
 \newcommand{\scal}[2]{\left\langle #1, #2\right\rangle}
+
+\newcommand{\Img}{\text{Im}\,}
+
+\newcommand{\Co}[3][]{\mathcal C^{#1}
+	\ifsecondargument
+		\left(#2,\, #3\right)}

@@ -1,0 +1,38 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{colle}
+
+\title{Corrigé colle S17 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices }
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	\subsection*{Exercice 13}
+	Pour $f \in \mathcal C^0([0,1], \R)$, on pose $\displaystyle \phi(f): x \mapsto \int_0^1 \inf (x,t)f(t) dt$.
+	\begin{enumerate}[a)]
+		\item Prouver que $\phi \in \mathcal L(\mathcal C^0([0, 1], \R))$.
+		\begin{correctionbox}
+			Par théorème de continuité (sinon on peut utiliser le théorème fondamental de l'analyse avec la question (b)), $\phi(f) \in \mathcal C^0([0, 1], \R)$. \\
+			De plus, la linéarité de $\phi$ découle de celle de l'intégrale: $\phi$ est bien un endo.
+		\end{correctionbox}
+		
+		\item En utilisant la relation de Chasles, déterminer une autre manière d'écrire $\phi(f)$
+		\begin{correctionbox}
+			On a évidemment: \begin{align*}
+				\inf(x, t) & = x & \text{si $x<t$} \\
+				& = t & \text{sinon}
+			\end{align*}
+			Ainsi, en cassant l'intégrale en $x$, on obtient:
+			$$ \phi(f)(x) = \int_0^1 \inf(t, x) f(t) dt = \int_0^x t f(t) dt + x \int_x^1 f(t) dt$$
+		\end{correctionbox}
+		
+		\item Déterminer $\ker \phi$ et $ \Img \phi$.
+		\begin{correctionbox}
+			On sait par théorème fondamental de l'analyse que les deux termes de $\phi(f)$ sont dérivables. \\
+			On a donc $\displaystyle \phi(f)'(x) = xf(x) + \int_x^1 f(t)dt - xf(x) = \int_x^1 f(t) dt$. \\
+			Dès lors, si $f \in \ker \phi$, en particulier $\phi(f)' = 0$, ie, pour tout $x$, $\displaystyle \int_x^1 f(t) dt = 0$. \\
+			On en déduit immédiatement (en redérivant) que $f=0$: On a $\ker \phi = \{0\}$ \\
+			\\
+			On sait déjà que $\Img\phi \subset \Co[1] {[0,1]} \R$.
+		\end{correctionbox}
+	\end{enumerate}
+\end{document}
