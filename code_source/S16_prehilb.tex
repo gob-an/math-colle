@@ -53,14 +53,14 @@
 			\item Soit $n\geqslant 1$. Si $\dim E = n+1$, supposons que pour $F$ sev de $E$ de dimension n, $F$ contient une famille obtusangle à $n+1$ éléments. \\
 			On prend $x \not = 0$ dans $E$. Soit $F = \Vect\ x ^\perp$. On considère $(x_1, \ \dots \ x_{n+1})$ famille obtusangle de $F$ (qui existe par hypothèse de récurrence).  \\
 			On note, pour $\lambda>0$ $f_\lambda (y) = y - \lambda x$. \\
-			D'une part, $\langle x, f_\lambda(x_i) \rangle = -\lambda <0$. De plus, $\langle f_\lambda(x_i), f_\lambda(x_j) = \langle x_i, x_j \rangle + \lambda^2 \|x\|^2$. Il existe donc $\lambda$ assez petit pour que cette quantité soit négative pour tous $i$, $j$ ($\lambda = -\frac 1 2 \max\langle x_i, x_j \rangle$ convient.) \\
+			D'une part, $\langle x, f_\lambda(x_i) \rangle = -\lambda <0$. De plus, $\langle f_\lambda(x_i), f_\lambda(x_j) \rangle = \langle x_i, x_j \rangle + \lambda^2 \|x\|^2$. Il existe donc $\lambda$ assez petit pour que cette quantité soit négative pour tous $i$, $j$ ($\lambda = -\frac 1 2 \max\langle x_i, x_j \rangle$ convient.) \\
 			$(x, x_1,\ \dots,\ x_{n+1})$ est bien obtusangle, ce qui clôt la récurrence.
 		\end{itemize}
 		\hfill \\
 		Montrons maintenant que cette famille est bien la plus grande.
 		Montrons d'abord le lemme suivant: si $(x_i)_i$ est obtusangle, et que $\displaystyle \sum_i \lambda_i x_i$ est une combinaison linéaire non triviale annulant les $(x_i)$, alors les $(\lambda_i)$ sont non nuls et de même signe. \\ \\
 		On note $I = \left\{i\ |\ \lambda_i <0\right\}$, $J = \left\{i\ |\ \lambda_i \geqslant 0\right\}$ \\
-		Puisque la combinaison linéaire est non triviale, il existe $i$ tq $lambda_i \not = 0$. Quitte à prendre l'opposé de la combinaison linéaire, on peut supposer $\lambda_i > 0$, ie $I \not = \emptyset$ \\
+		Puisque la combinaison linéaire est non triviale, il existe $i$ tq $\lambda_i \not = 0$. Quitte à prendre l'opposé de la combinaison linéaire, on peut supposer $\lambda_i > 0$, ie $I \not = \emptyset$ \\
 		On a alors: $$\sum_{i\in I} \lambda_i x_i = -\sum_{j\in J} \lambda_j x_j$$
 		En notant $S$ la somme de droite, et en prenant le produit scalaire par $S$, on obtient:
 		$$\sum_{i,j} \lambda_i \lambda_j \langle x_i,  x_j \rangle = -\|S\|^2 $$
