@@ -94,13 +94,13 @@ rightmargin=0pt
 	(Très utile pour décomposer un sous-espace $F$ de $E$ (par exemple en sous-espaces propres de F, etc.), si on a une décomposition de $E$ tout entier (utilisé dans l'exercice 16 de la semaine 7.))
 	\\ \\ \\
 		\begin{thm}{Troisième théorème de goban}
-		Si un ensemble a un minimum inférieur à $x$, alors ce minimum est $x$.
+		Pour $E$ euclidien, $S^+(E)$ engendre $L(E)$
 	\end{thm}
 	\begin{proof}
-		On connaît le théorème (classique!) affirmant qu'un minorant est également minimum. Celui-ci est malheureusement faux. Ainsi, dans le cas d'un ensemble admettant un minimum, $x \leqslant \min E \not \Rightarrow x = \min E$. \\
-		Par conséquent, on a bien $x\geqslant \min E \Rightarrow x = \min E$. (Si $P\not \Rightarrow Q$, alors $\neg P \Rightarrow Q$.)
+		La démonstration se fera matriciellement, pour plus de commodité. \\
+		D'une part, on a $\Vect S_n^+(\R) = S_n(\R)$.
+		De plus, on sait que $\dim \Vect S_n(\R)$ est de l'ordre de $n^2$, qui est bien la dimension de $M_n(\R)$. On a une inclusion évidente, d'où l'égalité.
 	\end{proof}
-	\textbf{Remarque 1}: Ce résultat peut sûrement se généraliser à une borne inférieure. \\
-	\textbf{Remarque 2}: Cela démontre la rationnalité de $\pi$. En effet, celui-ci est supérieur à $\min\N$, donc $\min\N=\pi$, et un minimum est atteint donc $\pi\in\N$. En particulier, $\pi\in\Q$. \\ \\
-	Ce résultat est très utile pour passer d'une inégalité à une égalité (en prenant $x=\min E$) (utilisé dans l'exercice 26 de la semaine 15).
+	\textbf{Corollaire} Toute matrice réelle est symétrique. En particulier, toute matrice réelle est diagonalisable (par théorème spectral). \\ \\
+	utilisé dans l'exercice 25 de la semaine 16: si un endo commute avec tous les autoadjoints positifs, alors c'est une homothétie (ce qui est vrai, mais pas pour cette raison)
 \end{document}
