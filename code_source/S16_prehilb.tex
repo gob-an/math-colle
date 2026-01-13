@@ -64,12 +64,13 @@
 		On a alors: $$\sum_{i\in I} \lambda_i x_i = -\sum_{j\in J} \lambda_j x_j$$
 		En notant $S$ la somme de droite, et en prenant le produit scalaire par $S$, on obtient:
 		$$\sum_{i,j} \lambda_i \lambda_j \langle x_i,  x_j \rangle = -\|S\|^2 $$
-		Or, tous les termes de la somme sont positifs (car les $\lambda_i$ sont positifs, les $\lambda_j$ négatifs, et les $\langle x_i, x_j \rangle$ négatifs car $I$ et $J$ sont disjoints, donc la somme est positive. De plus, le second terme est négatif, donc tous les termes de la somme sont nuls. \\
-		Ainsi, tous les $\lambda_j$ sont nuls (puisque $I$ est non vide) \\		
-		Ainsi, tous les $\lambda_i$ sont positifs. \\
-		De plus, si $\lambda_i=0$, on a:
-		$$ 0 = \langle 0, e_i \rangle = \langle \sum_j \lambda_j e_j, e_i \rangle = \sum_j \lambda_j \langle e_i, e_j \rangle $$
-		Cette somme est strictement négative car tous ses termes (non nuls, qui existent bel et bien) le sont, ce qui est absurde. Ceci achève la démonstration du lemme.
+		Or, tous les termes de la somme sont positifs (car les $\lambda_i$ sont positifs, les $\lambda_j$ négatifs, et les $\langle x_i, x_j \rangle$ négatifs car $I$ et $J$ sont disjoints, donc la somme est positive. De plus, le second terme est négatif, donc est nul. \\
+		Ainsi, les deux sommes ci-dessus sont nulles. \\ \\
+		On suppose $j\in J$ (concrètement, on suppose $J$ non vide). \\
+		On a alors:
+		$$ 0 = \scal 0 x_j = \scal {\sum_{i\in I} \lambda_i x_i} {x_j} = \sum_{i\in I} \lambda_i \scal {x_i} {x_j}$$
+		Or, tous les termes de la somme sont strictement négatifs (car produit d'une quantité strictement négative et d'une strictement positive), et cette somme est non vide car $I\not = 0$ par hypothèse, d'où la somme strictement négative, ce qui est absurde. \\		
+		Ceci achève la démonstration du lemme.
 		\\ \\
 		On suppose que l'on a une famille obtusangle $(x_1,\ \dots\ x_{n+2})$ à $n+2$ éléments. \\
 		Puisque $E$ est de dimension $n$, il existe $\lambda_1,\ \dots\ \lambda_{n+1}$ tq $\lambda_1 x_1 + \dots + \lambda_n x_n + \lambda_{n+1} (x_{n+1}-x_{n+2}) = 0$. \\
@@ -117,12 +118,24 @@
 		\begin{correctionbox}
 			On fixe $\phi\in P$. On montre aisément (c'est la même démonstration que la question (1) mais dans l'autre sens) que pour tout $a$ autoadjoint positif (pour $\varphi$), $x, y \mapsto \varphi(a(x), y)$ est un produit scalaire. \\
 			
-			Dès lors, si $u$ est dans l'intersection, il commute avec tous les endomorphismes autoadjoints positifs pour $\varphi$ (question (2)). Or ceux-ci engendrent $\mathcal L(E)$, donc $u$ commute avec tous les endomorphismes de $E$: $u$ est une homothétie. On note $u = \lambda\Id$. \\
+			Dès lors, si $u$ est dans l'intersection, il commute avec tous les endomorphismes autoadjoints positifs pour $\varphi$ (question (2)). \\
+			Dès lors, en considérant $\Delta$ diagonale à valeurs propres positives et distinctes, on sait que pour tout $P \in O_n(\R)$ (par analogie matrices-endo), $^tP \Delta P$ commute avec $M$ (en posant $M=Mat_{bc}u$). On obtient en conjuguant par $P$: que $^tPMP$ commute avec $\Delta$, d'où par caractérisation du commutant d'une matrice diagonale, $^tPMP$ est diagonale. (En particulier, pour $P=I_n$, $M$ est diagonale.)\\
+			\\
+			Montrons maintenant qu'il s'agit d'une homothétie: supposons par l'absurde que $M$ admette deux valeurs propres distinctes $\lambda$, $\mu$. On a alors $M$ orthosemblable à $\mathrm{Diag}(\lambda, \mu, D)$, avec $D$ diagonale. \\
+			On pose alors $A = \frac 1 {\sqrt 2} \begin{pmatrix}
+				1 & 1 \\
+				1 & -1
+			\end{pmatrix}$. On vérifie alors que $A$ est orthogonale, et que: \\
+			$^t \mathrm{Diag}(A, I_{n-2}) M \mathrm{Diag}(A, I_{n-2}) = \mathrm{Diag}(\frac 1 2 \begin{pmatrix}
+				\lambda+\mu & \lambda-\mu \\
+				\lambda-\mu & \lambda+\mu
+			\end{pmatrix}, D)$. \\
+			Or, cette matrice est supposée diagonale d'après ce qui précède, ce qui est absurde (car $\lambda \not = \mu$ d'après notre hypothèse): on a bien toutes les valeurs propres égales: $M$ est une homothétie (donc $u$ également). On note $u = \lambda \id$.
 			
 			De plus, $u$ est orthogonal, d'où $\varphi(x, x) = \varphi(u(x), u(x)) = \lambda^2\varphi(x, x) $\\
-			Ainsi (puisque cette égalité est vraie pour tout $x$, en particulier pour $x$ non nul), $\lambda^2 = \pm 1$, d'où $u=\pm\Id$. \\
+			Ainsi (puisque cette égalité est vraie pour tout $x$, en particulier pour $x$ non nul), $\lambda^2 = \pm 1$, d'où $u=\pm\id$. \\
 			
-			La réciproque étant immédiate, on a donc: $\displaystyle \bigcap_{\varphi \in P} O(E, \varphi) = \{\pm\Id\}$
+			La réciproque étant immédiate, on a donc: $\displaystyle \bigcap_{\varphi \in P} O(E, \varphi) = \{\pm\id\}$
 		\end{correctionbox}
 	\end{enumerate}
 \end{document}
