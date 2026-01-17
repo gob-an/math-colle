@@ -1,38 +1,100 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S17 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices }
+\title{Corrigé colle S17 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercice 17}
 \author{Léane Parent}
 
 \begin{document}
 	\maketitle
-	\subsection*{Exercice 13}
-	Pour $f \in \mathcal C^0([0,1], \R)$, on pose $\displaystyle \phi(f): x \mapsto \int_0^1 \inf (x,t)f(t) dt$.
+	\begin{comment}
+		\subsection*{Exercice 13}
+		Pour $f \in \mathcal C^0([0,1], \R)$, on pose $\displaystyle \phi(f): x \mapsto \int_0^1 \inf (x,t)f(t) dt$.
+		\begin{enumerate}[a)]
+			\item Prouver que $\phi \in \mathcal L(\mathcal C^0([0, 1], \R))$.
+			\begin{correctionbox}
+				Par théorème de continuité (sinon on peut utiliser le théorème fondamental de l'analyse avec la question (b)), $\phi(f) \in \mathcal C^0([0, 1], \R)$. \\
+				De plus, la linéarité de $\phi$ découle de celle de l'intégrale: $\phi$ est bien un endo.
+			\end{correctionbox}
+			
+			\item En utilisant la relation de Chasles, déterminer une autre manière d'écrire $\phi(f)$
+			\begin{correctionbox}
+				On a évidemment: \begin{align*}
+					\inf(x, t) & = x & \text{si $x<t$} \\
+					& = t & \text{sinon}
+				\end{align*}
+				Ainsi, en cassant l'intégrale en $x$, on obtient:
+				$$ \phi(f)(x) = \int_0^1 \inf(t, x) f(t) dt = \int_0^x t f(t) dt + x \int_x^1 f(t) dt$$
+			\end{correctionbox}
+			
+			\item Déterminer $\ker \phi$ et $ \Img \phi$.
+			\begin{correctionbox}
+				On sait par théorème fondamental de l'analyse que les deux termes de $\phi(f)$ sont dérivables. \\
+				On a donc $\displaystyle \phi(f)'(x) = xf(x) + \int_x^1 f(t)dt - xf(x) = \int_x^1 f(t) dt$. \\
+				Dès lors, si $f \in \ker \phi$, en particulier $\phi(f)' = 0$, ie, pour tout $x$, $\displaystyle \int_x^1 f(t) dt = 0$. \\
+				On en déduit immédiatement (en redérivant) que $f=0$: On a $\ker \phi = \{0\}$ \\
+				\\
+				Soit $g\in \Img \phi$. On note $g=\phi(f)$ \\
+				On sait déjà que $\Img\phi \subset \Co[2] {[0,1]}{\R}$ (d'après ce qui précède). \\ On a donc: $g''(x) = -f(x)$. \\
+				On en déduit donc $g(x) = -\phi(g'')(x) = \displaystyle \int_0 $ % check en 0, 1? 
+			\end{correctionbox}
+		\end{enumerate}
+	\end{comment}
+	
+	\subsection*{Exercice 16}
+	\textit{Note}: l'examinateur, par pure mesquinerie, note $f(t) = \int h(t, x) dx$. On prendra garde à ne pas confondre paramètre et variable d'intégration. \\
 	\begin{enumerate}[a)]
-		\item Prouver que $\phi \in \mathcal L(\mathcal C^0([0, 1], \R))$.
+		\item Déterminer $I$ l'ensemble des réels $t$ tq $x \mapsto e^{-xt} \frac {\sin x} x$ est intégrable
 		\begin{correctionbox}
-			Par théorème de continuité (sinon on peut utiliser le théorème fondamental de l'analyse avec la question (b)), $\phi(f) \in \mathcal C^0([0, 1], \R)$. \\
-			De plus, la linéarité de $\phi$ découle de celle de l'intégrale: $\phi$ est bien un endo.
-		\end{correctionbox}
-		
-		\item En utilisant la relation de Chasles, déterminer une autre manière d'écrire $\phi(f)$
-		\begin{correctionbox}
-			On a évidemment: \begin{align*}
-				\inf(x, t) & = x & \text{si $x<t$} \\
-				& = t & \text{sinon}
+			On pose $h(t, x) = e^{-xt} \frac {\sin x} x$.
+			
+			On supposera (pour la cohérence avec les questions suivantes) qu'il est question d'intégrabilité sur $\R_ +^*$. \\
+			
+			$h$ est évidemment continue. \\
+			De plus, on a, d'une part, $h(t, x) \sim_{x\rightarrow 0} 1$: $x \mapsto h(t, x)$ est bien intégrable au voisinage de 0. \\
+			D'autre part, $h(t, x) = O_{x\rightarrow +\infty}(\frac {e^{-xt}} x)$, d'où $x \mapsto h(t, x)$ intégrable au voisinage de $+\infty$ si $x>0$. \\
+			
+			Si $x\leqslant 0$, on a: \begin{align*}
+				\int_0^{+\infty}e^{-xt} \frac {\sin x} x dx & \geqslant \int_0^{+\infty} \frac {\sin x} x dx \\
+				 & \geqslant \sum_{k=0}^{+\infty} \int_{k\pi}^{(k+1)\pi} \frac {\sin x} x dx \text{\qquad dans $\overline{\R_+}$}\\
+				 & \geqslant \sum_{k=0}^{+\infty} \frac 1 {k\pi} \int_{k\pi}^{(k+1)\pi} \sin x dx
 			\end{align*}
-			Ainsi, en cassant l'intégrale en $x$, on obtient:
-			$$ \phi(f)(x) = \int_0^1 \inf(t, x) f(t) dt = \int_0^x t f(t) dt + x \int_x^1 f(t) dt$$
+			Et cette série est divergente. On a bien vérifié que $x\mapsto h(t, x)$ n'est pas intégrable. \\
+			
+			Ainsi, cette fonction n'est intégrable que pour $t \in \R_+^*$
 		\end{correctionbox}
 		
-		\item Déterminer $\ker \phi$ et $ \Img \phi$.
+		\item Pour $t\in I$, calculer $\displaystyle \int_0^{+\infty} e^{-xt}\frac {\sin x} x dx$.
 		\begin{correctionbox}
-			On sait par théorème fondamental de l'analyse que les deux termes de $\phi(f)$ sont dérivables. \\
-			On a donc $\displaystyle \phi(f)'(x) = xf(x) + \int_x^1 f(t)dt - xf(x) = \int_x^1 f(t) dt$. \\
-			Dès lors, si $f \in \ker \phi$, en particulier $\phi(f)' = 0$, ie, pour tout $x$, $\displaystyle \int_x^1 f(t) dt = 0$. \\
-			On en déduit immédiatement (en redérivant) que $f=0$: On a $\ker \phi = \{0\}$ \\
-			\\
-			On sait déjà que $\Img\phi \subset \Co[1] {[0,1]} \R$.
+			Vous n'êtes pas sans savoir qu'une fonction, c'est une primitive de sa dérivée (si, si). \\
+			Dérivons donc. \\
+			
+			On a $\partial_1 h(t, x) = - e^{-xt} \frac {sin x} x$. \\
+			On pose $\phi(t) = \begin{dcases}
+				1 & \text{si $x<1$} \\
+				e^{-xt} & \text{sinon}
+			\end{dcases}$ \\
+			On vérifie que $\phi$ est intégrable et domine $\partial_1 h(t, x)$. \\
+			Dès lors, par théorème $\Co[1]$ pour les intégrales à paramètre, $f$ est $\Co[1]$, et on a $f(t)= \displaystyle -\int_0^{+\infty} e^{-xt} \sin x dx$ \\
+			Calculons cette intégrale. On a $sin x = \Im e^{ix}$. \\
+			On a donc par $\R$-linéarité de la partie imaginaire: \\
+			$$ f'(t) = -\int_0^{+\infty} e^{-xt} \sin x dx = -\Im \int_0^{+\infty} e^{-xt}e^{it} dx = \Im \frac 1 {i-t} [e^{x(i-t)}]_ {+\infty}^0 = \Im \frac 1 {i-t}$$
+			Or, $\frac 1 {i-t} = \frac {-i-t} {1+t^2}$, d'où par passage à la partie imaginaire, $f'(t) = -\frac 1 {1+t^2}$. \\
+			On en déduit $f(t) = -\atan t + k$, avec $k$ une constante réelle. \\
+			Or, par théorème de convergence dominée (j'en rédige déjà un en-dessous, faudrait pas que je me fatigue), on montre que $f(t) \xrightarrow[t\rightarrow +\infty]{} 0$, d'où $k=\frac\pi 2$. \\
+			On a ainsi $f(t) = -\atan t + \frac\pi 2$.
+		\end{correctionbox}
+		
+		\item En déduire $\displaystyle \int_0^{+\infty} \frac{\sin x} x dx$.
+		\begin{correctionbox}
+			On applique le théorème de convergence dominée: \\
+			$x\mapsto h(t, x)$ est dominée (vérifiez-le!) par $x \mapsto \begin{dcases}
+				1 & \text{si $x<1$} \\
+				\frac {\sin x}{x^2} & \text{sinon}
+			\end{dcases}$. \\
+			Cette fonction est bien intégrable car en $O(\frac 1 {x^2})$, et $h(x, t)$ est bien continue, d'où: \\
+			$f(t) \cv[t\rightarrow 0] \displaystyle \int_0^{+\infty} \frac{\sin x} x dx$. Or, $f(t) \cv \frac \pi 2$, d'où: \\
+			
+			$$\int_0^{+\infty} \frac{\sin x} x dx = \frac \pi 2$$
 		\end{correctionbox}
 	\end{enumerate}
 \end{document}

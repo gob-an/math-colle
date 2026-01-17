@@ -1,3 +1,4 @@
+% packages
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[french]{babel}
 \usepackage{amsmath,amssymb}
@@ -8,10 +9,12 @@
 \usepackage{amsfonts}
 \usepackage{dsfont}
 \usepackage[shortlabels]{enumitem}
+\usepackage{comment}
+\usepackage{xparse}
 
 
+% environnements
 \definecolor{corrigecolor}{gray}{0.7}
-
 \makeatletter
 \newmdenv[
 linecolor=corrigecolor,
@@ -33,31 +36,91 @@ firstextra={\hspace{\parindent}}
 ]{correctionbox}
 \makeatother
 
+
+% ensembles usuels
 \newcommand{\pr}{\mathds P}
 \newcommand{\N}{\mathds N}
 \newcommand{\Z}{\mathds Z}
 \newcommand{\Q}{\mathds Q}
 \newcommand{\R}{\mathds R}
 \newcommand{\C}{\mathds C}
+\newcommand{\F}{\mathds F}
 
-\newcommand{\esp}{\mathds E}
 
-\newcommand{\eps}{\varepsilon}
+\newcommand{\esp}{\mathds E} % espérance
+\newcommand{\eps}{\varepsilon} % epsilon
+\newcommand{\perm}{\mathfrak{S}} % groupe symétrique
+\newcommand{\id}{\mathrm{id}} % identité
+\newcommand{\ind}{\perp\!\!\!\perp} % indépendance
+\newcommand{\Vect}{\mathrm{Vect\,}} % espace vectoriel engandré
+\newcommand{\scal}[2]{\left\langle #1, #2\right\rangle} % produit scalaire
 
-\newcommand{\perm}{\mathfrak{S}}
 
-\newcommand{\id}{\mathrm{id}}
-
-\newcommand{\Vbar}{\perp\!\!\!\perp}
-
-\newcommand{\Vect}{\mathrm{Vect\,}}
-
-\newcommand{\scal}[2]{\left\langle #1, #2\right\rangle}
-
-\newcommand{\Img}{\text{Im}\,}
-
-\newcommand{\Co}[3][]{\mathcal C^{#1}
-	\ifsecondargument
-		\left(#2,\, #3\right)
+% partie imaginaire
+\makeatletter
+\renewcommand{\Im}{
+	\mathop{%
+		\futurelet\@let@token\@Im
+	}%
+}
+\newcommand{\@Im}{
+	\ifx\@let@token(
+	\operatorname{\mathrm{Im}}
+	\else
+	\operatorname{\mathrm{Im}}\,
 	\fi
+}
+\makeatother
+
+% partie réelle
+\makeatletter
+\renewcommand{\Re}{
+	\mathop{
+		\futurelet\@let@token\@Re
 	}
+}
+\newcommand{\@Re}{
+	\ifx\@let@token(
+	\operatorname{\mathrm{Re}}
+	\else
+	\operatorname{\mathrm{Re}}\,
+	\fi
+}
+\makeatother
+
+
+% classe C^k
+\NewDocumentCommand{\Co}{o g g}{
+	\mathcal C%
+	\IfValueT{#1}{^{#1}}%
+	\IfValueT{#2}{\left(#2,\,#3\right)}
+}
+
+
+% arctangente
+\makeatletter
+\newcommand{\atan}{
+	\mathop{
+		\futurelet\@let@token\@atan
+	}
+}
+\newcommand{\@atan}{
+	\ifx\@let@token(
+	\operatorname{Arctan}
+	\else
+	\operatorname{Arctan}\,
+	\fi
+}
+\makeatother
+
+
+% limite
+\NewDocumentCommand{\cv}{ o o }{
+	\ensuremath{
+		\IfNoValueTF{#1}{
+			\IfNoValueTF{#2}{\rightarrow}{\xrightarrow[#2]{}}
+		}{
+			\IfNoValueTF{#2}{\xrightarrow[#1]{} }{ \xrightarrow[#2]{#1} }
+		}
+	}
+}
