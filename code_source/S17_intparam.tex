@@ -1,7 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S17 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercice 17}
+\title{Corrigé colle S17 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercice 15 et 16}
 \author{Léane Parent}
 
 \begin{document}
@@ -39,6 +39,42 @@
 			\end{correctionbox}
 		\end{enumerate}
 	\end{comment}
+	
+	
+	\subsection*{Exercice 15}
+	Pour $x>0$, on pose $f (x) = \displaystyle \int_0^{+\infty}	e^{-xt} \sin \sqrt t\, dt$.
+	
+	\begin{enumerate}[a)]
+		\item Mq $f$ est de classe $\Co[1]$
+		\begin{correctionbox}
+			On applique le théorème $\Co[1]$ (quelle surprise!), pour arriver à:
+			$$f'(t) = -\int_0^{+\infty} t e^{-xt} \sin \sqrt t$$
+		\end{correctionbox}
+		
+		\item Donner la limite de $f$ en $+\infty$.
+		\begin{correctionbox}
+			On applique le théorème de convergence dominée (quelle surprise!), pour arriver à:
+			$$f(t) \cv[t\rightarrow +\infty] 0 $$
+		\end{correctionbox}
+		
+		\item Mq $f$ est solution d'une EDL homogène du premier ordre.
+		\begin{correctionbox}
+			Par le changement de variable $u=\sqrt t$ ($u^2=t, dt = 2u\,du$, et la racine carrée est bien $\Co[1]$ bijective), on obtient:
+			$$ f(x) = 2 \int_0^{+\infty} u e^{-xu^2} \sin u \, du \text{\qquad ainsi que \qquad} f'(x) = -2\int_0^{+\infty} u^3 e^{-xu^2} \sin u \, du $$
+			
+			On a envie de faire apparaître du $u^3$ dans $f$: IPPons donc.
+			\begin{align*}
+				f(x) & = -2[ue^{-xu^2}\cos u]_0^{+\infty} & + & 2\int_0^{+\infty} (1-2xu^3)e^{-xu^2} \cos u \,du \\
+				& = 0 & + & 2\int_0^{+\infty} (1-2xu^3)e^{-xu^2} \cos u \, du \\
+				& = [(1-2xu^3) e^{-xu^2}\sin u]_0^{+\infty} & + & \int_0^{+\infty} (-4xu+4x^2 u^3) e^{-xu^2} \sin u \, du \\
+				& = 0 & + & 4xf(x) - 4x^2f'(x)
+			\end{align*}
+			
+		\end{correctionbox}
+		
+		
+		\item Exprimez $f$ à l'aide des fonctions usuelles.
+	\end{enumerate}
 	
 	\subsection*{Exercice 16}
 	\textit{Note}: l'examinateur, par pure mesquinerie, note $f(t) = \int h(t, x) dx$. On prendra garde à ne pas confondre paramètre et variable d'intégration. \\

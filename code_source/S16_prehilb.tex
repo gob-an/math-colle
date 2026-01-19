@@ -13,13 +13,11 @@
 		Puisque $f(\lambda x) = f(x)$, il suffit de considérer $\scal a x \scal b x$ où $x$ est unitaire. \\
 		On peut de plus, quitte à multiplier le résultat final par $\|a\|\|b\|$ supposer $a$, $b$ unitaires
 		
-		Si $a$ et $b$  sont liés, alors $b = \beta a$. En notant $x= \lambda a + x'$, avec $x'$ orthogonal à $a$, $\lambda^2 \leqslant 1$ (pour que $x$ soit unitaire), on obtient $f(x) = \lambda^2\beta\|a\|^2$,  d'où une borne supérieure (si $\beta \geqslant 0$) de $\beta\|a\|^2 = \|a\|\|b\|$ (atteinte en $x = \frac 1 {\|a\|} a$), et une borne inférieure de 0 (pour $x$ normal à $a$) \\
-		(Si $\alpha<0$, on a de même une borne sup à 0 et une borne inf à $-\|a\|\|b\|$) \\
-		
 		Sinon, on note $a=u+v$, $b=u-v$ (avec $u = \frac {a+b} 2$, $v=\frac {a-b} 2$), et $u$  et $v$ forment une famille libre. \\
 		On a alors $f(x) = \scal {u+v} x \scal {u-v} x = \scal u x ^2 - \scal v x ^2$. \\
 		On observe de plus que $u$ et $v$ sont orthogonaux (car $\scal u v = \frac 1 4 \scal {a+b} {a-b} = \|a\|^2 - \|b\|^2=0$), d'où l'on peut décomposer $x = \frac \lambda {\|u\|} u + \frac \mu {\|v\|} v + x'$, avec $x'$ orthogonal à $\Vect (u, v)$. \\
-		On obtient donc $f(x)=\lambda^2\|u\| - \mu^2\|v\|$, d'où l'on obtient une borne supérieure à $\|u\|$ en $\frac 1 {\|u\|} u$ de $\|u\|=\frac 1 2 \|a+b\|$, et l'on procède de même pour la borne inférieure ($-\frac 1 2 \|a-b\|$).
+		On obtient donc $f(x)=\lambda^2\|u\| - \mu^2\|v\|$, d'où l'on obtient une borne supérieure à $\|u\|$ en $\frac 1 {\|u\|} u$ de $\|u\|=\frac 1 2 \|a+b\|$, et l'on procède de même pour la borne inférieure ($-\frac 1 2 \|a-b\|$). \\
+		(On remarque que cette démonstration fonctionne bien pour $a$, $b$ colinéaires)
 	\end{correctionbox}
 	
 	\subsection*{Exercice 23}
