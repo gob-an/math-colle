@@ -48,7 +48,7 @@
 		\item Mq $f$ est de classe $\Co[1]$
 		\begin{correctionbox}
 			On applique le théorème $\Co[1]$ (quelle surprise!), pour arriver à:
-			$$f'(t) = -\int_0^{+\infty} t e^{-xt} \sin \sqrt t$$
+			$$f'(t) = -\int_0^{+\infty} t e^{-xt} \sin \sqrt t\, dt$$
 		\end{correctionbox}
 		
 		\item Donner la limite de $f$ en $+\infty$.
@@ -59,21 +59,28 @@
 		
 		\item Mq $f$ est solution d'une EDL homogène du premier ordre.
 		\begin{correctionbox}
-			Par le changement de variable $u=\sqrt t$ ($u^2=t, dt = 2u\,du$, et la racine carrée est bien $\Co[1]$ bijective), on obtient:
+			Par le changement de variable $u=\sqrt t$ ($u^2=t, dt = 2u\,du$, et la racine carrée est bien $\Co[1]$ sur l'ouvert, bijective), on obtient:
 			$$ f(x) = 2 \int_0^{+\infty} u e^{-xu^2} \sin u \, du \text{\qquad ainsi que \qquad} f'(x) = -2\int_0^{+\infty} u^3 e^{-xu^2} \sin u \, du $$
 			
 			On a envie de faire apparaître du $u^3$ dans $f$: IPPons donc.
 			\begin{align*}
-				f(x) & = -2[ue^{-xu^2}\cos u]_0^{+\infty} & + & 2\int_0^{+\infty} (1-2xu^3)e^{-xu^2} \cos u \,du \\
-				& = 0 & + & 2\int_0^{+\infty} (1-2xu^3)e^{-xu^2} \cos u \, du \\
-				& = [(1-2xu^3) e^{-xu^2}\sin u]_0^{+\infty} & + & \int_0^{+\infty} (-4xu+4x^2 u^3) e^{-xu^2} \sin u \, du \\
-				& = 0 & + & 4xf(x) - 4x^2f'(x)
+				f(x) & = -2[ue^{-xu^2}\cos u]_0^{+\infty} & - & 2\int_0^{+\infty} (1-2xu^2)e^{-xu^2} \cos u \,du \\
+				& = 0 & - & 2\int_0^{+\infty} (1-2xu^2)e^{-xu^2} \cos u \, du \\
+				& = -[(1-2xu^3) e^{-xu^2}\sin u]_0^{+\infty} & - & 2\int_0^{+\infty} (-4xu-2xu+4x^2 u^3) e^{-xu^2} \sin u \, du \\
+				& = 0 & + & 12xf(x) - 8x^2f'(x)
 			\end{align*}
-			
+			D'où $f'(x)+\frac{12x-1}{8x^2}f(x) = 0$
 		\end{correctionbox}
 		
 		
 		\item Exprimez $f$ à l'aide des fonctions usuelles.
+		\begin{correctionbox}
+			On en déduit donc $f(x)=ke^{-A(x)}$ (avec $k\in\R$), avec $A$ une primitive de $x\mapsto \frac{12x-1}{8x^2}$, $k \in \R$. \\
+			On sait que $\frac{12x-1}{8x^2} = \frac 3 {2x}-\frac 1 {8x^2}$. On reconnaît la dérivée de $\frac 3 2 \log|x| + \frac 1 {8x}$. On a donc:
+			$$ f(x) = ke^{\frac 3 2 \log|x| + \frac 1 {8x}} = k \frac{e^{-\frac 1 {8x}}}{x\sqrt x} $$
+			
+			Il s'agit donc de déterminer $k$ (to be continued...)
+		\end{correctionbox}
 	\end{enumerate}
 	
 	\subsection*{Exercice 16}
@@ -85,14 +92,14 @@
 			
 			On supposera (pour la cohérence avec les questions suivantes) qu'il est question d'intégrabilité sur $\R_ +^*$. \\
 			
-			$h$ est évidemment continue. \\
+			$h$ est évidemment continue pour $x \in \R_ +^*$. \\
 			De plus, on a, d'une part, $h(t, x) \sim_{x\rightarrow 0} 1$: $x \mapsto h(t, x)$ est bien intégrable au voisinage de 0. \\
 			D'autre part, $h(t, x) = O_{x\rightarrow +\infty}(\frac {e^{-xt}} x)$, d'où $x \mapsto h(t, x)$ intégrable au voisinage de $+\infty$ si $x>0$. \\
 			
 			Si $x\leqslant 0$, on a: \begin{align*}
-				\int_0^{+\infty}e^{-xt} \frac {\sin x} x dx & \geqslant \int_0^{+\infty} \frac {\sin x} x dx \\
-				 & \geqslant \sum_{k=0}^{+\infty} \int_{k\pi}^{(k+1)\pi} \frac {\sin x} x dx \text{\qquad dans $\overline{\R_+}$}\\
-				 & \geqslant \sum_{k=0}^{+\infty} \frac 1 {k\pi} \int_{k\pi}^{(k+1)\pi} \sin x dx
+				\int_0^{+\infty} \left|e^{-xt} \frac {\sin x} x\right| dx & \geqslant \int_0^{+\infty} \frac {|\sin x|} x dx \\
+				 & \geqslant \sum_{k=0}^{+\infty} \int_{k\pi}^{(k+1)\pi} \frac {|\sin x|} x dx \text{\qquad dans $\overline{\R_+}$}\\
+				 & \geqslant \sum_{k=0}^{+\infty} \frac 1 {k\pi} \int_{k\pi}^{(k+1)\pi} |\sin x| dx
 			\end{align*}
 			Et cette série est divergente. On a bien vérifié que $x\mapsto h(t, x)$ n'est pas intégrable. \\
 			
