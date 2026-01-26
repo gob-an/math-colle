@@ -69,6 +69,7 @@
 				& = -[(1-2xu^3) e^{-xu^2}\sin u]_0^{+\infty} & - & 2\int_0^{+\infty} (-4xu-2xu+4x^2 u^3) e^{-xu^2} \sin u \, du \\
 				& = 0 & + & 12xf(x) - 8x^2f'(x)
 			\end{align*}
+			(On a à chaque fois intégré le cosinus ou le sinus et dérivé le reste.)
 			D'où $f'(x)+\frac{12x-1}{8x^2}f(x) = 0$
 		\end{correctionbox}
 		
@@ -79,7 +80,19 @@
 			On sait que $\frac{12x-1}{8x^2} = \frac 3 {2x}-\frac 1 {8x^2}$. On reconnaît la dérivée de $\frac 3 2 \log|x| + \frac 1 {8x}$. On a donc:
 			$$ f(x) = ke^{\frac 3 2 \log|x| + \frac 1 {8x}} = k \frac{e^{-\frac 1 {8x}}}{x\sqrt x} $$
 			
-			Il s'agit donc de déterminer $k$ (to be continued...)
+			Il s'agit donc de déterminer $k$.
+			
+			On a donc $f(x) \sim \frac k {x\sqrt x}$ au voisinage de $+\infty$. \\
+			De plus, par le changement de variable $u = xt$ (qu'il faut rédiger), on obtient:
+			$$ f(x) = \int_0^{+\infty} e^{-xt} \sin\sqrt t\, dt = \frac 1 x \int_0^{+\infty} e^{-u} \sin \sqrt {\frac u x}\, du \sim \frac 1 {x \sqrt x} \int_0^{+\infty} e^{-u} \sqrt u\, du $$
+			Or, on reconnaît après changement de variable $v^2 = u$:
+			$$ \int_0^{+\infty} e^{-u} \sqrt u\, du = 2 \int_0^{+\infty} v^2 e^{-v^2}\, dv = -[te^{-t^2}]_0^{+\infty} + \int_ 0^{+\infty} e^{-t^2}dt = \frac{\sqrt \pi} 2 $$
+			(après IPP, en dérivant $t$ et intégrant $te^{-t^2}$ et en utilisant la valeur de l'intégrale de Gauss)
+			On a enfin: \begin{align*}
+				f(x) & = k \frac{e^{-\frac 1 {8x}}}{x\sqrt x} \sim \frac k {x\sqrt x} \\
+				& \sim \frac {\sqrt \pi} {2x\sqrt x}
+			\end{align*}
+			D'où l'on identifie $k = \frac {\sqrt \pi} 2$, soit: $$f(x) = \frac{\sqrt \pi e^{-\frac 1 {8x}}}{2x\sqrt x}$$
 		\end{correctionbox}
 	\end{enumerate}
 	
