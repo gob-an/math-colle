@@ -15,7 +15,7 @@
 
 % environnements
 \definecolor{corrigecolor}{gray}{0.7}
-\makeatletter
+
 \newmdenv[
 linecolor=corrigecolor,
 linewidth=2pt,
@@ -30,11 +30,19 @@ innerbottommargin=4pt,
 innerleftmargin=6pt,
 innerrightmargin=4pt,
 backgroundcolor=gray!5,
-leftmargin=\dimexpr-\@totalleftmargin\relax,
-rightmargin=0pt
-firstextra={\hspace{\parindent}}
-]{correctionbox}
-\makeatother
+leftmargin=\dimexpr-\@totalleftmargin\relax
+rightmargin=0pt,
+innerleftmargin=6pt,
+innerrightmargin=4pt,
+needspace=1em
+]{correctionbox} \newmdenv[  , rightmargin=0pt firstextra={\hspace{\parindent}} ]{correctionbox}
+
+\newenvironment{corr}
+{\begin{correctionbox}\setlength{\parindent}{\baselineskip}
+	\hfill
+	
+	} % ou \parindent=15pt selon vos préférences
+	{\end{correctionbox}}
 
 
 % ensembles usuels
@@ -52,7 +60,15 @@ firstextra={\hspace{\parindent}}
 \newcommand{\perm}{\mathfrak{S}} % groupe symétrique
 \newcommand{\id}{\mathrm{id}} % identité
 \newcommand{\ind}{\perp\!\!\!\perp} % indépendance
-\newcommand{\Vect}{\mathrm{Vect\,}} % espace vectoriel engandré
+
+\makeatletter
+\NewDocumentCommand{\Vect}{o} { % espace vectoriel engendré
+	\mathrm{Vect}
+	\IfValueT{#1}{_{#1}}
+	\@ifnextchar({}{\,}
+}
+\makeatother
+
 \newcommand{\scal}[2]{\left\langle #1, #2\right\rangle} % produit scalaire
 
 

@@ -1,0 +1,93 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{colle}
+
+\title{Corrigé colle S19 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercice 20}
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	
+	\subsection*{Exercice 20}
+	On définit $S_2(\Z)$ l'ensemble des matrices de taille $2\times 2$ à coefficients entiers de déterminant 1.
+	On définit également $S = \begin{pmatrix}
+		0 & -1 \\ 1 & 0
+	\end{pmatrix}$ et $T = \begin{pmatrix}
+		1 & 1 \\ 0 & 1
+	\end{pmatrix}$.
+		
+	\begin{enumerate}[1)]
+		\item Montrer que $SL_2(\Z)$ est un groupe.
+		\begin{corr}
+			Montrons qu'il s'agit d'un sous-groupe de $GL_2(\R)$. La stabilité par produit est immédiate.
+			
+			De plus, si $M \in SL_2(\Z)$, $M$ est inversible, et $M^{-1} = \frac 1 {\det M} \mathrm{Com}\, M = \mathrm{Com}\, M \in SL_2(\Z)$. (Où $\mathrm{Com} \, M$ désigne la comatrice de $M$.)
+			
+			Il s'agit bien d'un sous-groupe, donc d'un groupe.
+		\end{corr}
+		
+		\item Montrer que $S$ et $T$ engendrent $SL_2(\Z)$.
+		\begin{corr}
+			D'une part, $S$ et $T$ appartiennent bien à $SL_2(\Z)$
+			
+			On vérifie par le calcul que, pour $M = \begin{pmatrix}
+				a & b \\
+				c & d
+			\end{pmatrix}$, $k \in \Z$:
+			$$ S M = \begin{pmatrix} -c & -d \\ a & b \end{pmatrix} \text{\qquad et \qquad} T^k M = \begin{pmatrix}
+					a + kc & b + kd \\ c & d
+				\end{pmatrix} $$
+				
+			On a alors, si $a=cq+r$ est la division  euclidienne de $a$ par $c$:
+			$$ S T^{-q} M = \begin{pmatrix}
+				-c & * \\ r & *
+			\end{pmatrix} $$
+			
+			On applique alors récursivement ce processus pour obtenir $M'$ de la forme $\begin{pmatrix}
+				\alpha & \beta \\ 0 & \gamma
+			\end{pmatrix}$ (algorithme d'Euclide).
+			
+			Or, par produit, $M' \in SL_2(\Z)$. Ainsi, elle est de déterminant 1: on a $\alpha = \gamma = \pm 1$. Quitte à multiplier à gauche par $S^2 = - I_2$, on suppose $\alpha=\gamma=1$.
+			
+			Mézalor $M' = T^\beta$: en inversant les étapes de l'algorithme, on obtient une décomposition de $M$ selon $S$ et $T$.
+			
+			On a bien $SL_2(\Z) = \scal S T$.
+		\end{corr}
+		
+		\item Question posée pendant le temps restant: On admet que $A = \begin{pmatrix}
+			17 & 29 \\ 7 & 12
+		\end{pmatrix}$ est dans $SL_2(\Z)$. Déterminer sa décomposition avec les matrices $S$ et $T$.
+		\begin{corr}
+			Peut-être que le candidat avait du temps restant, mais moi j'en ai pas avant d'aller me coucher.
+			
+			Appliquez la démonstration de la question précédente.
+		\end{corr}
+	\end{enumerate}
+	
+%	\subsection*{Exercice 21}
+%	Montrer qu'un sous-groupe discret de $\R^n$ admet une $\Z$-base. \\
+%	
+%	\textit{Petit point vocabulaire}:
+%	\begin{itemize}
+%		\item Un ensemble discret $E$, c'est un ensemble dont tous les points sont isolés, c'est-à-dire que pour tout $x \in E$, il existe $\eps$ tq $B_o(x, \eps) \cap E = \{x\}$ (ie il n'existe pas de point arbitrairement proche de $x$).
+%		\item Parler de $\Z$-base, c'est considérer $G$ comme un $\Z$-module: c'est comme un ev, sauf que les scalaires sont dans un anneau (ici $\Z$) et pas forcément dans un corps.
+%		\\
+%		\item Par souci de concision, on notera $\Vect A = \Vect[\R] A $ le $\R$-espace engendré par $A$, et $\Vect[\Z] A$ le $Z$-module engendré par $A$.
+%	\end{itemize}
+%	\begin{corr}
+%		On note $G \leqslant \R^n$ ("$\leqslant$" veut "dire sous-groupe de", mais comme ça on a l'air pédants) discret.
+%
+%		Construisons notre base.
+%		\begin{itemize}
+%			\item On note $B_0 = \emptyset$
+%			\item Pour $x \in G\,\backslash \Vect B_i$, $\Vect x \cap G$ est discret, donc il existe $x' \in \Vect x \cap G$ non nul de norme minimale.
+%		\end{itemize}
+%		
+%		Ce processus finit (car $\Vect B_i$ est de dimension $i$ dans un espace de dimension $n$) et donne donc une $\R$-base de $\Vect G$. On note $B = (x_1,\, \dots \, x_k)$ sa valeur finale.
+%		
+%		Montrons que $B$ est une $Z$-base de $G$. Procédons par récurrence, en montrant que, pour tout $i$, $B_i$ est une $\Z$-base de $\Vect B_i \cap G$:
+%		\begin{itemize}
+%			\item Le résultat est évident pour $B_0 = \emptyset$.
+%			\item Pour $x \in \Vect B_{i+1} \cap G$, il existe $\lambda \in \R$, $x'\in B_i$ tq $x =\lambda x_{i+1} + x'$
+%		\end{itemize}
+%	\end{corr}
+\end{document}
