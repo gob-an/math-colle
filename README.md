@@ -15,7 +15,7 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S16: espaces préhilbertiens et euclidiens](S16_prehilb.pdf), exercices 21, 23, 24 et 25
 * [S17: intégrales à paramètre](S17_intparam.pdf), exercices 15 et 16
 * S18: semaine de régulation
-* [S19: structures algébriques](S19_struct.tex), exercice 20
+* [S19: structures algébriques](S19_struct.tex), exercices 15 et 20
 
 ## best-of
 [Les bêtises de goban!](bestof.pdf)

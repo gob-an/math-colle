@@ -11,6 +11,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage{comment}
 \usepackage{xparse}
+\usepackage{xfrac}
 
 
 % environnements
@@ -34,15 +35,19 @@ leftmargin=\dimexpr-\@totalleftmargin\relax
 rightmargin=0pt,
 innerleftmargin=6pt,
 innerrightmargin=4pt,
-needspace=1em
-]{correctionbox} \newmdenv[  , rightmargin=0pt firstextra={\hspace{\parindent}} ]{correctionbox}
+needspace=1em,
+]{correctionbox}
 
 \newenvironment{corr}
-{\begin{correctionbox}\setlength{\parindent}{\baselineskip}
-	\hfill
-	
-	} % ou \parindent=15pt selon vos préférences
-	{\end{correctionbox}}
+{\begin{correctionbox}
+\setlength{\parindent}{\baselineskip}% alinéa normal
+\hspace{0pt}
+\vspace{-\baselineskip/2}
+
+	}
+	{
+		
+	\end{correctionbox}}
 
 
 % ensembles usuels

@@ -1,11 +1,50 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S19 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercice 20}
+\title{Corrigé colle S19 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 15 et 20}
 \author{Léane Parent}
 
 \begin{document}
 	\maketitle
+	
+	\subsection*{Exercice 15}
+	Soit $p$ un nombre premier. On pose $q = (p^2 - p) (p^2 - 1)$. Soit $A \in M_2(\sfrac \Z {p\Z})$.
+	\begin{enumerate}[1)]
+		\item Donner le cardinal de $GL_2(\sfrac \Z {p\Z})$.
+		\begin{corr}
+			Une matrice est inversible ssi la famille de ses coefficients est libre.
+			
+			On a donc $p^2-1$ choix pour la première colonne (les vecteurs non nuls), et $p^2-p$ choix pour la seconde (les vecteurs non colinéaires au premier)
+			
+			Soit, par principe multiplicatif: $\#GL_2(\sfrac \Z {p\Z}) = (p^2-p)(p^2-1) = q$.
+		\end{corr}
+		
+		\item Montrer que $A^{q+2} = A^2$
+		\begin{corr}
+			D'après la question précédente, $GL_2(\sfrac \Z {p\Z})$ est un groupe d'ordre $q$. Ainsi, $o(A)\,|\,q$.
+			
+			On a donc $A^{q+2} = A^q A^2 = A^2$.
+		\end{corr}
+		\item Quel est le cardinal de $GL_n(\sfrac \Z {p\Z})$, pour $n\geqslant 1$?
+		\begin{corr}
+			On montre de même qu'en question (1) que:
+			$$\#GL_n(\sfrac \Z {p\Z}) = (p^n-1)(p^n-p)\dots(p^n-p^{n-1})$$.
+		\end{corr}
+		\item Quel est le cardinal de $SL_n(\sfrac Z {pZ})$?
+		\begin{corr}
+			$$GL_n(\sfrac \Z {p\Z}) = \bigcup_{i=0}^p \{M \, |\, \det M = i\}$$
+			
+			Or, si $M$ et $M'$ ont même déterminant, $M^{-1}M' \in SL_n(\sfrac z {pZ})$. On a donc, pour $A$ de déterminant $i$:
+			$$ A \cdot SL_n(\sfrac \Z {p\Z}) = \{M \, |\, \det M = i\}$$
+			
+			On en déduit $\# GL_n(\sfrac \Z {p\Z}) = p\, \# SL_n(\sfrac \Z {p\Z})$, d'où:
+			\begin{align*}
+				 \#SL_n(\sfrac \Z {p\Z}) & = \frac 1 p (p^n-1)(p^n-p)\dots(p^n-p^{n-1}) \\
+				 & = (p^n-1)(p^n-p)\dots(p^n-p^{n-2}) (p^{n-1} - p^{n-2})
+			\end{align*}
+		\end{corr}
+	\end{enumerate}
+	
 	
 	\subsection*{Exercice 20}
 	On définit $S_2(\Z)$ l'ensemble des matrices de taille $2\times 2$ à coefficients entiers de déterminant 1.
