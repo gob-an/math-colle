@@ -1,7 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S19 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 15 et 20}
+\title{Corrigé colle S19 \\ MPI/MPI* du lycée Faidherbe \\ \large Exercices 15, 20 et 21}
 \author{Léane Parent}
 
 \begin{document}
@@ -102,31 +102,36 @@
 		\end{corr}
 	\end{enumerate}
 	
-%	\subsection*{Exercice 21}
-%	Montrer qu'un sous-groupe discret de $\R^n$ admet une $\Z$-base. \\
-%	
-%	\textit{Petit point vocabulaire}:
-%	\begin{itemize}
-%		\item Un ensemble discret $E$, c'est un ensemble dont tous les points sont isolés, c'est-à-dire que pour tout $x \in E$, il existe $\eps$ tq $B_o(x, \eps) \cap E = \{x\}$ (ie il n'existe pas de point arbitrairement proche de $x$).
-%		\item Parler de $\Z$-base, c'est considérer $G$ comme un $\Z$-module: c'est comme un ev, sauf que les scalaires sont dans un anneau (ici $\Z$) et pas forcément dans un corps.
-%		\\
-%		\item Par souci de concision, on notera $\Vect A = \Vect[\R] A $ le $\R$-espace engendré par $A$, et $\Vect[\Z] A$ le $Z$-module engendré par $A$.
-%	\end{itemize}
-%	\begin{corr}
-%		On note $G \leqslant \R^n$ ("$\leqslant$" veut "dire sous-groupe de", mais comme ça on a l'air pédants) discret.
-%
-%		Construisons notre base.
-%		\begin{itemize}
-%			\item On note $B_0 = \emptyset$
-%			\item Pour $x \in G\,\backslash \Vect B_i$, $\Vect x \cap G$ est discret, donc il existe $x' \in \Vect x \cap G$ non nul de norme minimale.
-%		\end{itemize}
-%		
-%		Ce processus finit (car $\Vect B_i$ est de dimension $i$ dans un espace de dimension $n$) et donne donc une $\R$-base de $\Vect G$. On note $B = (x_1,\, \dots \, x_k)$ sa valeur finale.
-%		
-%		Montrons que $B$ est une $Z$-base de $G$. Procédons par récurrence, en montrant que, pour tout $i$, $B_i$ est une $\Z$-base de $\Vect B_i \cap G$:
-%		\begin{itemize}
-%			\item Le résultat est évident pour $B_0 = \emptyset$.
-%			\item Pour $x \in \Vect B_{i+1} \cap G$, il existe $\lambda \in \R$, $x'\in B_i$ tq $x =\lambda x_{i+1} + x'$
-%		\end{itemize}
-%	\end{corr}
+	\subsection*{Exercice 21}
+	Montrer qu'un sous-groupe discret de $\R^n$ admet une $\Z$-base. \\
+	
+	\textit{Petit point vocabulaire}:
+	\begin{itemize}
+		\item Un ensemble discret $E$, c'est un ensemble dont tous les points sont isolés, c'est-à-dire que pour tout $x \in E$, il existe $\eps$ tq $B_o(x, \eps) \cap E = \{x\}$ (ie il n'existe pas de point arbitrairement proche de $x$). (La vraie définition est que toute intersection de $E$ et d'un compact est finie, mais celle-ci est équivalente.)
+		\item Parler de $\Z$-base, c'est considérer $G$ comme un $\Z$-module: c'est comme un ev, sauf que les scalaires sont dans un anneau (ici $\Z$) et pas forcément dans un corps.
+		\\
+		\item Par souci de concision, on notera $\Vect A = \Vect[\R] A $ le $\R$-espace engendré par $A$, et $\Vect[\Z] A$ le $Z$-module engendré par $A$.
+	\end{itemize}
+	\begin{corr}
+		On note $G \leqslant \R^n$ discret.
+
+		Construisons notre base.
+		\begin{itemize}
+			\item On note $B_0 = \emptyset$
+			\item Si $x \in G\,\backslash \Vect B_i$ existe, ie si $G\not \subset \Vect B_i$, $\Vect x \cap G$ est discret, donc il existe $x' \in \Vect x \cap G$ non nul de distance minimale (c'est à rédiger, je vous laisse le faire) à $\Vect B_i$. On note $B_{i+1} = B_i \cup {x'}$.
+		\end{itemize}
+		
+		Ce processus finit (car $\Vect B_i$ est de dimension $i$ dans un espace de dimension $n$) et donne donc une $\R$-base de $\Vect G$. On note $B = (x_1,\, \dots \, x_k)$ sa valeur finale. \\
+		
+		Montrons que $B$ est une $\Z$-base de $G$. Soit $x \in G$, $x= \lambda x_i + x'$, avec $x' \in \Vect B_{k-1}$.
+		
+		Si $\lambda'$ est la partie fractionnaire de $\lambda$, et $x_k = p+h$ la décomposition de $x_k$ selon $\Vect B_i$ et son orthogonal, on a alors:
+		\begin{itemize}
+			\item $\|h\|$ est la distance de $x_k$ à $\Vect B_i$.
+			\item $\lambda' x_k + x' \in G$ (car $x_i\in G$, d'où le résultat en soustrayant $x_i$ $\lfloor \lambda \rfloor$ fois), de distance à $\Vect B_i$ égale à $\lambda' \|h\|$
+		\end{itemize}
+		Or, $\lambda' \|h\| < \| h\|$, donc $\lambda' x_k + x' \in G$ est dans $G$ de distance inférieure à la distance minimale: Ainsi, $\lambda' x_k + x' \not\in G \backslash \Vect B_i$, donc dans $B_i$: $\lambda'=0$, soit $\lambda\in\Z$. \\
+		
+		On applique ensuite récursivement à $x'$, en considérant $G \cap \Vect B_i$ qui est bien un groupe: tous les coefficients sont entiers, donc $B$ est une $\Z$-base de $G$.
+	\end{corr}
 \end{document}
