@@ -1,0 +1,69 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{colle}
+
+\title{Corrigé colle S20 \\ MPI/MPI* du lycée Faidherbe \\ \large{Exercice 18}}
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	Soit $E$ un espace vectoriel normé et $K$ une partie compacte non vide de $E$.
+	\begin{enumerate}[a)]
+		\item Soit $(L_n)_{n\in\N}$ une suite de fermés non vides inclus dans $K$. Montrer que $\displaystyle \bigcap_{n=0}^{+\infty}L_n \not = \emptyset$.
+		\begin{corr}
+			On choisit, pour tout $n$, $x_n \in L_n$. On a ainsi construit $(x_n) \in K^\N$.
+			
+			Or, $K$ étant compact, $(x_n)$ admet une suite extraite convergente. Soit $\vphi$ une extractrice tq $(x_{\vphi(n)})$ CV vers un certain vecteur $x$.
+			
+			Mq $x \in \displaystyle \bigcap_{n=0}^{+\infty}L_n \not = \emptyset$.
+			
+			Soit $n \in \N$. Alors, pour tout $k \geqslant n$, $x_k\in L_k \subset L_n$. De plus, $\vphi(k)\geqslant k \geqslant n$ d'où $x_{\vphi(k)} \in L_n$. Dès lors $(x_{\vphi(k)})_{k\geqslant n}$ est une suite d'éléments du fermé $L_n$, qui converge vers $x$, d'où $x\in L_n$ (par caractérisation séquentielle des fermés).
+			
+			On a bien $x\in L_n$ pour tout $n$, d'où $x \in \displaystyle \bigcap_{n=0}^{+\infty}L_n \not = \emptyset$: cet ensemble n'est pas vide.
+		\end{corr}
+		
+		\item Soit $(f_n)_{n\in\N}$ une suite décroissante de fonctions continues de $K$ dans $\R$ qui converge simplement vers $g: K \rightarrow \R$. Montrer que la convergence est uniforme.
+		
+		\begin{corr}
+			Quitte à considérer $(f_n - f)$, où $(f_n)$ CVS vers $f$, on suppose $(f_n)$ CVS vers la fonction nulle. On remarque que les $(f_n)$ sont positives (car l'inégalité large passe à la limite)
+			
+			Supposons que $(f_n)$ ne converge pas uniformément. Ainsi, pour $\eps>0$, il existe une extractrice $\vphi$, une suite $x_n$ tq, pour tout $n$, $f_{\vphi(n)}(x_n) > \eps$. De plus, $(f_n)$ est décroissante d'où, pour tout $n$, $k\geqslant n$, $f_{\vphi(n)}(x_\vphi(k)) > \eps$. (De fait, $n \leqslant k \leqslant \vphi(k)$.)
+			
+			Or, les $(x_k)$ sont dans $K$, qui est compact, donc il existe $x$ valeur d'adhérance de cette suite. Quitte à extraire, on suppose $x_k \cv x$. \\
+			
+			Or, les $(f_n)$ sont continues par hypothèse, d'où: $f_n(x_{\vphi(k)}) \cv{k\rightarrow +\infty} f_n(x)$, et cette valeur est alors supérieure ou égale à $\eps$ (car l'inégalité large passe à la limite). Dès lors, $f_n(x) \not \rightarrow 0$, ce qui est absurde.
+			
+			On a ainsi $(f_n)$ CVU vers f.
+			
+			(Le truc marrant, c'est que ça fonctionne avec les suites décroissantes de fonctions et avec les suites de fonctions décroissantes, on appelle ça les théorèmes de Dini.)
+		\end{corr}
+	\end{enumerate}
+	
+	\subsection*{Exercice 19}
+	On munit $\C[X]$ de $\| \displaystyle \sum_{k=0}^n a_k X^k \| = \max|a_k|$ (la norme infinie sur $\C[X]$).	Soit $d$ un entier naturel.
+	\begin{enumerate}[a)]
+		\item Existe-t-il $K_1 \in \R_+$ tq $\forall P, Q \in \C_d[X], \|P\cdot Q\| \leqslant K_1 \|P\|\|Q\|$?
+		\begin{corr}
+			Soit $P(X) = \alpha_0 + \dots\, \alpha_d X^d$, $Q(X) = \beta_0 + \dots\, \beta_d X^d$.
+			
+			On a alors le coefficient devant $X^k$ dans $P\cdot Q$ égal à $\displaystyle \sum_{i+j=k} (\alpha_i  \beta_j) = \sum_{j=k-d}^k (\alpha_{k-j} \beta_j)$ (par produit de Cauchy). On a de plus:
+			$$ \left| \sum_{j=k-d}^k (\alpha_{k-j} \beta_j) \right| \leqslant \sum_{j=k-d}^k |\alpha_{k-j} \beta_j| \leqslant \sum_{j=k-d}^k \|P\| \|Q\| = (d+1) \|P\|\|Q\|$$
+			
+			$K_1 = d+1$ convient.
+		\end{corr}
+		
+		\item Existe-t-il $K_2 \in \R_+$ tq $\forall P, Q \in \C[X], \|P\cdot Q\| \leqslant  K_2 \|P\|\|Q\|$?
+		\begin{corr}
+			On note $P(X) = 1 + X + \dots \, X^n $.
+			
+			On a alors $\|P\| = 1$. Cependant, le coefficient devant $X^n$ de $P\cdot P$ est $n$. Ainsi, on a un polynôme tq $\|P\cdot P\| \geqslant n \|P\|\|P\|$, d'où, si un tel $K_2$ existait, $K_2 > n$ pour tout $n$, ce qui est absurde. Un tel $K_2$ n'existe pas.
+		\end{corr}
+		
+		\item Existe-t-il $K_3 \in \R_+$ tq $\forall P, Q \in \C_d[X], \|P\|\|Q\| \leqslant  K_3\|P\cdot Q\|$?
+		\begin{corr}
+		\end{corr}
+		
+		\item Existe-t-il $K_4 \in \R_+$ tq $\forall P, Q \in \C[X], \|P\|\|Q\| \leqslant K_4\|P\cdot Q\|$?
+		\begin{corr}
+		\end{corr}
+	\end{enumerate}
+\end{document}

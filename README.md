@@ -16,6 +16,7 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S17: intégrales à paramètre](S17_intparam.pdf), exercices 15 et 16
 * S18: semaine de régulation
 * [S19: structures algébriques](S19_struct.tex), exercices 15, 20 et 21
+* [S20: topologie des evn](S20_topo.pdf), exercice 18
 
 ## best-of
 [Les bêtises de goban!](bestof.pdf)
