@@ -60,10 +60,21 @@
 		
 		\item Existe-t-il $K_3 \in \R_+$ tq $\forall P, Q \in \C_d[X], \|P\|\|Q\| \leqslant  K_3\|P\cdot Q\|$?
 		\begin{corr}
+			Le cas où l'un des deux polynômes est de norme nulle est immédiat (de fait, ce polynôme serait nul, ce qui permet de conclure).
+			
+			Dès lors, on considère $\tilde P = \frac 1 {\|P\|} P$, $\tilde Q = \frac 1 {\|Q\|} Q \in S(0, 1)$
+			
+			La sphère unité est compacte (elle est évidemment bornée, et par continuité de $\|\cdot \|$ est fermée, le tout en dimension finie), d'où, par théorème des bornes atteintes, $P,\, Q \mapsto PQ$ est minorée en norme par un certain $m$ (cette application étant bilinéaire, elle est continue).
+			
+			On a donc $\|\tilde P \tilde Q \| \geqslant m$, d'où, en multipliant par $\|P\|\|Q\|$:
+			$$ \|P \cdot Q\| \geqslant m \|P\|\|Q\|$$
+			
+			$ K_3 = \frac 1 m$ convient.
 		\end{corr}
 		
 		\item Existe-t-il $K_4 \in \R_+$ tq $\forall P, Q \in \C[X], \|P\|\|Q\| \leqslant K_4\|P\cdot Q\|$?
 		\begin{corr}
+			
 		\end{corr}
 	\end{enumerate}
 \end{document}
