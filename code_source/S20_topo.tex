@@ -1,7 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\title{Corrigé colle S20 \\ MPI/MPI* du lycée Faidherbe \\ \large{Exercice 18}}
+\title{Corrigé colle S20 \\ MPI/MPI* du lycée Faidherbe \\ \large{Exercices 18 et 19}}
 \author{Léane Parent}
 
 \begin{document}
@@ -69,12 +69,12 @@
 			On a donc $\|\tilde P \tilde Q \| \geqslant m$, d'où, en multipliant par $\|P\|\|Q\|$:
 			$$ \|P \cdot Q\| \geqslant m \|P\|\|Q\|$$
 			
-			$ K_3 = \frac 1 m$ convient.
+			$ K_3 = \frac 1 m$ convient. ($m \not = 0$ car ce miminimum est atteint, et que $PQ=0$ ssi $P = 0$ ou $Q=0$, ce qui est absurde)
 		\end{corr}
 		
 		\item Existe-t-il $K_4 \in \R_+$ tq $\forall P, Q \in \C[X], \|P\|\|Q\| \leqslant K_4\|P\cdot Q\|$?
 		\begin{corr}
-			
+			On considère $P(X) = (X+1)^n$, $Q(X) = (X-1)^n$. On vérifie que $\|P\| = \|Q\| = \binom {n} {\lfloor \frac n 2 \rfloor}$, et que $P(X) Q(X) = (X^2 - 1)^n$ est de même norme. On aboutit de même que précédemment à une absurdité (car $\binom{n}{\lfloor \frac n 2 \rfloor} \cv +\infty$).
 		\end{corr}
 	\end{enumerate}
 \end{document}
