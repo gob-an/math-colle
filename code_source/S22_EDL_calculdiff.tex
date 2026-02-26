@@ -1,7 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{colle}
 
-\colle{22}{14, 16 et 17}
+\colle{22}{14, 15, 16 et 17}
 
 \begin{document}
 	\maketitle
@@ -44,6 +44,68 @@
 			On a donc $y(u) = u + o(u) \sim u \cv +\infty$: $y$ est non bornée.
 		\end{corr}
 	\end{enumerate}
+	
+	\subsection*{Exercice 15}
+	Soit $A\in M_n(\C)$.
+	\begin{enumerate}[a)]
+		\item On suppose $A$ diagonalisable. Montrer que $e^A$ est diagonalisable.
+		\begin{corr}
+			On utilise la même matrice de passage \textbf{en repassant par les sommes partielles} (on factorise pas comme ça des séries de matrices, non mais oh)
+		\end{corr}
+		\item On suppose qu'il existe $D$ diagonalisable et $N$ nilpotente commutant tels que $A=D+N$. Montrer alors que si $e^A$ est diagonalisable, alors $e^N$ l'est également. En déduire que $N=0$.
+		\begin{corr}
+			On suppose (quitte à conjuguer par les bonnes matrices de passage) que $D$ est diagonale, (donc $\exp D$ également), et $N$ triangulaire stricte.
+			
+			$D$ et $N$ commutent, donc $\exp A = \exp D \exp N$.
+			Or, $\exp D$ est inversible (car diagonale à coeff diagonaux non nuls, puisqu'il s'agit des $e^\lambda$), donc $\exp N  = \exp A \exp (-D)$, qui est diagonalisable car $\exp A$ et $\exp (-D)$ sont codiagonalisables (puisqu'elles commutent, et faites gaffe, je vous surveille: passez en sommes partielles pour le montrer)
+
+			Or, on a $\displaystyle \exp N = \sum_{k=0}^{n-1} \frac 1 {k!} N^k$ (car $N^k=0$ pour $k\geqslant n$), de la forme $I_n+K$ où $K$ est nilpotente (car somme de nilpotentes \underline{qui commutent}, ou tout simplement car triangulaire stricte).
+			
+			$\exp N$ est diagonalisable unipotente (ie diag+nilp), donc égale à l'identité.
+			
+			Or, en écrivant $N \sim \begin{pmatrix}
+				0 & 1 & & &\\
+				& \ddots & \ddots & & * \\
+				& & \ddots & 1 \\
+				& 0 &  & \ddots & 0 \\
+				& & & & 0 & \ddots
+			\end{pmatrix}$, on obtient une surdiagonale non nulle pour $\exp N$, d'où l'absence de 1 sur la surdiagonale: $N$ est nulle
+		\end{corr}
+		\item Prouver l'existence de $D$ et $N$.
+		\begin{corr}
+			En notant $m_\lambda$ la multiplicité de $\lambda$ comme valeur propre de $A$, $C_\lambda = \ker (A-\lambda)^n$ le sous-espace caractéristique associé à $\lambda$, on a:
+			$$ \R^n = \bigoplus_{\lambda\in \Sp A} C_\lambda $$
+			
+			(par lemme des noyaux et théorème de Cayley-Hamilton)
+			
+			De plus, les $C_\lambda$ sont stables par $A$ (car une matrice polynomiale en $A$ commute avec $A$), donc on peut décomposer $A$ sur chaque $C_\lambda$.
+			
+			On peut donc décomposer $A$ comme suit:
+			$$ A \sim \Diag\left(A_\lambda\right)_{\lambda\in \Sp A}$$
+			Où $A_\lambda =  \begin{pmatrix}
+				\lambda &  & * \\
+				& \ddots &  \\
+				(0)&  & \lambda
+			\end{pmatrix}$, de degré $m_\lambda$.\\
+			
+			Or, $A_\lambda = \lambda I_{m_\lambda} + N_\lambda$, avec $N_\lambda$ nilpotente. \\
+			
+			On a donc $A \sim \Diag (\lambda I_{m_\lambda}) + \Diag(N_\lambda)$.
+			
+			En notant $D \sim \Diag (\lambda I_{m_\lambda})$, $N \sim \Diag(N_\lambda)$ pour les mêmes matrices de passage, on a bien $D$ diagonalisable, $N$ nilpotente, tq $A = D+N$. \\
+			
+			De plus, ces deux matrices commutent sur chaque sous-espace caractéristique, donc commutent. On a bien montré l'existence de ces deux matrices.
+		\end{corr}
+		\item Prouver l'unicité
+		\begin{corr}
+			On vérifie que la matrice $D$ trouvée précédemment égale, sur chaque espace caractéristique, $(A-\lambda I_{m_\lambda})^{m_\lambda} +  \lambda I_{m_\lambda}$, donc polynomiale en $A$. \\
+			
+			Dès lors, si $D'$ et $N'$ conviennent, on a $D-D' = N'-N$.
+			
+			Le second terme est nilpotent, le premier diagonalisable,car $D, D'$ sont codiagonalisables. En effet, elles sont toutes deux diagonalisables, et commutent car $D$ est polynomiale en $A$ (sur chaque sous-espace caractéristique). Ainsi $D-D'=0$, donc $D=D'$, d'où l'unicité.
+		\end{corr}
+	\end{enumerate}
+	
 	
 	
 	\subsection*{Exercice 16}

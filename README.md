@@ -18,7 +18,8 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S19: structures algébriques](S19_struct.tex), exercices 15, 20 et 21
 * [S20: topologie des evn](S20_topo.pdf), exercices 18 et 19
 * S21: concours blancs
-* [S22: équations différentielles linéaires et calcul différentiel], exercices 14, 16 et 17
+* [S22: équations différentielles linéaires et calcul différentiel], exercices 14, 15, 16 et 17
+* S23: semaine de régulation
 
 ## best-of
 [Les bêtises de goban!](bestof.pdf)
