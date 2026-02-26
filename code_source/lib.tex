@@ -1,4 +1,4 @@
-% packages
+%%%%%%%%%%%%%%%%%%% packages %%%%%%%%%%%%%%%%%%%
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[french]{babel}
 \usepackage{amsmath,amssymb}
@@ -17,7 +17,7 @@
 \usepackage[normalem]{ulem}
 
 
-% environnements
+%%%%%%%%%%%%%%%%% environments %%%%%%%%%%%%%%%%%
 \definecolor{corrigecolor}{gray}{0.7}
 
 \newmdenv[
@@ -138,10 +138,9 @@ needspace=1em,
 	}
 
 
+%%%%%%%%%%%%%% standard notations %%%%%%%%%%%%%%
 
-
-
-% ensembles usuels
+% standard sets
 \renewcommand{\P}{\mathds P}
 \newcommand{\N}{\mathds N}
 \newcommand{\Z}{\mathds Z}
@@ -151,30 +150,58 @@ needspace=1em,
 \newcommand{\F}[1]{\mathds F_{#1}}
 \newcommand{\K}{\mathds K}
 
-
-\newcommand{\esp}{\mathds E} % espérance
+% standard letters
 \newcommand{\eps}{\varepsilon} % epsilon
 \newcommand{\vphi}{\varphi} % phi
-\newcommand{\perm}{\mathfrak{S}} % groupe symétrique
-\newcommand{\id}{\mathrm{id}} % identité
-\newcommand{\ind}{\perp\!\!\!\perp} % indépendance
+\newcommand{\perm}{\mathfrak{S}} % symetric group
+\newcommand{\esp}{\mathds E} % esperance
 
+
+\NewDocumentCommand{\cv}{ o o }{  % limit
+	\ensuremath{
+		\IfNoValueTF{#1}{
+			\IfNoValueTF{#2}{\rightarrow}{\xrightarrow[#2]{}}
+		}{
+			\IfNoValueTF{#2}{\xrightarrow[#1]{} }{ \xrightarrow[#2]{#1} }
+		}
+	}
+}
+
+
+% linear algebra
 \makeatletter
-\NewDocumentCommand{\Vect}{o} { % espace vectoriel engendré
+\NewDocumentCommand{\Vect}{o} { % Vect
 	\mathrm{Vect}
 	\IfValueT{#1}{_{#1}}
 	\@ifnextchar({}{\,}
 }
 \makeatother
-\DeclareMathOperator{\rg}{rg}
-\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\rg}{rg} % rank
+\DeclareMathOperator{\Sp}{Sp} % spectrum
 \DeclareMathOperator{\Diag}{Diag}
+\newcommand{\scal}[2]{\left\langle #1, #2\right\rangle} % scalar product
+\DeclareMathOperator{\tr}{tr} % trace
 
-\newcommand{\scal}[2]{\left\langle #1, #2\right\rangle} % produit scalaire
 
 
-% partie imaginaire
-\makeatletter
+\NewDocumentCommand{\Co}{o g g}{ % C^k class
+	\mathcal C%
+	\IfValueT{#1}{^{#1}}%
+	\IfValueT{#2}{\left(#2
+		\IfValueT{#3}{,\,#3}\right)}
+}
+
+
+% standard functions
+% trigo
+\DeclareMathOperator{\atan}{Arctan}
+\DeclareMathOperator{\acos}{Arccos}
+\DeclareMathOperator{\asin}{Arcsin}
+
+\newcommand{\id}{\mathrm{id}} % identity
+
+% complex
+\makeatletter % imaginary part
 \renewcommand{\Im}{
 	{%
 		\futurelet\@let@token\@Im
@@ -189,8 +216,7 @@ needspace=1em,
 }
 \makeatother
 
-% partie réelle
-\makeatletter
+\makeatletter % real part
 \renewcommand{\Re}{
 	\mathop{
 		\futurelet\@let@token\@Re
@@ -206,48 +232,29 @@ needspace=1em,
 \makeatother
 
 
-% classe C^k
-\NewDocumentCommand{\Co}{o g g}{
-	\mathcal C%
-	\IfValueT{#1}{^{#1}}%
-	\IfValueT{#2}{\left(#2,\,#3\right)}
+% relations
+\newcommand{\ind}{\perp\!\!\!\perp} % indépendance
+\newcommand{\congr}[2]{\equiv #1 \, [#2]}
+
+
+
+%%%%%%%%%%%%%%%%%%%% tools %%%%%%%%%%%%%%%%%%%%
+\newcolumntype{C}{>{$\displaystyle}c<{$}} % mathmode column for arrays
+
+\newcommand{\colle}[3]{
+	\title{Corrigé colle S#1 \\ MPI/MPI* du lycée Faidherbe \\ \large{Exercices #2}}
+	\author{Léane Parent}
 }
 
-
-% arctangente
-\DeclareMathOperator{\atan}{Arctan}
-\DeclareMathOperator{\acos}{Arccos}
-\DeclareMathOperator{\asin}{Arcsin}
-
-
-\DeclareMathOperator{\tr}{tr}
-
-% limite
-\NewDocumentCommand{\cv}{ o o }{
-	\ensuremath{
-		\IfNoValueTF{#1}{
-			\IfNoValueTF{#2}{\rightarrow}{\xrightarrow[#2]{}}
-		}{
-			\IfNoValueTF{#2}{\xrightarrow[#1]{} }{ \xrightarrow[#2]{#1} }
-		}
-	}
-}
-
-
-
-
-\newcolumntype{C}{>{$\displaystyle}c<{$}}
-
-
+%%%%%%%%%%%%%%%%%%%% short %%%%%%%%%%%%%%%%%%%%
 \newcommand{\Rq}{\textbf{Remarque}: }
 \newcommand{\rappel}{\textbf{Rappel}: }
 \newcommand{\cor}{\textbf{Corollaire}: }
 \newcommand{\note}{\textit{Note}: }
 \newcommand{\elem}{\textit{Éléments de démonstration}: }
 
-\newcommand{\congr}[2]{\equiv #1 \, [#2]}
 
-\newcommand{\colle}[3]{
-	\title{Corrigé colle S#1 \\ MPI/MPI* du lycée Faidherbe \\ \large{Exercices #2}}
-	\author{Léane Parent}
-}
+
+
+
+
