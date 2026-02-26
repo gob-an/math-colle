@@ -1,0 +1,127 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{colle}
+
+\colle{22}{14, 16 et 17}
+
+\begin{document}
+	\maketitle
+	
+	\subsection*{Exercice 14}
+	Soit $q$ une fonction continue et intégrable de $\R_+$ dans $\R$, et $(\mathcal E)$ l'équation différentielle $y'' +qy = 0$.
+	\begin{enumerate}[a)]
+		\item Montrer que si $y$ est une solution bornée de $(\mathcal E)$, alors $y'(t) \cv[t\rightarrow +\infty] 0$
+		\begin{corr}
+			En intégrant $(\mathcal E)$ entre 0 et $x$, on obtient la forme intégrale:
+			$$ y'(x) - y'(0) = \int_{0}^{x} q(t)y(t) dt $$
+			
+			Or, $y$ est bornée, donc $q \cdot y$ est dominée par $\|y\|_\infty |q|$, qui est intégrable par hypothèse. Dès lors, $q \cdot y$ est intégrable.
+			
+			Ainsi, $y'(x)$ converge au voisinage de $+\infty$. Si sa limite était non nulle, alors $y$ divergerait (vers $\pm \infty$ en fonction du signe de cette limite) (à rédiger: la dérivée est supérieure à la moitié de la limite au voisinage de l'infini, donc la pente également, CQPC), ce qui est absurde.
+			
+			On a donc $y'(x) \cv 0$. 
+		\end{corr}
+		
+		\item Montrer que $(\mathcal E)$ admet des solutions non bornées.
+		
+		\begin{corr}
+			En réintégrant la forme obtenue ci-dessus, on obtient:
+			$$ y(u) -y(0) = y'(0)u + \int_0^u \int_0^x q(t)y(t)dt\, dx$$
+			On fubunite:
+			\begin{align*}
+				y(u) -y(0) & = y'(0)u + \int_0^u \int_t^u q(t)y(t)dx\, dt \\
+				& =  y'(0)u + \int_0^u (u-t) q(t)y(t) dt
+			\end{align*}
+			
+			Par théorème de Cauchy-Lipschitz linéaire, il existe $y$ solution de $(\mathcal E)$ vérifiant $y(0)=0, y'(0)=1$. On a donc:
+			$$y(u) = u + \int_0^u (u-t)q(t)y(t) dt = u + u\int_0^u q(t)y(t) dt + \int_0^u tq(t)y(t) dt$$
+			
+			On suppose $y$ bornée.
+			
+			D'après la question précédente, la première intégrale est en $o(1)$.
+			
+			On en déduit que $\displaystyle \int_0^u tq(t)y(t) dt = o(u)$.
+			
+			On a donc $y(u) = u + o(u) \sim u \cv +\infty$: $y$ est non bornée.
+		\end{corr}
+	\end{enumerate}
+	
+	
+	\subsection*{Exercice 16}
+	
+	Soit $
+		f:
+		\begin{array}{rcl}
+			M_n(\R) & \rightarrow & \R^n \\
+			M & \mapsto & (\tr M, \tr M^2, \dots\, \tr M^n) \\
+		\end{array}
+		$
+		
+	\begin{enumerate}[a)]
+		\item Montrer que $f$ est différentiable et calculer sa différentielle.
+		
+		\begin{corr}
+			La trace est linéaire, donc $d \tr (M)(A) = \tr A $.
+			
+			De plus, $ \displaystyle (M+tA)^k = M^k + t\sum_{i=0}^{k-1}M^iAM^{k-i-1} + o(t)$.
+			
+			Dès lors, la différentielle de $A \mapsto A^k$ en $M$ est $\displaystyle A \mapsto \sum_{i=0}^{k-1}M^iAM^{k-i-1}$. \\
+			
+			Ainsi, en notant $f_k:  A \mapsto \tr A^k$, on a, par différentielle d'une composée:
+			$$ df_k = \tr \sum_{i=0}^{k-1} M^i A M^{k-i-1} = \sum_{i=0}^{k-1} \tr M^{k-1}A = k \tr M^{k-1} A $$
+			(par linéarité puis cyclicité de la trace)
+			
+			On obtient donc:
+			$$ df(M)(A) = (\tr A, 2 \tr MA, \dots\, n\tr M^{n-1}A)$$
+			
+		\end{corr}
+		
+		\item Comparer le rang de $df (M)$ et le degré du polynôme minimal de $M$.
+		\begin{corr}
+			$df$ est un $n$-uplet d'applications linéaires.
+			
+			Dès lors, son rang est égal à la dimension de $\Vect (df_1(M), \dots\, df_n(M))$. \\
+			
+			Or, à un scalaire non nul près (ce qui ne change rien), les $(df_k(M))$ sont les produits scalaires par les ${}^tM^k$, par le produit scalaire $\scal \cdot \cdot: A, B \mapsto \tr {}^tA B$ \\
+			
+			Par théorème de représentation des formes linéaires, on a donc:
+			$$\dim \Vect (f_1, \dots\, f_n) = \dim \Vect ({}^t M^k)_{k \leqslant n} =  \dim \Vect (M^k)_{k \leqslant n}$$
+			
+			Or, par définition, le polynôme minimal de $M$ est une combinaison linéaire de puissances de $M$ annulant $M$.
+			
+			Ainsi, $\mu_M$ est de degré supérieur à $\dim \Vect (I_n, \dots \, M^n) = \rg df(M)$. \\
+			
+			De plus, si $k \geqslant \deg \mu_M$, $M^k$ se réécrit comme polynôme de degré au plus $\deg \mu_M$ en $M$. (si vous ne savez pas le montrer, ça se fait par récurrence) \\
+			
+			Ainsi, $\deg \mu_M = \rg df(M) $.
+		\end{corr}
+		
+		\item Montrer que l'ensemble des matrices de $M_n(\R)$ dont le polynôme minimal est de degré $n$ est une partie ouverte de $M_n(\R)$.
+		
+		\begin{corr}
+			Une matrice $M$ est de polynôme minimal de degré $n$ ssi $(I_n, M, \dots\, M^{n-1})$ est libre, ie $\det (I_n, M, \dots\, M^{n-1}) \not = 0$.
+			
+			Image réciproque d'un ouvert par une fonction continue, bla, bla $\rightarrow$ OK.
+		\end{corr}
+		
+	\end{enumerate}
+	
+	\subsection*{Exercice 17}
+	Soient $x_1, x_2, \dots\, x_k$ des entiers naturels de somme $n \in \N$. Comment rendre leur produit $x_1 \cdot x_2 \cdot\dots x_k$ maximal sous ces conditions?
+	
+	\begin{corr}
+		Le produit des entiers de somme $n$ est un ensemble fini car les entiers de somme $n$ sont inclus dans $[0, n]^k$, donc admet bien un maximum.
+		
+		Soient $(x_1, \dots \, x_k)$ de somme $n$. Sans perte de généralité, on les suppose triés (dans l'ordre croissant).
+		
+		On suppose $x_k-x_1>1$. Montrons qu'il existe un $k$-uplet de somme $n$ de produit plus grand que $\prod_i x_i$.
+		
+		On note $x_1 = m$, $x_k = M$, et $s = M+m$. Alors $(x_2, \dots\, x_{k-1}, \lfloor \frac s 2 \rfloor, \lceil \frac s 2 \rceil)$ est bien de somme $n$. \\
+		
+		On vérifie (en étudiant $x \mapsto x(s-x)$) que $\lfloor \frac s 2 \rfloor \lceil \frac s 2 \rceil > Mm$, d'où un strictement produit plus grand. \\
+		
+		Dès lors, si le produit des $(x_i)$ est maximal, $x_n-x_1=0$ ou 1. On a donc, s'il existe $n-r$ termes égaux à $x_1$: $n = kx_1 + r$, avec $r<k$. Il s'agit donc de la division euclidienne de $n$ par $k$. \\
+		
+		D'où une valeur maximale de $q^{n-r}(q+1)^r$, où $n=kq+r$ est la division euclidienne de $n$ par $k$.
+	\end{corr}
+
+\end{document}

@@ -12,6 +12,9 @@
 \usepackage{comment}
 \usepackage{xparse}
 \usepackage{xfrac}
+\usepackage[most]{tcolorbox}
+\usepackage{tabularx}
+\usepackage[normalem]{ulem}
 
 
 % environnements
@@ -50,14 +53,103 @@ needspace=1em,
 	\end{correctionbox}}
 
 
+
+\NewDocumentEnvironment{pr}{o}
+{
+	\IfValueTF{#1}
+	{
+		% ----- AVEC titre -----
+		\begin{tcolorbox}[
+			enhanced,
+			colframe=blue,
+			colback=white,
+			coltitle=blue,
+			colbacktitle=white,
+			boxrule=0.8pt,
+			sharp corners,
+			title=\bfseries #1,
+			attach boxed title to top left={
+				yshift=-\tcboxedtitleheight/2,
+				xshift=3em
+			},
+			boxed title style={
+				size=small,
+				colframe=white,
+				boxrule=0pt,
+				colback=white
+			}
+			]
+		}
+		{
+			% ----- SANS titre -----
+			\begin{tcolorbox}[
+				enhanced,
+				colframe=blue,
+				colback=white,
+				boxrule=0.8pt,
+				sharp corners
+				]
+			}
+		}
+		{
+		\end{tcolorbox}
+	}
+
+
+\NewDocumentEnvironment{df}{o}
+{
+	\IfValueTF{#1}
+	{
+		% ----- AVEC titre -----
+		\begin{tcolorbox}[
+			enhanced,
+			colframe=teal,
+			colback=white,
+			coltitle=teal,
+			colbacktitle=white,
+			boxrule=0.8pt,
+			sharp corners,
+			title=\bfseries #1,
+			attach boxed title to top left={
+				yshift=-\tcboxedtitleheight/2,
+				xshift=3em
+			},
+			boxed title style={
+				size=small,
+				colframe=white,
+				boxrule=0pt,
+				colback=white
+			}
+			]
+		}
+		{
+			% ----- SANS titre -----
+			\begin{tcolorbox}[
+				enhanced,
+				colframe=teal,
+				colback=white,
+				boxrule=0.8pt,
+				sharp corners
+				]
+			}
+		}
+		{
+		\end{tcolorbox}
+	}
+
+
+
+
+
 % ensembles usuels
-\newcommand{\pr}{\mathds P}
+\renewcommand{\P}{\mathds P}
 \newcommand{\N}{\mathds N}
 \newcommand{\Z}{\mathds Z}
 \newcommand{\Q}{\mathds Q}
 \newcommand{\R}{\mathds R}
 \newcommand{\C}{\mathds C}
-\newcommand{\F}{\mathds F}
+\newcommand{\F}[1]{\mathds F_{#1}}
+\newcommand{\K}{\mathds K}
 
 
 \newcommand{\esp}{\mathds E} % espérance
@@ -74,6 +166,7 @@ needspace=1em,
 	\@ifnextchar({}{\,}
 }
 \makeatother
+\DeclareMathOperator{\rg}{rg}
 
 \newcommand{\scal}[2]{\left\langle #1, #2\right\rangle} % produit scalaire
 
@@ -81,7 +174,7 @@ needspace=1em,
 % partie imaginaire
 \makeatletter
 \renewcommand{\Im}{
-	\mathop{%
+	{%
 		\futurelet\@let@token\@Im
 	}%
 }
@@ -120,21 +213,12 @@ needspace=1em,
 
 
 % arctangente
-\makeatletter
-\newcommand{\atan}{
-	\mathop{
-		\futurelet\@let@token\@atan
-	}
-}
-\newcommand{\@atan}{
-	\ifx\@let@token(
-	\operatorname{Arctan}
-	\else
-	\operatorname{Arctan}\,
-	\fi
-}
-\makeatother
+\DeclareMathOperator{\atan}{Arctan}
+\DeclareMathOperator{\acos}{Arccos}
+\DeclareMathOperator{\asin}{Arcsin}
 
+
+\DeclareMathOperator{\tr}{tr}
 
 % limite
 \NewDocumentCommand{\cv}{ o o }{
@@ -145,4 +229,23 @@ needspace=1em,
 			\IfNoValueTF{#2}{\xrightarrow[#1]{} }{ \xrightarrow[#2]{#1} }
 		}
 	}
+}
+
+
+
+
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+
+
+\newcommand{\Rq}{\textbf{Remarque}: }
+\newcommand{\rappel}{\textbf{Rappel}: }
+\newcommand{\cor}{\textbf{Corollaire}: }
+\newcommand{\note}{\textit{Note}: }
+\newcommand{\elem}{\textit{Éléments de démonstration}: }
+
+\newcommand{\congr}[2]{\equiv #1 \, [#2]}
+
+\newcommand{\colle}[3]{
+	\title{Corrigé colle S#1 \\ MPI/MPI* du lycée Faidherbe \\ \large{Exercices #2}}
+	\author{Léane Parent}
 }
