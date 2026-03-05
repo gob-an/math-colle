@@ -28,11 +28,11 @@
 		\begin{corr}
 			Quitte à considérer $(f_n - f)$, où $(f_n)$ CVS vers $f$, on suppose $(f_n)$ CVS vers la fonction nulle. On remarque que les $(f_n)$ sont positives (car l'inégalité large passe à la limite)
 			
-			Supposons que $(f_n)$ ne converge pas uniformément. Ainsi, pour $\eps>0$, il existe une extractrice $\vphi$, une suite $x_n$ tq, pour tout $n$, $f_{\vphi(n)}(x_n) > \eps$. De plus, $(f_n)$ est décroissante d'où, pour tout $n$, $k\geqslant n$, $f_{\vphi(n)}(x_\vphi(k)) > \eps$. (De fait, $n \leqslant k \leqslant \vphi(k)$.)
+			Supposons que $(f_n)$ ne converge pas uniformément. Ainsi, pour $\eps>0$, il existe une extractrice $\vphi$, une suite $x_n$ tq, pour tout $n$, $f_{\vphi(n)}(x_n) > \eps$. De plus, $(f_n)$ est décroissante d'où, pour tout $n$, $k\geqslant n$, $f_{\vphi(n)}(x_{\vphi(k)}) > \eps$. (De fait, $n \leqslant k \leqslant \vphi(k)$.)
 			
 			Or, les $(x_k)$ sont dans $K$, qui est compact, donc il existe $x$ valeur d'adhérance de cette suite. Quitte à extraire, on suppose $x_k \cv x$. \\
 			
-			Or, les $(f_n)$ sont continues par hypothèse, d'où: $f_n(x_{\vphi(k)}) \cv{k\rightarrow +\infty} f_n(x)$, et cette valeur est alors supérieure ou égale à $\eps$ (car l'inégalité large passe à la limite). Dès lors, $f_n(x) \not \rightarrow 0$, ce qui est absurde.
+			Or, les $(f_n)$ sont continues par hypothèse, d'où: $f_n(x_{\vphi(k)}) \cv[k\rightarrow +\infty] f_n(x)$, et cette valeur est alors supérieure ou égale à $\eps$ (car l'inégalité large passe à la limite). Dès lors, $f_n(x) \not \rightarrow 0$, ce qui est absurde.
 			
 			On a ainsi $(f_n)$ CVU vers f.
 			
