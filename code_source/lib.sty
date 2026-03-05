@@ -43,99 +43,77 @@ needspace=1em,
 
 \newenvironment{corr}
 {\begin{correctionbox}
-\setlength{\parindent}{\baselineskip}% alinéa normal
-\hspace{0pt}
-\vspace{-\baselineskip/2}
+	\setlength{\parindent}{\baselineskip}% alinéa normal
+	\hspace{0pt}
 
+}{\end{correctionbox}}
+
+
+
+\NewDocumentEnvironment{bbox}{m o}
+{
+	\IfValueTF{#2}{
+		% ----- AVEC titre -----
+		\begin{tcolorbox}[
+			enhanced,
+			colframe=#1,
+			colback=white,
+			coltitle=#1,
+			colbacktitle=white,
+			boxrule=0.8pt,
+			sharp corners,
+			title=\bfseries #2,
+			attach boxed title to top left={
+				yshift=-\tcboxedtitleheight/2,
+				xshift=3em
+			},
+			boxed title style={
+				size=small,
+				colframe=white,
+				boxrule=0pt,
+				colback=white
+			}
+			]
+		}
+		{
+			% ----- SANS titre -----
+			\begin{tcolorbox}[
+				enhanced,
+				colframe=#1,
+				colback=white,
+				boxrule=0.8pt,
+				sharp corners
+				]
+			}
+		}
+		{
+		\end{tcolorbox}
 	}
+	
+	% ================= PR =================
+	
+	\NewDocumentEnvironment{pr}{o}
 	{
+		\IfValueTF{#1}
+		{\begin{bbox}{blue}[#1]}
+			{\begin{bbox}{blue}}
+			}
+			{
+			\end{bbox}
+		}
 		
-	\end{correctionbox}}
-
-
-
-\NewDocumentEnvironment{pr}{o}
-{
-	\IfValueTF{#1}
-	{
-		% ----- AVEC titre -----
-		\begin{tcolorbox}[
-			enhanced,
-			colframe=blue,
-			colback=white,
-			coltitle=blue,
-			colbacktitle=white,
-			boxrule=0.8pt,
-			sharp corners,
-			title=\bfseries #1,
-			attach boxed title to top left={
-				yshift=-\tcboxedtitleheight/2,
-				xshift=3em
-			},
-			boxed title style={
-				size=small,
-				colframe=white,
-				boxrule=0pt,
-				colback=white
-			}
-			]
-		}
+		% ================= DF =================
+		
+		\NewDocumentEnvironment{df}{o}
 		{
-			% ----- SANS titre -----
-			\begin{tcolorbox}[
-				enhanced,
-				colframe=blue,
-				colback=white,
-				boxrule=0.8pt,
-				sharp corners
-				]
+			\IfValueTF{#1}
+			{\begin{bbox}{teal}[#1]}
+				{\begin{bbox}{teal}}
+				}
+				{
+				\end{bbox}
 			}
-		}
-		{
-		\end{tcolorbox}
-	}
 
-
-\NewDocumentEnvironment{df}{o}
-{
-	\IfValueTF{#1}
-	{
-		% ----- AVEC titre -----
-		\begin{tcolorbox}[
-			enhanced,
-			colframe=teal,
-			colback=white,
-			coltitle=teal,
-			colbacktitle=white,
-			boxrule=0.8pt,
-			sharp corners,
-			title=\bfseries #1,
-			attach boxed title to top left={
-				yshift=-\tcboxedtitleheight/2,
-				xshift=3em
-			},
-			boxed title style={
-				size=small,
-				colframe=white,
-				boxrule=0pt,
-				colback=white
-			}
-			]
-		}
-		{
-			% ----- SANS titre -----
-			\begin{tcolorbox}[
-				enhanced,
-				colframe=teal,
-				colback=white,
-				boxrule=0.8pt,
-				sharp corners
-				]
-			}
-		}
-		{
-		\end{tcolorbox}
-	}
 
 
 %%%%%%%%%%%%%% standard notations %%%%%%%%%%%%%%

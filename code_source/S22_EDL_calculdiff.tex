@@ -1,5 +1,5 @@
 \documentclass[a4paper, 12pt]{article}
-\usepackage{colle}
+\usepackage{lib}
 
 \colle{22}{14, 15, 16 et 17}
 
@@ -26,11 +26,14 @@
 		\begin{corr}
 			En réintégrant la forme obtenue ci-dessus, on obtient:
 			$$ y(u) -y(0) = y'(0)u + \int_0^u \int_0^x q(t)y(t)dt\, dx$$
+			
 			On fubunite:
 			\begin{align*}
 				y(u) -y(0) & = y'(0)u + \int_0^u \int_t^u q(t)y(t)dx\, dt \\
 				& =  y'(0)u + \int_0^u (u-t) q(t)y(t) dt
 			\end{align*}
+			
+			(Bon, ok, les théorèmes de Fubini sont pas au programme \textit{mais} ici ça passe bien en dérivant et en vérifiant que les dérivées sont égales, et les deux valeurs coïncident en 0) \\
 			
 			Par théorème de Cauchy-Lipschitz linéaire, il existe $y$ solution de $(\mathcal E)$ vérifiant $y(0)=0, y'(0)=1$. On a donc:
 			$$y(u) = u + \int_0^u (u-t)q(t)y(t) dt = u + u\int_0^u q(t)y(t) dt + \int_0^u tq(t)y(t) dt$$
@@ -50,7 +53,9 @@
 	\begin{enumerate}[a)]
 		\item On suppose $A$ diagonalisable. Montrer que $e^A$ est diagonalisable.
 		\begin{corr}
-			On utilise la même matrice de passage \textbf{en repassant par les sommes partielles} (on factorise pas comme ça des séries de matrices, non mais oh)
+			On utilise la même matrice de passage \textbf{en repassant par les sommes partielles}
+			
+			(on factorise pas comme ça des séries de matrices, non mais oh)
 		\end{corr}
 		\item On suppose qu'il existe $D$ diagonalisable et $N$ nilpotente commutant tels que $A=D+N$. Montrer alors que si $e^A$ est diagonalisable, alors $e^N$ l'est également. En déduire que $N=0$.
 		\begin{corr}
