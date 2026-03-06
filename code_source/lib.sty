@@ -146,6 +146,19 @@ needspace=1em,
 }
 
 
+\NewDocumentCommand{\norm}{o}{
+	\left|\negthickspace\,\left| \IfNoValueTF{#1}{\cdot}{#1} \right|\negthickspace\,\right|
+}
+\NewDocumentCommand{\triple}{o}{
+	\left|\negthickspace\,\left|\negthickspace\,\left| \IfNoValueTF{#1}{\cdot}{#1} \right|\negthickspace\,\right|\negthickspace\,\right|
+}
+
+\NewDocumentCommand{\norminf}{o}{
+	\IfNoValueTF{#1}{\norm_\infty}{\norm[#1]_\infty}
+}
+
+
+
 % linear algebra
 \makeatletter
 \NewDocumentCommand{\Vect}{o} { % Vect

@@ -1,0 +1,85 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{lib}
+
+\title{Théorème de Cauchy-Lipschitz linéaire}
+\author{Léane Parent}
+
+\begin{document}
+	\maketitle
+	
+	On se place sur $\K = \R$ ou $\C$.
+	
+	\begin{pr}[théorème de Cauchy-Lipschitz linéaire]
+		Soient $I$ un intervalle, $A, B \in \Co[1]{I}{M_n(\K)}$.
+		
+		Soit $ (\mathcal E): Y' = A(t)Y + B(t) $ définie sur $I$. \\
+		
+		Pour $t_0 \in I, y_0 \in \K^n$ fixés, il existe une unique solution à $(\mathcal E)$ vérifiant $Y(t_0) = y_0$.
+	\end{pr}
+	
+	On se propose de démontrer ce théorème.
+	
+	\subsubsection*{Existence}
+	
+	On munit $\K^n$ d'une norme $\norm$
+	
+	On suppose pour le moment $I$ compact. \\
+	
+	On réécrit l'équation sous forme intégrale:
+	$$ Y(t) = y_0 - \int_{t_0}^t \left(A(u)Y(u) + B(u)\right) du $$
+	
+	On définit alors la suite de fonction $(Y_n)$ définie par récurrence par:
+	\begin{itemize}
+		\item $Y_0:t \mapsto y_0$.
+		\item $\displaystyle Y_{n+1}: t \mapsto y_0+ \int_{t_0}^t (A(u)Y_n(u) + B(u)) du$
+	\end{itemize}
+	\hspace{0pt} \\
+	
+	Notons $\alpha = \sup \triple[A(t)], \beta = \sup\norm[B(t)]$.
+	
+	Montrons par récurrence sur $n\in\N^*$ que, pour tout $t\in I$:
+	$$ \norm[Y_n(t) - Y_{n-1}(t)] \leqslant (\alpha\norm[y_0]+\beta)\frac{\alpha^{n-1}}{n!}|t-t_0|^n$$
+	
+	\begin{itemize}
+		\item C'est évident pour $n=1$ par inégalité triangulaire.
+		\item On suppose le résultat vrai pour $n\leqslant 1$. On a:
+		
+		\begin{align*}
+			\norm[Y_{n+1}(t) - Y_n(t)] & = \norm[\int_{t_0}^t (A(u)Y_n(u) + B(u))du - \int_{t_0}^t (A(u)Y_{n-1}(u) + B(u))du] \\
+			& = \norm[\int_{t_0}^t A(u)(Y_n(u) - Y_{n-1}(u))du] \\
+			& \leqslant \left|\int_{t_0}^t \triple[A(u)]\norm[Y_n(u) - Y_{n-1}(u)]du\right| \\			
+			& \leqslant \frac {\alpha^n}{n!}(\alpha\norm[y_0]+\beta) \left|\int_{t_0}^n (u-t)^n du \right| \\
+			& \leqslant |t-t_0|^{n+1} \frac {\alpha^n} {(n+1)!} (\alpha \norm[x_0]+\beta)
+		\end{align*}
+		
+		Ce qui clôt la récurrence
+	\end{itemize}
+	
+	Dès lors, pour $L$ la longueur de $I$,  $\norminf[Y_{n+1}-Y_n] \leqslant \frac{\alpha^n}{(n+1)!}L^n (\alpha\norm[y_0]+\beta)$.
+	
+	On en déduit par critère de d'Alembert que $\sum(Y_{n+1}-Y_n)$ converge normalement, d'où par complétude de $\Co[0]{I}{\K^n}$ (car espace des fonctions continues d'un compact dans un complet, que l'on admettra parce que je suis trop fatiguée pour le rédiger) sa convergence uniforme.
+	
+	On note $Y_n \cv Y$. \\
+	
+	Puisque la convergence est uniforme, on peut passer à la limite dans la définition de $(Y_n)$:
+	$$Y(t) = \int_{t_0}^t (A(u)Y(u) + B(u)) du$$
+	
+	Autrement dit, $Y$ est solution de $(\mathcal E)$.
+	
+	De plus, $Y(t_0) = y_0$, d'où l'existence. \\
+	
+	Dans le cas général ($I$ quelconque), on a toujours $(Y_n)$ CVU sur tout compact, donc sur le segment $[t_0, t]$, donc la démo tient toujours.
+	
+	
+	\subsubsection*{Unicité}
+	
+	Si $Y, Z$ sont solution de ce problème de Cauchy, $Z-Y$ est solution de $(\mathcal E_0): Y=A(t)Y$.
+	
+	On obtient de même, en intégrant $n$ fois:
+	$$ \norm[Z(t)-Y(t)] \leqslant \frac {\alpha^n}{n!}|t-t^0|^n \norminf[Z-Y] \cv 0$$
+	
+	Par théorème d'encadrement, on a $\norm[Z(t)-Y(t)] = 0$ d'où $Z=Y$. 
+	
+	\fontsize{16}{16}
+	\flushright $\LARGE{\square}$
+\end{document}

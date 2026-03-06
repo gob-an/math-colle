@@ -15,10 +15,10 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S16: espaces préhilbertiens et euclidiens](S16_prehilb.pdf), exercices 21, 23, 24 et 25
 * [S17: intégrales à paramètre](S17_intparam.pdf), exercices 15 et 16
 * S18: semaine de régulation
-* [S19: structures algébriques](S19_struct.tex), exercices 15, 20 et 21
+* [S19: structures algébriques](S19_struct.pdf), exercices 15, 20 et 21
 * [S20: topologie des evn](S20_topo.pdf), exercices 18 et 19
 * S21: concours blancs
-* [S22: équations différentielles linéaires et calcul différentiel], exercices 14, 15, 16 et 17
+* [S22: équations différentielles linéaires et calcul différentiel](S22_EDL_calculdiff.pdf, exercices 14, 15, 16 et 17, ainsi que la question de cours sur le [théorème de Cauchy-Lipschitz linéaire](cauchy_lin.pdf) 
 * S23: semaine de régulation
 
 ## best-of
