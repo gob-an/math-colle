@@ -6,4 +6,47 @@
 
 \begin{document}
 	\maketitle
-\end{document}
+	
+	\begin{pr}[théorème de Schwarz]
+		Soit $U$ un ouvert de $\R^n$.
+		
+		Si $f \in \Co[2](U, \R^n)$, alors, pour $i, j \leqslant n$, $\partial_i \partial_j f = \partial_j \partial_i f$.
+	\end{pr}
+	
+	Quitte à fixer les autres variables, on peut se restreindre à $U \in \R^2$, et montrer que $\partial_1 \partial_2 f = \partial_2 \partial_1 f$ (le cas $i=j$ étant évident).
+	
+	On note $(e_1, e_2)$ la base canonique de $\R^2$. \\
+	
+	Soit $a\in U$. Soit $\delta_0$ tq $a+xe_1, a+xe_2 \in U$ pour $|x| \leqslant \delta$ (qui existe car $U$ est ouvert). \\
+	
+	On définit, pour $|h_1|, |h_2| \leqslant \delta_0$:
+	$$ \vphi(h_1, h_2) =\frac 1 {h_1h_2} \big( f(a+h_1e_1 + h_2e_2) - f(a+h_1e_1) - f(a+h_2 e_2) + f(a) \big) $$
+	
+	On a alors:
+	\begin{align*}
+		\vphi(h_1, h_2) & = \frac 1 {h_1 h_2} \int_0^{h_2} \partial_2 \big( f(a+h_1e_1 + te_2) - f(a+te_2)\big) dt \\
+		& = \frac 1 {h_1} \int_0^1 \partial_2 \big(f(a+h_1e_1 + uh_2e_2) - f(a+uh_2e_2)\big) du
+	\end{align*}
+	
+	Or, $ \displaystyle f(a+h_1e_1 + uh_2e_2) - f(a+uh_2e_2) = h_1 \int_0^1 \partial_1 f(a+th_1e_1 + uh_2e_2)$, d'où:
+	
+	$$\vphi(h_1, h_2) = \int_0^1 \partial_2 \int_0^1 \partial_1 f(a+th_1e_1 + uh_2e_2) dt\, du$$
+	
+	D'où, par théorème de dérivation d'une intégrale à paramètre (théorème de Leibniz):
+	$$\vphi(h_1, h_2) = \int_0^1 \int_0^1 \partial_2 \partial_1 f(a+th_1e_1 + uh_2e_2) dt\, du$$
+	\hfill \\
+	
+	$\partial_2\partial_1 f$ étant continue ($f$ est $\Co[2]$), pour $\eps > 0$, il existe $\delta \leqslant \delta_0$ strictement positif, tq, pour $|h_1|, |h_2| \leqslant \delta$:
+	$$\norm[\partial_2 \partial_1 f(a+h_1e_1 + h_2e_2) - \partial_2 \partial_1 f(a)] \leqslant \eps$$
+	
+	On en déduit en intégrant cette inégalité:
+	$$ \norm[\vphi(h_1, h_2) - \partial_2 \partial_1 f(a)] \leqslant \eps $$
+	
+	D'où on obtient $ \vphi(h_1, h_2) \cv[(h_1, h_2) \rightarrow 0] \partial_2 \partial_1 f(a) $. \\
+	
+	Or, on obtient de même $\vphi(h_1, h_2) \cv \partial_1 \partial_2 f(a)$ (en réordonnant les termes, pour intégrer d'abord selon la première coordonnée).
+	
+	D'où le résultat par unicité de la limite.
+	
+	\endsq
+	\end{document}

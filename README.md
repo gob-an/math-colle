@@ -18,7 +18,7 @@ Correction d'une sélection d'exercices de référence (principalement du groupe
 * [S19: structures algébriques](S19_struct.pdf), exercices 15, 20 et 21
 * [S20: topologie des evn](S20_topo.pdf), exercices 18 et 19
 * S21: concours blancs
-* [S22: équations différentielles linéaires et calcul différentiel](S22_EDL_calculdiff.pdf, exercices 14, 15, 16 et 17, ainsi que la question de cours sur le [théorème de Cauchy-Lipschitz linéaire](cauchy_lin.pdf) 
+* [S22: équations différentielles linéaires et calcul différentiel](S22_EDL_calculdiff.pdf), exercices 14, 15, 16 et 17, ainsi que les questions de cours sur le [théorème de Cauchy-Lipschitz linéaire](cauchy_lin.pdf) ainsi que le [théorème de Schwarz](schwarz.pdf)
 * S23: semaine de régulation
 
 ## best-of

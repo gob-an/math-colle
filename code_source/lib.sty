@@ -146,14 +146,21 @@ needspace=1em,
 }
 
 
-\NewDocumentCommand{\norm}{o}{
+\NewDocumentCommand{\endsq}{}{
+
+	\fontsize{16}{16}
+	\flushright $\LARGE{\square}$
+}
+
+
+\NewDocumentCommand{\norm}{o}{ % norm
 	\left|\negthickspace\,\left| \IfNoValueTF{#1}{\cdot}{#1} \right|\negthickspace\,\right|
 }
-\NewDocumentCommand{\triple}{o}{
+\NewDocumentCommand{\triple}{o}{ % operator norm
 	\left|\negthickspace\,\left|\negthickspace\,\left| \IfNoValueTF{#1}{\cdot}{#1} \right|\negthickspace\,\right|\negthickspace\,\right|
 }
 
-\NewDocumentCommand{\norminf}{o}{
+\NewDocumentCommand{\norminf}{o}{ % infinity norm
 	\IfNoValueTF{#1}{\norm_\infty}{\norm[#1]_\infty}
 }
 
