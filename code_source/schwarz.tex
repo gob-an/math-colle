@@ -17,23 +17,19 @@
 	
 	On note $(e_1, e_2)$ la base canonique de $\R^2$. \\
 	
-	Soit $a\in U$. Soit $\delta_0$ tq $a+xe_1, a+xe_2 \in U$ pour $|x| \leqslant \delta$ (qui existe car $U$ est ouvert). \\
+	Soit $a\in U$. Soit $\delta_0$ tq $a+xe_1, a+xe_2 \in U$ pour $|x| \leqslant \delta$ (qui existe car $U$ est ouvert).
 	
-	On définit, pour $|h_1|, |h_2| \leqslant \delta_0$:
-	$$ \vphi(h_1, h_2) =\frac 1 {h_1h_2} \big( f(a+h_1e_1 + h_2e_2) - f(a+h_1e_1) - f(a+h_2 e_2) + f(a) \big) $$
-	
-	On a alors:
 	\begin{align*}
+		\shortintertext{\indent On définit, pour $|h_1|, |h_2| \leqslant \delta_0$:}
+		\vphi(h_1, h_2) &=\frac 1 {h_1h_2} \big( f(a+h_1e_1 + h_2e_2) - f(a+h_1e_1) - f(a+h_2 e_2) + f(a) \big) \\ 
+		\shortintertext{\indent On a alors:}
 		\vphi(h_1, h_2) & = \frac 1 {h_1 h_2} \int_0^{h_2} \partial_2 \big( f(a+h_1e_1 + te_2) - f(a+te_2)\big) dt \\
-		& = \frac 1 {h_1} \int_0^1 \partial_2 \big(f(a+h_1e_1 + uh_2e_2) - f(a+uh_2e_2)\big) du
+		& = \frac 1 {h_1} \int_0^1 \partial_2 \big(f(a+h_1e_1 + uh_2e_2) - f(a+uh_2e_2)\big) du \\
+		\shortintertext{\indent Or, $ \displaystyle f(a+h_1e_1 + uh_2e_2) - f(a+uh_2e_2) = h_1 \int_0^1 \partial_1 f(a+th_1e_1 + uh_2e_2)$, d'où:}
+		\vphi(h_1, h_2) &= \int_0^1 \partial_2 \int_0^1 \partial_1 f(a+th_1e_1 + uh_2e_2) dt\, du\\
+		\shortintertext{\indent D'où, par théorème de dérivation d'une intégrale à paramètre (théorème de Leibniz):}
+		\vphi(h_1, h_2) &= \int_0^1 \int_0^1 \partial_2 \partial_1 f(a+th_1e_1 + uh_2e_2) dt\, du
 	\end{align*}
-	
-	Or, $ \displaystyle f(a+h_1e_1 + uh_2e_2) - f(a+uh_2e_2) = h_1 \int_0^1 \partial_1 f(a+th_1e_1 + uh_2e_2)$, d'où:
-	
-	$$\vphi(h_1, h_2) = \int_0^1 \partial_2 \int_0^1 \partial_1 f(a+th_1e_1 + uh_2e_2) dt\, du$$
-	
-	D'où, par théorème de dérivation d'une intégrale à paramètre (théorème de Leibniz):
-	$$\vphi(h_1, h_2) = \int_0^1 \int_0^1 \partial_2 \partial_1 f(a+th_1e_1 + uh_2e_2) dt\, du$$
 	\hfill \\
 	
 	$\partial_2\partial_1 f$ étant continue ($f$ est $\Co[2]$), pour $\eps > 0$, il existe $\delta \leqslant \delta_0$ strictement positif, tq, pour $|h_1|, |h_2| \leqslant \delta$:
